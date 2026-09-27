@@ -24,7 +24,11 @@ def engineer_rates(mapped,gain_hz=120.):
         lum=c['rgb_code_luminance']
         if lum is None or not np.isfinite(lum) or not 0<=lum<=1+1e-12:
             raise ValueError('Observed RGB luminance must be finite and in 0..1')
-        result.append(dict(bodyId=c['bodyId'],rate_hz=float(gain_hz*(1-min(lum,1.)))))
+        entry=dict(bodyId=c['bodyId'],rate_hz=float(gain_hz*(1-min(lum,1.))))
+        if 'eye' in c:
+            if c['eye'] not in ['L','R']:raise ValueError('Invalid eye identity')
+            entry['eye']=c['eye']
+        result.append(entry)
     return result
 
 

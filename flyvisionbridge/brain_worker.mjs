@@ -51,7 +51,8 @@ function input(channels){
   for(const c of channels){
     const id=String(c.bodyId),i=byId.get(id);
     if(seen.has(id))throw Error('Duplicate input body ID');seen.add(id);
-    if(i===undefined || neurons[i][1]!=='L2' || neurons[i][3]!=='R')throw Error('Input must identify a right-eye L2: '+id);
+    if(i===undefined || neurons[i][1]!=='L2' || !['L','R'].includes(neurons[i][3]))throw Error('Input must identify a left/right-eye L2: '+id);
+    if(c.eye!==undefined && c.eye!==neurons[i][3])throw Error('Input eye does not match model identity: '+id);
     if(!Number.isFinite(c.rate_hz)||c.rate_hz<0||c.rate_hz>120)throw Error('Rate outside 0..120 Hz');
     pairs.push([i,c.rate_hz]);
   }
@@ -62,15 +63,17 @@ function run(steps,injected,silenced=false){
   const start=performance.now(),before=brain.tick;
   const result=brain.batch(steps,rates,silenced);
   let downstream=0,active=0;const top=[];const driven=[];
+  const input_by_eye={L:{channels:0,spikes:0},R:{channels:0,spikes:0}};
+  for(const i of injected)input_by_eye[neurons[i][3]].channels++;
   for(let i=0;i<graph.n;i++)if(result.counts[i]){
     active++;const r={bodyId:String(neurons[i][0]),type:neurons[i][1],side:neurons[i][3],spikes:result.counts[i]};
-    if(injected.has(i))driven.push(r);else{downstream+=r.spikes;top.push(r);}
+    if(injected.has(i)){driven.push(r);input_by_eye[r.side].spikes+=r.spikes;}else{downstream+=r.spikes;top.push(r);}
   }
   top.sort((a,b)=>b.spikes-a.spikes);driven.sort((a,b)=>b.spikes-a.spikes);
   return {tick_before:before,tick_after:brain.tick,model_ms:steps*PARAMETERS.dt,
     model_elapsed_ms:brain.tick*PARAMETERS.dt,wall_ms:performance.now()-start,
     total_spikes:result.total,active_neurons:active,downstream_spikes:downstream,
-    input_neuron_spikes:result.total-downstream,top_downstream:top.slice(0,12),top_input:driven.slice(0,12)};
+    input_neuron_spikes:result.total-downstream,input_by_eye,top_downstream:top.slice(0,12),top_input:driven.slice(0,12)};
 }
 const lines=readline.createInterface({input:process.stdin,crlfDelay:Infinity});
 for await(const line of lines){
@@ -86,11 +89,16 @@ for await(const line of lines){
     if(cmd.command==='step')send({id,ok:true,...run(steps,injected,Boolean(cmd.connections_off))});
     else{
       const saved=rates.slice(),runs={};
-      for(const mode of ['no_input','camera','connections_off','half_gain']){
+      for(const mode of ['no_input','camera','connections_off','half_gain','left_only','right_only']){
         brain.reset();rates.set(saved);
+        let selected=injected;
         if(mode==='no_input')rates.fill(0);
         if(mode==='half_gain')for(let i=0;i<rates.length;i++)rates[i]*=.5;
-        runs[mode]=run(steps,injected,mode==='connections_off');
+        if(mode==='left_only'||mode==='right_only'){
+          const eye=mode==='left_only'?'L':'R';selected=new Set();
+          for(const i of injected)if(neurons[i][3]===eye)selected.add(i);else rates[i]=0;
+        }
+        runs[mode]=run(steps,selected,mode==='connections_off');
       }
       brain.reset();rates.fill(0);
       send({id,ok:true,runs,model_reset_after_controls:true});

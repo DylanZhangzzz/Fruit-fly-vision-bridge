@@ -57,13 +57,13 @@ class PersistentBrainTests(unittest.TestCase):
         shutil.copyfile(fixture,cls.root/'src/brain.js')
         (cls.root/'package.json').write_text('{"type":"module"}')
         d=cls.root/'public/data'
-        neurons=[['1','L2','optic','R','acetylcholine',1],['2','L2','optic','L','acetylcholine',1],['3','SyntheticDownstream','central','R','acetylcholine',1]]
+        neurons=[['1','L2','optic','R','acetylcholine',1],['2','L2','optic','L','acetylcholine',1],['3','SyntheticDownstream','central','R','acetylcholine',1],['4','SyntheticDownstream','central','L','acetylcholine',1]]
         (d/'neurons.json.gz').write_bytes(gzip.compress(json.dumps(neurons).encode()))
         arrays=[]
-        for name,values in [('offsets',[0,0,0,1]),('sources',[0]),('counts',[100])]:
+        for name,values in [('offsets',[0,0,0,1,2]),('sources',[0,1]),('counts',[100,100])]:
             data=gzip.compress(np.asarray(values,dtype='<u4').tobytes());file=name+'.gz';(d/file).write_bytes(data)
             arrays.append(dict(name=name,length=len(values),parts=[dict(file=file,sha256=hashlib.sha256(data).hexdigest())]))
-        (d/'manifest.json').write_text(json.dumps(dict(neurons=3,edges=1,metadata='neurons.json.gz',arrays=arrays)))
+        (d/'manifest.json').write_text(json.dumps(dict(neurons=4,edges=2,metadata='neurons.json.gz',arrays=arrays)))
         cls.client=BrainClient(cls.root)
 
     @classmethod
@@ -94,11 +94,31 @@ class PersistentBrainTests(unittest.TestCase):
         self.assertEqual(final['total_spikes'],0)
 
     def test_bad_identity_and_rate_do_not_advance_model(self):
-        for channels in [[dict(bodyId='2',rate_hz=1)],[dict(bodyId='3',rate_hz=1)],
+        for channels in [[dict(bodyId='2',eye='R',rate_hz=1)],[dict(bodyId='3',rate_hz=1)],
                          [dict(bodyId='1',rate_hz=121)],[dict(bodyId='1',rate_hz=1)]*2]:
             with self.assertRaises(ValueError):self.client.request('step',channels=channels,steps=10)
         valid=self.client.request('step',channels=[],steps=10)
         self.assertEqual(valid['tick_before'],0)
+
+    def test_both_eyes_have_independent_input_identity_and_controls(self):
+        channels=[dict(bodyId='1',eye='R',rate_hz=120),dict(bodyId='2',eye='L',rate_hz=120)]
+        r=self.client.request('controls',channels=channels,steps=1000)['runs']
+        for eye,mode,other in [('L','left_only','R'),('R','right_only','L')]:
+            self.assertEqual(r[mode]['input_by_eye'][eye]['channels'],1)
+            self.assertGreater(r[mode]['input_by_eye'][eye]['spikes'],0)
+            self.assertEqual(r[mode]['input_by_eye'][other]['channels'],0)
+            self.assertGreater(r[mode]['downstream_spikes'],0)
+        self.assertEqual(r['connections_off']['downstream_spikes'],0)
+        self.assertGreater(r['camera']['input_by_eye']['L']['spikes'],0)
+        self.assertGreater(r['camera']['input_by_eye']['R']['spikes'],0)
+
+    def test_switching_eyes_clears_old_eye_drive_without_reset(self):
+        self.client.request('step',channels=[dict(bodyId='2',eye='L',rate_hz=120)],steps=500,connections_off=True)
+        self.client.request('step',channels=[dict(bodyId='1',eye='R',rate_hz=120)],steps=500,connections_off=True)
+        r=self.client.request('step',channels=[dict(bodyId='1',eye='R',rate_hz=120)],steps=500,connections_off=True)
+        self.assertEqual(r['tick_before'],1000)
+        self.assertEqual(r['downstream_spikes'],0)
+        self.assertEqual(r['input_by_eye']['L']['channels'],0)
 
 
 if __name__=='__main__':unittest.main()

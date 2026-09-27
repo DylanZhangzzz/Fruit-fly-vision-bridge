@@ -33,6 +33,8 @@ The exact recorded sensor profiles require D435i-compatible motion streams. D435
 
 Use [the live webcam entry](webcam-live.md) to capture continuously, rectify ordinary lens distortion, map observed rays, inject engineering rates into the persistent BrainCPU instance and inspect downstream activity. It includes reset-matched controls and bounded local recording. The Logitech BRIO / Windows / FFmpeg DirectShow route has physical evidence in [the hardware report](../reports/webcam/README.md); the OpenCV backend remains separately unqualified.
 
+The live bridge defaults to both-eye mappings; select `--eyes left`, `--eyes right` or `--eyes both`. The [binocular guide](binocular.md) distinguishes full-model replay evidence from fresh hardware qualification. A single webcam supplies a common camera origin, not measured stereo eye origins.
+
 ## Saved images and single-frame RGB webcam samples
 
 Provide intrinsics for the **actual rectified image resolution**. Example JSON (numbers below are demonstrative, not a calibration for your camera):

@@ -56,6 +56,14 @@
       "license": "MIT",
       "version": "1.0.0",
       "disposition": "Installed separately; full notice retained for Windows cache compatibility code"
+    },
+    {
+      "id": "MaleCNS-L2-identity-subset",
+      "license": "CC-BY-4.0",
+      "revision": "776d115ee5aa934578a87fd6d260d138084f59c1",
+      "disposition": "1,779 L2 body IDs, types and sides only; selection checked against pinned metadata; no connectivity weights",
+      "credit": "FlyEM / HHMI Janelia, University of Cambridge, MRC LMB, Google Research",
+      "source": "https://male-cns.janelia.org/download/"
     }
   ],
   "preserved_files": [
@@ -141,17 +149,48 @@
       "path": "LICENSES/CC-BY-SA-4.0.txt",
       "sha256": "cde7883b9050a1104f4ac19a1572aafd6e5d7323b68351aaf51fbf4beba54966",
       "source_url": "https://raw.githubusercontent.com/spdx/license-list-data/31ba1a50e5397e00a304dbadc76531740e89ee48/text/CC-BY-SA-4.0.txt"
+    },
+    {
+      "path": "camera_lab/biomapping/source/visualpathways/ME_L_columnar-cells_location.xlsx",
+      "source_url": "https://raw.githubusercontent.com/reiserlab/visualpathways/23f6ac131529b5f56894c6eeb9b88b17894fc00d/params/ME_L_columnar-cells_location.xlsx",
+      "sha256": "877b4cc33c504540406e55c33f3d7a7ed6b3542469db64184cbcecd68df3abc4"
+    },
+    {
+      "path": "camera_lab/biomapping/source/eyemap_archive/maps/eyemap_mcns_f20240701/pqxyztp_left.xlsx",
+      "source_url": "https://raw.githubusercontent.com/artxz/eyemap-archive/503c7f055d5491a48b60b49ade8c71798d24d8f1/maps/eyemap_mcns_f20240701/pqxyztp_left.xlsx",
+      "sha256": "e42e1781dc40bcecb2f90bd154172b626bfb58841dd68218362aeaebe90abd30"
+    },
+    {
+      "path": "camera_lab/biomapping/source/eyemap_archive/docs/data/eyemap_mcns_f20240701/left.csv",
+      "source_url": "https://raw.githubusercontent.com/artxz/eyemap-archive/503c7f055d5491a48b60b49ade8c71798d24d8f1/docs/data/eyemap_mcns_f20240701/left.csv",
+      "sha256": "abfe62cad8e2b066155d779e8ebbc70054124c82ade3da4fead3a84df6b0c2f3"
+    },
+    {
+      "path": "camera_lab/biomapping/source/malecns_l2_inventory.json",
+      "sha256": "67d54d69eb1912276462b123a9941370d83e6180665d39962768a4dc83a594c0",
+      "source_url": null,
+      "derived_from_url": "https://huggingface.co/spaces/Xenova/fruit-fly-simulation/resolve/776d115ee5aa934578a87fd6d260d138084f59c1/public/data/neurons.json.gz",
+      "upstream_sha256": "e77e031a79293316cece9a27e88f18968b4bb93112842ab91fc45f84d737d864",
+      "source_note": "Select type L2 only; preserve body ID and model metadata side; no new pairing or direction inferred"
+    },
+    {
+      "path": "LICENSES/CC-BY-4.0.txt",
+      "source_url": "https://raw.githubusercontent.com/spdx/license-list-data/31ba1a50e5397e00a304dbadc76531740e89ee48/text/CC-BY-4.0.txt",
+      "sha256": "d557539df68e771cc1eedcc91d13f70fca930e508d11eedcafa4b15db49e3744"
     }
   ],
   "reviewed_binary_files": [
     "camera_lab/biomapping/source/eyemap.RData",
+    "camera_lab/biomapping/source/eyemap_archive/maps/eyemap_mcns_f20240701/pqxyztp_left.xlsx",
     "camera_lab/biomapping/source/eyemap_archive/maps/eyemap_mcns_f20240701/pqxyztp_right.xlsx",
     "camera_lab/biomapping/source/med_ixy.RData",
+    "camera_lab/biomapping/source/visualpathways/ME_L_columnar-cells_location.xlsx",
     "camera_lab/biomapping/source/visualpathways/ME_columnar-cells_location.xlsx",
     "reports/benchmark/spatial_weights.npz",
     "reports/physiology/per_fly.png",
     "reports/physiology/population.png",
     "reports/physiology/response_traces.npz",
     "reports/screen/calibrated_temporal.png"
-  ]
+  ],
+  "review_integration_commit": "d0aed8a4ca535acc9dd2ee1f0f993f97b0c88fc2"
 }

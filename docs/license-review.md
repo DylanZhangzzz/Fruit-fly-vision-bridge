@@ -46,7 +46,13 @@ python scripts/audit_release.py
 python scripts/run_checks.py
 ```
 
-The inventory records 16 preserved source/notice files and nine reviewed binary/data artifacts. Unlicensed author source, model weights, full connectome assets and personal RGB/depth/IMU captures are outside the publication boundary. Adding one requires a new source/rights review rather than weakening the check.
+The initial review recorded 16 preserved source/notice files and nine reviewed binary/data artifacts. After the binocular integration below, the inventory records 21 and eleven respectively. Unlicensed author source, model weights, full connectome assets and personal RGB/depth/IMU captures are outside the publication boundary. Adding one requires a new source/rights review rather than weakening the check.
+
+## Same-day binocular integration addendum
+
+PR #1 incorporates main commit `d0aed8a`, preserving the left-eye and live-binocular implementation alongside the frozen right-eye benchmark. Three new left-eye original files (column workbook, ray workbook and CSV) match pinned upstream bytes. The fourth addition is a derived subset: all 1,779 L2 body IDs, types and sides were checked against the hash-verified Xenova/MaleCNS metadata; no connectivity weights are included. `data/license_inventory.json` records these four files and the additional full CC BY 4.0 license text, without relaxing the publication guard.
+
+The subset adds **CC BY 4.0** attribution obligations. Left-eye joined data preserves GPL column assignments, CC BY identity metadata and CC BY-SA direction components. The package collection is therefore described as `GPL-3.0-only AND CC-BY-SA-4.0 AND CC-BY-4.0`; original project code remains GPL-3.0-only. Report notice copies are refreshed, while all frozen benchmark inputs, outputs and scores remain unchanged. The author's original notices and license evidence are the same pinned sources as above; this addendum makes no new legal-clearance claim.
 
 ## Limits and primary references
 

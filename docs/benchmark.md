@@ -2,6 +2,8 @@
 
 This workflow builds on repository commit `3f60f3e`. It compares **the same RGB movies**, not identically calibrated neurons. It also reads Flyvis L2 predictions at the image positions of published MaleCNS L2 sightlines. This is engineering integration and predictive diagnostics, not new biological validation or full-brain control.
 
+The live bridge now supports both eyes, but this frozen protocol intentionally retains the original 893 right-eye IDs and archived right-eye results. Integrating the binocular implementation does not extend the benchmark's tested field or silently change its population.
+
 Publication includes synthetic results, source-specific attribution and full applicable notices. It excludes raw camera recordings and pretrained weights. See the [rights review](license-review.md) for the unlicensed author-code and separate model-weight boundaries. Archived execution hashes remain unchanged when the HTML is re-rendered to add attribution; `publication.json` records the publication renderer separately.
 
 ## Reproduce without a camera

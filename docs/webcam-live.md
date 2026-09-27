@@ -5,6 +5,8 @@ samples author-mapped L2 directions, converts observed brightness into an
 explicit engineering drive, advances the **same persistent BrainCPU instance**,
 and shows both input and downstream spikes in a local dashboard.
 
+The live default is now `--eyes both`; `--eyes left` and `--eyes right` select one eye. [Binocular documentation](binocular.md) explains the separate left-eye sources, missing entries and current replay evidence. The earlier physical BRIO run below used right-eye inputs; a fresh binocular acquisition is still pending.
+
 It has been physically exercised with a Logitech BRIO on Windows, using FFmpeg
 DirectShow capture, at 640×480 and 30 requested camera frames/s. OpenCV camera
 indices are also supported by the adapter, but that capture backend has not yet
@@ -69,7 +71,7 @@ The engineering conversion is `rate_hz = gain_hz × (1 − RGB code luminance)`,
 with `--gain-hz` in 0..120 and default 120. It bypasses a biologically validated
 photoreceptor model. Unknown, outside-field or invalid-border samples produce
 no input entry; the worker clears old rates every update to avoid stale drive.
-Only IDs verified as **right-eye L2** in the model metadata are accepted.
+Only IDs verified as **left- or right-eye L2** in the model metadata are accepted. Supplied eye labels must match the metadata; a wrong-side label fails before advancing the model.
 
 The full graph is loaded once. Compressed connection chunks are checked against
 the upstream manifest. Model/metadata/manifest hashes are saved. The upstream
@@ -80,8 +82,8 @@ response. A webcam supplies no depth or IMU, and those fields remain unavailable
 ## Controls and local evidence
 
 At the first frame, the same captured input is replayed from reset, with fixed
-seed, in four conditions: zero input, camera input, connections disabled, and
-half input gain. A successful result shows camera-driven input/downstream activity,
+seed, in six conditions: zero input, camera input, connections disabled,
+half input gain, left-eye-only input and right-eye-only input. A successful result shows camera-driven input/downstream activity,
 zero activity at rest, and no downstream activity when connections are disabled.
 A black/white or hand-occlusion change can then be observed in the continuous
 input. Changes in a stochastic network alone do not prove a causal visual effect;

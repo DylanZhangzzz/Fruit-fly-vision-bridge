@@ -1,0 +1,455 @@
+{
+  "input_kind": "previously captured RGB image; offline replay",
+  "opens_camera": false,
+  "geometry": {
+    "width": 640,
+    "height": 480,
+    "fx": 320.00000000000006,
+    "fy": 320.00000000000006,
+    "ppx": 319.5,
+    "ppy": 239.5,
+    "coeffs": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "calibration_status": "APPROXIMATE_FOV_NOT_CALIBRATED",
+    "assumed_hfov_deg": 90.0
+  },
+  "biological_response_validated": false,
+  "eyes": {
+    "L": {
+      "target_L2": 886,
+      "resolved_L2": 847,
+      "visible_L2": 229
+    },
+    "R": {
+      "target_L2": 893,
+      "resolved_L2": 847,
+      "visible_L2": 217
+    }
+  },
+  "source_status_counts": {
+    "L": {
+      "AUTHOR_PUBLISHED_COLUMN_CORRESPONDENCE": 847,
+      "MISSING_AUTHOR_BOUNDARY_COLUMN": 32,
+      "MISSING_AUTHOR_COLUMN_ASSIGNMENT": 7
+    },
+    "R": {
+      "AUTHOR_PUBLISHED_COLUMN_CORRESPONDENCE": 847,
+      "MISSING_AUTHOR_BOUNDARY_COLUMN": 46
+    }
+  },
+  "privacy": "No images, per-ID input vectors, private paths or serials included",
+  "brain": {
+    "event": "ready",
+    "neurons": 166700,
+    "edges": 25582938,
+    "dt_ms": 0.1,
+    "model": "Unmodified Xenova BrainCPU",
+    "manifest_sha256": "76262f41c76f5dcbc42f75f9e0b376e46bfdac13d8c00bae2edbdc49b270565b",
+    "metadata_sha256": "e77e031a79293316cece9a27e88f18968b4bb93112842ab91fc45f84d737d864",
+    "engine_sha256": "9fef8b9833ebde7b96e0bb5db61a7c260ef8c51f31b4558276dcc950ffeaa726"
+  },
+  "controls": {
+    "both": {
+      "no_input": {
+        "model_ms": 100,
+        "total_spikes": 0,
+        "input_neuron_spikes": 0,
+        "downstream_spikes": 0,
+        "input_by_eye": {
+          "L": {
+            "channels": 229,
+            "spikes": 0
+          },
+          "R": {
+            "channels": 217,
+            "spikes": 0
+          }
+        }
+      },
+      "camera": {
+        "model_ms": 100,
+        "total_spikes": 5731,
+        "input_neuron_spikes": 2784,
+        "downstream_spikes": 2947,
+        "input_by_eye": {
+          "L": {
+            "channels": 229,
+            "spikes": 1310
+          },
+          "R": {
+            "channels": 217,
+            "spikes": 1474
+          }
+        }
+      },
+      "connections_off": {
+        "model_ms": 100,
+        "total_spikes": 2784,
+        "input_neuron_spikes": 2784,
+        "downstream_spikes": 0,
+        "input_by_eye": {
+          "L": {
+            "channels": 229,
+            "spikes": 1310
+          },
+          "R": {
+            "channels": 217,
+            "spikes": 1474
+          }
+        }
+      },
+      "half_gain": {
+        "model_ms": 100,
+        "total_spikes": 2527,
+        "input_neuron_spikes": 1378,
+        "downstream_spikes": 1149,
+        "input_by_eye": {
+          "L": {
+            "channels": 229,
+            "spikes": 626
+          },
+          "R": {
+            "channels": 217,
+            "spikes": 752
+          }
+        }
+      },
+      "left_only": {
+        "model_ms": 100,
+        "total_spikes": 2436,
+        "input_neuron_spikes": 1310,
+        "downstream_spikes": 1126,
+        "input_by_eye": {
+          "L": {
+            "channels": 229,
+            "spikes": 1310
+          },
+          "R": {
+            "channels": 0,
+            "spikes": 0
+          }
+        }
+      },
+      "right_only": {
+        "model_ms": 100,
+        "total_spikes": 3295,
+        "input_neuron_spikes": 1474,
+        "downstream_spikes": 1821,
+        "input_by_eye": {
+          "L": {
+            "channels": 0,
+            "spikes": 0
+          },
+          "R": {
+            "channels": 217,
+            "spikes": 1474
+          }
+        }
+      }
+    },
+    "left": {
+      "no_input": {
+        "model_ms": 100,
+        "total_spikes": 0,
+        "input_neuron_spikes": 0,
+        "downstream_spikes": 0,
+        "input_by_eye": {
+          "L": {
+            "channels": 229,
+            "spikes": 0
+          },
+          "R": {
+            "channels": 0,
+            "spikes": 0
+          }
+        }
+      },
+      "camera": {
+        "model_ms": 100,
+        "total_spikes": 2436,
+        "input_neuron_spikes": 1310,
+        "downstream_spikes": 1126,
+        "input_by_eye": {
+          "L": {
+            "channels": 229,
+            "spikes": 1310
+          },
+          "R": {
+            "channels": 0,
+            "spikes": 0
+          }
+        }
+      },
+      "connections_off": {
+        "model_ms": 100,
+        "total_spikes": 1310,
+        "input_neuron_spikes": 1310,
+        "downstream_spikes": 0,
+        "input_by_eye": {
+          "L": {
+            "channels": 229,
+            "spikes": 1310
+          },
+          "R": {
+            "channels": 0,
+            "spikes": 0
+          }
+        }
+      },
+      "half_gain": {
+        "model_ms": 100,
+        "total_spikes": 1036,
+        "input_neuron_spikes": 626,
+        "downstream_spikes": 410,
+        "input_by_eye": {
+          "L": {
+            "channels": 229,
+            "spikes": 626
+          },
+          "R": {
+            "channels": 0,
+            "spikes": 0
+          }
+        }
+      },
+      "left_only": {
+        "model_ms": 100,
+        "total_spikes": 2436,
+        "input_neuron_spikes": 1310,
+        "downstream_spikes": 1126,
+        "input_by_eye": {
+          "L": {
+            "channels": 229,
+            "spikes": 1310
+          },
+          "R": {
+            "channels": 0,
+            "spikes": 0
+          }
+        }
+      },
+      "right_only": {
+        "model_ms": 100,
+        "total_spikes": 0,
+        "input_neuron_spikes": 0,
+        "downstream_spikes": 0,
+        "input_by_eye": {
+          "L": {
+            "channels": 0,
+            "spikes": 0
+          },
+          "R": {
+            "channels": 0,
+            "spikes": 0
+          }
+        }
+      }
+    },
+    "right": {
+      "no_input": {
+        "model_ms": 100,
+        "total_spikes": 0,
+        "input_neuron_spikes": 0,
+        "downstream_spikes": 0,
+        "input_by_eye": {
+          "L": {
+            "channels": 0,
+            "spikes": 0
+          },
+          "R": {
+            "channels": 217,
+            "spikes": 0
+          }
+        }
+      },
+      "camera": {
+        "model_ms": 100,
+        "total_spikes": 3295,
+        "input_neuron_spikes": 1474,
+        "downstream_spikes": 1821,
+        "input_by_eye": {
+          "L": {
+            "channels": 0,
+            "spikes": 0
+          },
+          "R": {
+            "channels": 217,
+            "spikes": 1474
+          }
+        }
+      },
+      "connections_off": {
+        "model_ms": 100,
+        "total_spikes": 1474,
+        "input_neuron_spikes": 1474,
+        "downstream_spikes": 0,
+        "input_by_eye": {
+          "L": {
+            "channels": 0,
+            "spikes": 0
+          },
+          "R": {
+            "channels": 217,
+            "spikes": 1474
+          }
+        }
+      },
+      "half_gain": {
+        "model_ms": 100,
+        "total_spikes": 1491,
+        "input_neuron_spikes": 752,
+        "downstream_spikes": 739,
+        "input_by_eye": {
+          "L": {
+            "channels": 0,
+            "spikes": 0
+          },
+          "R": {
+            "channels": 217,
+            "spikes": 752
+          }
+        }
+      },
+      "left_only": {
+        "model_ms": 100,
+        "total_spikes": 0,
+        "input_neuron_spikes": 0,
+        "downstream_spikes": 0,
+        "input_by_eye": {
+          "L": {
+            "channels": 0,
+            "spikes": 0
+          },
+          "R": {
+            "channels": 0,
+            "spikes": 0
+          }
+        }
+      },
+      "right_only": {
+        "model_ms": 100,
+        "total_spikes": 3295,
+        "input_neuron_spikes": 1474,
+        "downstream_spikes": 1821,
+        "input_by_eye": {
+          "L": {
+            "channels": 0,
+            "spikes": 0
+          },
+          "R": {
+            "channels": 217,
+            "spikes": 1474
+          }
+        }
+      }
+    }
+  },
+  "stream_test": [
+    {
+      "tick_before": 0,
+      "tick_after": 200,
+      "input_by_eye": {
+        "L": {
+          "channels": 229,
+          "spikes": 257
+        },
+        "R": {
+          "channels": 0,
+          "spikes": 0
+        }
+      },
+      "total_spikes": 389,
+      "downstream_spikes": 132
+    },
+    {
+      "tick_before": 200,
+      "tick_after": 400,
+      "input_by_eye": {
+        "L": {
+          "channels": 0,
+          "spikes": 0
+        },
+        "R": {
+          "channels": 217,
+          "spikes": 297
+        }
+      },
+      "total_spikes": 655,
+      "downstream_spikes": 358
+    },
+    {
+      "tick_before": 400,
+      "tick_after": 600,
+      "input_by_eye": {
+        "L": {
+          "channels": 229,
+          "spikes": 277
+        },
+        "R": {
+          "channels": 217,
+          "spikes": 317
+        }
+      },
+      "total_spikes": 1137,
+      "downstream_spikes": 543
+    },
+    {
+      "tick_before": 600,
+      "tick_after": 800,
+      "input_by_eye": {
+        "L": {
+          "channels": 0,
+          "spikes": 0
+        },
+        "R": {
+          "channels": 0,
+          "spikes": 0
+        }
+      },
+      "total_spikes": 220,
+      "downstream_spikes": 220
+    },
+    {
+      "tick_before": 800,
+      "tick_after": 1000,
+      "input_by_eye": {
+        "L": {
+          "channels": 229,
+          "spikes": 279
+        },
+        "R": {
+          "channels": 217,
+          "spikes": 310
+        }
+      },
+      "total_spikes": 1043,
+      "downstream_spikes": 454
+    }
+  ],
+  "checks": {
+    "both_eyes_observed": true,
+    "disjoint_body_ids": true,
+    "unknowns_not_driven": true,
+    "both_drives_input": true,
+    "both_propagates": true,
+    "both_no_input_silent": true,
+    "both_disconnected_downstream_silent": true,
+    "left_drives_input": true,
+    "left_propagates": true,
+    "left_no_input_silent": true,
+    "left_disconnected_downstream_silent": true,
+    "right_drives_input": true,
+    "right_propagates": true,
+    "right_no_input_silent": true,
+    "right_disconnected_downstream_silent": true,
+    "continuous_state_through_eye_switches": true,
+    "mislabeled_eye_rejected": true,
+    "rejected_command_did_not_advance_model": true
+  },
+  "all_checks_passed": true
+}

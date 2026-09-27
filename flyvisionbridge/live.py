@@ -9,7 +9,7 @@ import threading
 import time
 from urllib.parse import urlsplit
 import numpy as np
-from .bridge import Frame,map_frame
+from .bridge import Frame,map_frame,load_eye_mapping
 from camera_lab.biomapping.geometry import ASSUMED_HEAD_FROM_CAMERA,rotation_checked
 from .live_core import BrainClient,Rectifier,approximate_intrinsics,engineer_rates
 from .live_camera import LatestCamera
@@ -23,8 +23,10 @@ class LiveApp:
         self.rectifier=Rectifier(original)
         self.rotation=rotation_checked(json.loads(args.head_from_camera.read_text(encoding='utf8')) if args.head_from_camera else ASSUMED_HEAD_FROM_CAMERA)
         self.width,self.height=original['width'],original['height']
+        self.mapping=load_eye_mapping(args.eyes)
         self.brain=BrainClient(args.model_dir)
         self.state=dict(phase='idle',frames=0,brain=self.brain.ready,
+            eyes=args.eyes,target_L2=len(self.mapping),targets_by_eye={eye:sum(r['eye']==eye for r in self.mapping) for eye in ['L','R']},
             camera=args.device_name or f'OpenCV camera {args.camera}',
             calibration=original.get('calibration_status','USER_SUPPLIED_INTRINSICS'),
             geometry=original,head_from_camera=self.rotation.tolist(),engineering_encoder='rate_hz = gain_hz * (1 - RGB code luminance)',
@@ -51,6 +53,11 @@ class LiveApp:
             disconnected_downstream_silent=runs['connections_off']['downstream_spikes']==0,
             input_gain_changes_response=runs['half_gain']['total_spikes']!=runs['camera']['total_spikes'])
         result['scope']='Same captured RGB input; reset/seed-matched 50 ms model controls; engineering only'
+        for eye,mode in [('L','left_only'),('R','right_only')]:
+            selected=[c for c in channels if c.get('eye')==eye]
+            if selected:
+                result['checks'][f'{eye}_only_drives_input']=runs[mode]['input_neuron_spikes']>0
+                result['checks'][f'{eye}_only_has_no_other_eye_drive']=runs[mode]['input_by_eye']['R' if eye=='L' else 'L']['channels']==0
         return result
 
     def _run(self,seconds):
@@ -72,7 +79,7 @@ class LiveApp:
                         seq,stamp,rgb=camera.frame(after=last_seq)
                         if last_seq:dropped+=max(0,seq-last_seq-1)
                         last_seq=seq;rgb=self.rectifier.apply(rgb)
-                        mapped=self.rectifier.mask_channels(map_frame(Frame(rgb,self.rectifier.k,stamp,'HOST_RECEIPT_NOT_EXPOSURE'),head_from_camera=self.rotation))
+                        mapped=self.rectifier.mask_channels(map_frame(Frame(rgb,self.rectifier.k,stamp,'HOST_RECEIPT_NOT_EXPOSURE'),mapping=self.mapping,head_from_camera=self.rotation))
                         channels=engineer_rates(mapped,self.args.gain_hz)
                         if not channels:raise RuntimeError('No mapped L2 ray is visible; check camera intrinsics/mount')
                         ids=[c['bodyId'] for c in channels]
@@ -96,13 +103,15 @@ class LiveApp:
                         record=dict(frame=count,camera_sequence=seq,host_receipt_s=stamp,
                             wall_elapsed_s=now-begin,frame_age_ms=(now-stamp)*1000,
                             sampled_L2=len(channels),mean_luminance=float(np.mean(values)),
+                            sampled_by_eye={eye:sum(c['eye']==eye for c in channels) for eye in ['L','R']},
+                            mean_input_hz_by_eye={eye:float(np.mean([c['rate_hz'] for c in channels if c['eye']==eye])) if any(c['eye']==eye for c in channels) else None for eye in ['L','R']},
                             mean_input_hz=float(np.mean([c['rate_hz'] for c in channels])),
-                            sampled_ids=ids,rates_hz=[c['rate_hz'] for c in channels],
+                            sampled_ids=ids,sampled_eyes=[c['eye'] for c in channels],rates_hz=[c['rate_hz'] for c in channels],
                             model_reset_for_controls=bool(count==1 or control_now),**response)
                         log.write(json.dumps(record,allow_nan=False)+'\n');log.flush();sequence.append(record)
                         preview=cv2.cvtColor(rgb,cv2.COLOR_RGB2BGR)
                         for c in mapped['channels']:
-                            if c['rgb_status']=='OBSERVED':cv2.circle(preview,tuple(round(v) for v in c['pixel_uv']),2,(0,230,170),1)
+                            if c['rgb_status']=='OBSERVED':cv2.circle(preview,tuple(round(v) for v in c['pixel_uv']),2,(255,190,80) if c['eye']=='L' else (0,210,255),1)
                         ok,encoded=cv2.imencode('.jpg',preview,[cv2.IMWRITE_JPEG_QUALITY,80])
                         with self.lock:
                             if ok:self.jpeg=encoded.tobytes()
@@ -118,6 +127,7 @@ class LiveApp:
             summary=dict(run_id=out.name,frames=count,skipped_camera_frames=dropped,
                 camera=self.state['camera'],geometry=self.rectifier.original,head_from_camera=self.rotation.tolist(),brain=self.brain.ready,
                 encoder=self.state['engineering_encoder'],gain_hz=self.args.gain_hz,
+                eyes=self.args.eyes,target_L2=len(self.mapping),targets_by_eye=self.state['targets_by_eye'],
                 seconds_requested=seconds,model_ms_per_update=self.args.model_ms,
                 biological_response_validated=False,raw_camera_data_public=False,
                 initial_controls=controls,depth='UNAVAILABLE',imu='UNAVAILABLE',
@@ -125,6 +135,8 @@ class LiveApp:
             if sequence:
                 total=sum(r['total_spikes'] for r in sequence)
                 summary.update(sampled_L2=len(ids),sampled_ids=ids,total_spikes=total,
+                    sampled_by_eye=sequence[-1]['sampled_by_eye'],
+                    input_spikes_by_eye={eye:sum(r['input_by_eye'][eye]['spikes'] for r in sequence) for eye in ['L','R']},
                     downstream_spikes=sum(r['downstream_spikes'] for r in sequence),
                     model_ms_total=sum(r['model_ms'] for r in sequence),
                     wall_elapsed_s=sequence[-1]['wall_elapsed_s'],
@@ -151,7 +163,9 @@ def serve(app,port):
         def reply(self,value,status=200,content_type='application/json'):
             data=json.dumps(value,ensure_ascii=False,allow_nan=False).encode('utf8') if content_type=='application/json' else value
             self.send_response(status);self.send_header('Content-Type',content_type)
-            self.send_header('Cache-Control','no-store');self.send_header('Content-Length',str(len(data)));self.end_headers();self.wfile.write(data)
+            self.send_header('Cache-Control','no-store');self.send_header('Content-Length',str(len(data)));self.end_headers()
+            try:self.wfile.write(data)
+            except (BrokenPipeError,ConnectionResetError,ConnectionAbortedError):pass
         def do_GET(self):
             if self.headers.get('Host') not in [f'127.0.0.1:{port}',f'localhost:{port}']:
                 return self.reply({'error':'Host rejected'},403)
@@ -195,6 +209,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--model-dir',type=Path,default=Path(os.environ.get('FLYVISION_MODEL_DIR','fruit-fly-simulation')))
     p.add_argument('--camera',type=int,default=0)
+    p.add_argument('--eyes',choices=['left','right','both'],default='both',help='Drive published left/right mappings; live default is both')
     p.add_argument('--backend',choices=['auto','dshow','msmf','v4l2'],default='auto')
     p.add_argument('--device-name',help='Windows DirectShow camera name; uses installed FFmpeg')
     p.add_argument('--ffmpeg',default='ffmpeg')

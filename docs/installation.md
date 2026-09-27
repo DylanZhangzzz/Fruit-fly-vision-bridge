@@ -31,6 +31,7 @@ Small authoritative mapping inputs, their licenses, derived tables and byte hash
 python scripts/verify_sources.py
 python camera_lab/biomapping/import_atlas.py
 python camera_lab/biomapping/import_author_map.py
+python -m camera_lab.biomapping.import_left_eye
 python camera_lab/biomapping/test_author_map.py
 ```
 

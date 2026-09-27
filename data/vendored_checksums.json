@@ -8,5 +8,9 @@
   "camera_lab/biomapping/source/eyemap_archive/docs/data/eyemap_mcns_f20240701/right.csv": "c9ee7b14656dbd58acc853a849330b740e9a193bff23d8a3839485e9ad1cc67c",
   "camera_lab/biomapping/source/eyemap_archive/LICENSE": "9ca079480114e10adfc35d495618ec543662c75988786b386f21d8fced6cd871",
   "camera_lab/biomapping/source/eyemap_archive/README.md": "0c2fbb185d2650daf3c97ce068a6e5a774c78cd8f3e99cf4c520d51bcd9b6606",
-  "camera_lab/data/ME_assigned_columns.csv": "649140bab99503d13136e7cbe60372d981e728505d5c8db0b82f0ef33cfd8c8a"
+  "camera_lab/data/ME_assigned_columns.csv": "649140bab99503d13136e7cbe60372d981e728505d5c8db0b82f0ef33cfd8c8a",
+  "camera_lab/biomapping/source/visualpathways/ME_L_columnar-cells_location.xlsx": "877b4cc33c504540406e55c33f3d7a7ed6b3542469db64184cbcecd68df3abc4",
+  "camera_lab/biomapping/source/eyemap_archive/maps/eyemap_mcns_f20240701/pqxyztp_left.xlsx": "e42e1781dc40bcecb2f90bd154172b626bfb58841dd68218362aeaebe90abd30",
+  "camera_lab/biomapping/source/eyemap_archive/docs/data/eyemap_mcns_f20240701/left.csv": "abfe62cad8e2b066155d779e8ebbc70054124c82ade3da4fead3a84df6b0c2f3",
+  "camera_lab/biomapping/source/malecns_l2_inventory.json": "67d54d69eb1912276462b123a9941370d83e6180665d39962768a4dc83a594c0"
 }

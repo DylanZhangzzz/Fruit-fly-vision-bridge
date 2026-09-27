@@ -8,5 +8,10 @@
   },
   "export_code_sha256": "632e7a1ac50c81b38cfafad88a059a2e21e91c64f5ee7b08613f665ed05f94b6",
   "render_code_sha256": "f0822f74f1bfaf6c586b0dded07114671c9924036ef2f5772ef79ad51b5587e9",
-  "licensing": "Project code GPL-3.0-only; source-specific GPL-3.0 and CC-BY-SA-4.0 mapping components; see THIRD_PARTY_NOTICES.md"
+  "licensing": "Project code GPL-3.0-only; source-specific GPL-3.0 and CC-BY-SA-4.0 mapping components; see THIRD_PARTY_NOTICES.md",
+  "notice_refresh": {
+    "reason": "Integrate main binocular mapping license notices; frozen right-eye numerical results unchanged",
+    "main_commit": "d0aed8a4ca535acc9dd2ee1f0f993f97b0c88fc2",
+    "license_inventory_sha256": "531f1034c03e972c0673fab56b4f4bbe3ab6614e4e31bbcb768041c68522c40c"
+  }
 }

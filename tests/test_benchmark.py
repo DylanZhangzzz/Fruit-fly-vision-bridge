@@ -12,6 +12,18 @@ from flyvisionbridge.bridge import RESOLVED
 
 
 class BenchmarkTests(unittest.TestCase):
+    def test_binocular_live_default_does_not_expand_frozen_benchmark(self):
+        from flyvisionbridge.benchmark_core import synthetic_intrinsics
+        from flyvisionbridge.bridge import load_eye_mapping
+        p=protocol()
+        rgb=np.full((1,p['synthetic_height'],p['synthetic_width'],3),p['background_code'],np.uint8)
+        rows,uv,samples=sample_columns(rgb,synthetic_intrinsics(p))
+        self.assertEqual(len(rows),893)
+        self.assertEqual(samples.shape,(1,893))
+        self.assertEqual(int(np.isfinite(uv).all(axis=1).sum()),252)
+        left_ids={r['bodyId'] for r in load_eye_mapping('left')}
+        self.assertTrue(left_ids.isdisjoint(r['bodyId'] for r in rows))
+
     def test_nominal_flash_duration_and_determinism(self):
         for name,count in [('flash_dark_20ms',1),('flash_light_200ms',10)]:
             t,rgb=stimulus(name)

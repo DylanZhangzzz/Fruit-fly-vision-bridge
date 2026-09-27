@@ -1,6 +1,6 @@
 # Third-party notices and data terms
 
-The top-level GPL-3.0-only license applies to this project's code and documentation unless otherwise identified. Preserve the following source-specific notices; a software license does not replace a dataset's license.
+The top-level [MIT License](LICENSE) applies to original Fruit-fly-vision-bridge code and documentation. It does not relicense third-party code, datasets, or derived mapping data. Preserve the following source-specific notices; a software license does not replace a dataset's license. The Python distribution bundles separately licensed mapping data, so its SPDX license expression lists MIT together with the applicable data licenses.
 
 | Paths / material | Source and terms |
 |---|---|

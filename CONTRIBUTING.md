@@ -26,4 +26,8 @@ Keep changes focused. A PR should explain the user-visible or scientific behavio
 
 Do not commit raw room recordings, faces, device serials, private paths, credentials or large weights. Prefer a small synthetic reproduction. If a new public recording is necessary, establish its sharing permission and license, remove private information, and publish it as a separately versioned dataset with a manifest. The existing `.gitignore` is a convenience, not a substitute for reviewing a diff.
 
+## Licensing contributions
+
+Original code and documentation contributions are submitted under the project's [MIT License](LICENSE). Submit only material you have the right to contribute. For third-party code or data, preserve the original license and attribution, and add its path and terms to [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Mapping data and derivatives retain their source-specific terms; do not label them MIT simply because they are stored in this repository.
+
 All issue discussions should address evidence and code respectfully. Upstream authors and contributors may disagree with an interpretation; document the evidence rather than presenting their work as endorsing this bridge.

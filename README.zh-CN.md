@@ -59,4 +59,6 @@ RGB 用于观测亮度，深度辅助几何与遮挡，IMU 辅助旋转光流预
 
 下一阶段是固定参数后，预测未用于拟合的刺激持续时间、频率或对比度，并与独立生理记录比较。这项工作目前列在 [路线图](docs/roadmap.md)，没有标记为完成。
 
-欢迎通过 [Issues](https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge/issues) 提问题，用中文或英文均可；贡献代码请看 [CONTRIBUTING.md](CONTRIBUTING.md)。代码采用 GPL-3.0-only；第三方数据保留原许可，详见 [来源与许可](THIRD_PARTY_NOTICES.md)。
+欢迎通过 [Issues](https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge/issues) 提问题，用中文或英文均可；贡献代码请看 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+本项目原创代码和文档采用 [MIT 许可证](LICENSE)。第三方代码、映射数据及其衍生数据保留各自的 GPL-3.0、CC BY-SA 4.0、CC BY 4.0 等许可；公开 Dryad 生理数据为 CC0。Python 安装包同时包含代码与映射数据，因此分发元数据列出这些许可的组合，不能把整个数据集重新按 MIT 授权。各文件的适用范围见 [来源与许可](THIRD_PARTY_NOTICES.md)。

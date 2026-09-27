@@ -186,6 +186,7 @@
     "camera_lab/biomapping/source/med_ixy.RData",
     "camera_lab/biomapping/source/visualpathways/ME_L_columnar-cells_location.xlsx",
     "camera_lab/biomapping/source/visualpathways/ME_columnar-cells_location.xlsx",
+    "docs/assets/synthetic-sampling.png",
     "reports/benchmark/spatial_weights.npz",
     "reports/physiology/per_fly.png",
     "reports/physiology/population.png",

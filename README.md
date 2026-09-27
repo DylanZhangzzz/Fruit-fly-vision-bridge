@@ -1,10 +1,98 @@
 # Fruit-fly-vision-bridge
 
-[中文说明](README.zh-CN.md) · [Findings](docs/findings.md) · [Installation](docs/installation.md) · [Contributing](CONTRIBUTING.md)
+**Connect a webcam to a simulated fruit-fly brain, with explicit visual mapping and reproducible checks.**
 
-An experimental bridge from camera images to published fruit-fly visual columns, with separate checks for geometry, camera acquisition, and neural-response models.
+A Python camera bridge for **Drosophila / MaleCNS**: map RGB pixels to published left- and right-eye L2 directions, drive the external BrainCPU simulator, and inspect downstream activity. Intel RealSense **D435i** adds depth and IMU through a separate recording and replay workflow. This is an experimental integration; the brightness-to-neural-drive rule is an engineering approximation, not a validated biological response model.
 
-This project connects **published anatomical directions to MaleCNS L2 IDs**, samples observed RGB along those directions, and keeps depth and IMU as auxiliary geometric measurements. It also benchmarks an L2 temporal model against public live-fly voltage-indicator recordings. It is not an official camera API for a fly brain, and does not claim a biologically validated whole-brain visual system.
+[中文说明](README.zh-CN.md) · [Quick start](#quick-start-no-hardware) · [Live webcam](#connect-a-webcam-to-the-brain) · [Installation](docs/installation.md) · [Findings](docs/findings.md) · [Contributing](CONTRIBUTING.md)
+
+![Synthetic RGB input beside actual left-eye and right-eye L2 sampling positions: 211 observed of 1,779 targets; missing and out-of-view channels stay null.](docs/assets/synthetic-sampling.png)
+
+*Actual output of the synthetic demo below, using assumed camera geometry. Blue: left eye; orange: right eye. These are RGB samples, not neural spikes. [Reproduce this figure and see data attribution](docs/assets/README.md).*
+
+The live path is **camera RGB → published L2 directions → engineering input rates → persistent BrainCPU → simulated downstream activity**. Depth and IMU remain auxiliary geometry; an ordinary webcam needs neither.
+
+## Choose your input
+
+| Input / workflow | What you can do | Current evidence |
+|---|---|---|
+| [Synthetic demo](#quick-start-no-hardware) or [saved RGB image](docs/cameras.md#saved-images-and-single-frame-rgb-webcam-samples) | Export per-ID brightness and validity without the full brain model | Hardware-free implementation checks |
+| [Logitech BRIO on Windows](#connect-a-webcam-to-the-brain) | Run the live brain bridge through FFmpeg / DirectShow | Right-eye physical run passed; binocular full-model replay passed; fresh binocular capture pending |
+| [Other USB / built-in RGB webcams](#connect-a-webcam-to-the-brain) | Select an OpenCV camera index and run the same live pipeline | Adapter implemented; this backend still needs hardware qualification |
+| [Intel RealSense D435i](docs/cameras.md#d435i-recorded-experimental-path) | Record RGB + depth + IMU, replay mappings and run screen experiments | Recorded geometry and controlled screen experiments; separate from the live RGB entry |
+| [Offline model comparison](#compare-visual-encoders-offline) | Compare L2, FlyDrones and Flyvis on shared stimuli | Frozen synthetic predictions and diagnostics; optional models installed separately |
+
+Both-eye mapping is available. A single camera observes only the directions inside its field of view; it does not supply two measured eye origins or full compound-eye coverage. See [binocular setup](docs/binocular.md).
+
+## Quick start: no hardware
+
+Requires **Python 3.11+ and Git**. The mapping data are included. No camera, Node.js, RealSense SDK or whole-brain model is needed for this demo.
+
+```sh
+git clone https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge.git
+cd Fruit-fly-vision-bridge
+python -m venv .venv
+```
+
+Activate the environment with **one** command for your shell:
+
+```powershell
+# Windows PowerShell
+.venv\Scripts\Activate.ps1
+```
+
+```sh
+# Linux / macOS
+source .venv/bin/activate
+```
+
+Then run:
+
+```sh
+python -m pip install -e .
+python -m flyvisionbridge.cli --demo --eyes both --output outputs/demo
+python scripts/run_checks.py --core-only
+```
+
+Expected demo message: **`Saved 1779 channels; 211 observed.`** It writes `rgb.png`, `intrinsics.json` and `channels.json` to `outputs/demo/`. In this specific synthetic geometry, 106 left-eye and 105 right-eye channels see the image. The other 1,568 entries remain null because they are out of view or lack a mapped direction. This is not a fixed camera-coverage limit, and the demo does not generate firing rates.
+
+Choose a fresh output directory when rerunning, for example `outputs/demo-02`. If PowerShell activation is unavailable, use `.venv\Scripts\python.exe` in place of `python`; no system policy change is needed. The core check command skips optional-dependency checks when their dependencies are absent. See [installation](docs/installation.md) for the full suite.
+
+## Connect a webcam to the brain
+
+First complete the environment setup above. Install **Node.js 22.12+**, **Git LFS**, and the **separate upstream model** using [the model installation steps](docs/installation.md#reports-and-optional-whole-brain-replay). The model requires substantial downloads and retains its own licenses. Replace `PATH_TO_FRUIT_FLY_SIMULATION` below with the directory containing `src/brain.js` and `public/data/manifest.json`.
+
+```sh
+python -m pip install -e ".[analysis]"
+```
+
+**Ordinary USB or built-in webcam, using OpenCV:**
+
+```sh
+python -m flyvisionbridge.live --model-dir PATH_TO_FRUIT_FLY_SIMULATION --camera 0 --assume-hfov 90 --eyes both
+```
+
+`0` is a camera index; choose the index of your intended device. This adapter is implemented, but the recorded hardware qualification below used FFmpeg instead.
+
+**Tested Windows BRIO capture route, using FFmpeg:** install FFmpeg on PATH, then run:
+
+```powershell
+python -m flyvisionbridge.live --model-dir PATH_TO_FRUIT_FLY_SIMULATION --device-name "Logitech BRIO" --assume-hfov 90 --eyes both
+```
+
+Open **http://127.0.0.1:8771/** and press **开始采集** (Start capture). A default run lasts 60 seconds, displays input and downstream model activity, and releases the camera when finished. Press Ctrl+C to stop the server. Camera frames are processed locally; recordings stay in ignored `outputs/webcam-live/`.
+
+`--assume-hfov 90` is an explicit provisional field-of-view assumption, **not a measured camera calibration**. Use `--intrinsics camera.json` instead when calibrated intrinsics are available. Lens rectification, device selection and troubleshooting are covered in [the live webcam guide](docs/webcam-live.md).
+
+The live default is both eyes; `--eyes left` or `--eyes right` selects one. Published maps resolve 847/886 left-eye and 847/893 right-eye L2 IDs. A saved BRIO frame drove 229 left + 217 right inputs in full-model replay; **fresh binocular hardware acquisition remains pending**. These counts depend on camera projection. See [binocular evidence](docs/binocular.md).
+
+The historical right-eye BRIO/Windows run drove 217 visible inputs into the 166,700-neuron graph and passed zero-input, disconnected-network and half-gain controls. Default operation advances 20 ms of model time at five updates/s, nominally **0.1× wall time**. Dashboard spikes are simulated activity. [Hardware report](reports/webcam/README.md).
+
+## Compare visual encoders offline
+
+The [frozen offline comparison](docs/benchmark.md) runs identical flashes, gratings, moving edges and expansion/contraction through the L2 baseline, official FlyDrones sensory encoder and a checksum-verified pretrained Flyvis network. [Open the archived synthetic report](reports/benchmark/index.html) after cloning. This optional workflow is separate from the quick-start demo and live engineering input rule.
+
+Flyvis L2 can also be read out at projected MaleCNS image positions. This is image-space interpolation, not a validated neuron identity map. These are predictions and engineering diagnostics, not new live-fly validation.
 
 ## Current evidence
 
@@ -16,38 +104,6 @@ This project connects **published anatomical directions to MaleCNS L2 IDs**, sam
 | Important failures | 5 selected records had R²≤0; parameters reached bounds in 10/14 total folds | No universal cell pass, unique parameter identification, or new-stimulus validation |
 
 The recurrent model improves over a separately fitted feedback-free model for 11/13 flies, but has **no demonstrated advantage over the training-fly mean waveform template** for the same stimulus. ROI records are not MaleCNS neuron IDs. Detailed provenance, negative results, units and exclusions are in [the findings](docs/findings.md).
-
-## Try it without hardware
-
-The new [frozen offline comparison](docs/benchmark.md) runs identical flashes, gratings, moving edges and expansion/contraction through the L2 baseline, official FlyDrones sensory encoder and a checksum-verified pretrained Flyvis network. [Open the archived synthetic report](reports/benchmark/index.html) after cloning. Flyvis L2 can also be read out at projected MaleCNS image positions; this is image-space interpolation, not a validated neuron identity map. These are predictions and engineering diagnostics, not new live-fly validation.
-
-Requires Python 3.11+; Python 3.12 on Windows was used for the clean installation check. From a clone:
-
-```sh
-python -m venv .venv
-# Activate: Windows PowerShell: .venv\Scripts\Activate.ps1
-# Activate: Linux/macOS: source .venv/bin/activate
-python -m pip install -e .
-python -m flyvisionbridge.cli --demo --output outputs/demo
-python scripts/run_checks.py --core-only
-```
-
-The synthetic demo writes `rgb.png`, assumed demonstration intrinsics, and `channels.json`. It uses the included published mapping, records all 893 IDs, leaves unobserved/missing directions null, and **does not open a camera or generate neural firing rates**. Choose a new output directory for each run.
-
-## Connect a webcam to the brain
-
-The new live entry runs the complete **RGB → mapped L2 → engineering rates → persistent BrainCPU → downstream activity** chain:
-
-```sh
-python -m pip install -e ".[analysis]"
-python -m flyvisionbridge.live --model-dir PATH_TO_FRUIT_FLY_SIMULATION --device-name "Logitech BRIO" --assume-hfov 90
-```
-
-Open `http://127.0.0.1:8771/` and start a bounded capture. Install Node.js, the external model, and FFmpeg first as described in [the live webcam guide](docs/webcam-live.md). OpenCV-indexed cameras use `--camera 0` instead of `--device-name`. Intrinsics must be provided or a provisional FOV explicitly assumed; 90° is an example assumption, not a BRIO calibration.
-
-The live entry now defaults to **both eyes**; select `--eyes left`, `--eyes right` or `--eyes both`. The left map adds 847/886 resolved L2 IDs using separate published left-eye tables. A saved BRIO frame drove 229 left + 217 right inputs in full-model replay; this new binocular mode still needs a fresh hardware acquisition run. See [binocular setup and evidence](docs/binocular.md).
-
-The historical right-eye physical BRIO/Windows run drove 217 visible L2 channels into the 166,700-neuron graph, retained state across frames, and passed zero-input/disconnected/half-gain controls. See [the aggregate hardware report](reports/webcam/README.md). Default operation advances 20 ms of model time at five updates/s (0.1× wall time). This is engineering integration, not biological response validation.
 
 ## Reproduce the research workflows
 

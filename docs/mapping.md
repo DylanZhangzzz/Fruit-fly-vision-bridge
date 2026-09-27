@@ -3,7 +3,7 @@
 ```mermaid
 flowchart LR
     RGB[Rectified RGB + intrinsics] --> Rays[Sample camera-visible anatomical rays]
-    Columns[MaleCNS body ID → right-eye hex column] --> Join[Exact hex1 / hex2 join]
+    Columns[MaleCNS body ID → eye-specific hex column] --> Join[Exact hex1 / hex2 join]
     Archive[Author MaleCNS directions] --> Join
     Join --> Rays
     Depth[Native depth + extrinsics] --> Geometry[Color-frame geometry / occlusion]
@@ -23,6 +23,8 @@ flowchart LR
 4. This project joins, validates conventions, preserves missing/ambiguous entries, projects into the camera, samples observations and checks the resulting pipeline.
 
 The final table is `camera_lab/biomapping/data/malecns_author_crosswalk.json`. There are 893 targets, 847 resolved IDs, 846 resolved columns and 46 missing directions. IDs 43130 and 56150 share column `(25,10)` and therefore the same ray; assigning different visual positions to them would fabricate information.
+
+The left product is `malecns_left_crosswalk.json`: 886 model L2 IDs, 847 resolved directions, 32 missing boundary directions and 7 missing column assignments. It joins the separate author left-eye workbook and angle file, with ID/type/side checked against model metadata. Both-eye selection is available through `load_eye_mapping`; see [binocular mapping](binocular.md). Historical right-only products remain unchanged.
 
 ## Coordinates
 

@@ -10,7 +10,7 @@ This project connects **published anatomical directions to MaleCNS L2 IDs**, sam
 
 | Layer | Result | What it establishes |
 |---|---|---|
-| Published anatomy | 847/893 right-eye L2 IDs mapped to 846 distinct columns; 46 directions remain missing | Exact column-key correspondence to an author-published cross-specimen anatomical estimate |
+| Published anatomy | Right: 847/893 IDs, 846 columns; left: 847/886 IDs, 847 columns; 85 IDs unresolved across both eyes | Exact eye-specific joins to author-published cross-specimen anatomical estimates |
 | Controlled screen → D435i | 21 L2 IDs / 20 columns passed the recorded temporal engineering criteria, at approximately 59.53 RGB frames/s | Transmission under the tested geometry and fixed black/white reference patches |
 | Public L2 physiology | 103 selected ROI records from 13 flies, whole-fly leave-one-out: mean r=0.750, R²=0.447, RMSE=0.00663 ΔF/F | Limited same-study, same-flash-type cross-fly prediction |
 | Important failures | 5 selected records had R²≤0; parameters reached bounds in 10/14 total folds | No universal cell pass, unique parameter identification, or new-stimulus validation |
@@ -43,7 +43,9 @@ python -m flyvisionbridge.live --model-dir PATH_TO_FRUIT_FLY_SIMULATION --device
 
 Open `http://127.0.0.1:8771/` and start a bounded capture. Install Node.js, the external model, and FFmpeg first as described in [the live webcam guide](docs/webcam-live.md). OpenCV-indexed cameras use `--camera 0` instead of `--device-name`. Intrinsics must be provided or a provisional FOV explicitly assumed; 90° is an example assumption, not a BRIO calibration.
 
-A physical BRIO/Windows run drove 217 visible L2 channels into the 166,700-neuron graph, retained state across frames, and passed zero-input/disconnected/half-gain controls. See [the aggregate hardware report](reports/webcam/README.md). Default operation advances 20 ms of model time at five updates/s (0.1× wall time). This is engineering integration, not biological response validation.
+The live entry now defaults to **both eyes**; select `--eyes left`, `--eyes right` or `--eyes both`. The left map adds 847/886 resolved L2 IDs using separate published left-eye tables. A saved BRIO frame drove 229 left + 217 right inputs in full-model replay; this new binocular mode still needs a fresh hardware acquisition run. See [binocular setup and evidence](docs/binocular.md).
+
+The historical right-eye physical BRIO/Windows run drove 217 visible L2 channels into the 166,700-neuron graph, retained state across frames, and passed zero-input/disconnected/half-gain controls. See [the aggregate hardware report](reports/webcam/README.md). Default operation advances 20 ms of model time at five updates/s (0.1× wall time). This is engineering integration, not biological response validation.
 
 ## Reproduce the research workflows
 

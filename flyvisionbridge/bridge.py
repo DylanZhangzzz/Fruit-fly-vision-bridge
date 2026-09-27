@@ -51,6 +51,19 @@ def load_mapping(path=MAPPING):
     return json.loads(Path(path).read_text(encoding='utf8'))
 
 
+def load_eye_mapping(eyes='both'):
+    """Explicit eye selection; legacy load_mapping/map_frame defaults remain right-only."""
+    if eyes not in ['left','right','both']:raise ValueError('eyes must be left, right or both')
+    rows=[]
+    if eyes in ['left','both']:
+        rows+=load_mapping(MAPPING.with_name('malecns_left_crosswalk.json'))
+    if eyes in ['right','both']:
+        rows+=[dict(r,eye='R') for r in load_mapping()]
+    if any(r.get('eye') not in ['L','R'] for r in rows):raise ValueError('Missing eye identity')
+    if len({r['bodyId'] for r in rows})!=len(rows):raise ValueError('Duplicate binocular body ID')
+    return rows
+
+
 def map_frame(frame, mapping=None, head_from_camera=ASSUMED_HEAD_FROM_CAMERA):
     frame.validate()
     rotation_checked(head_from_camera)
@@ -73,14 +86,14 @@ def map_frame(frame, mapping=None, head_from_camera=ASSUMED_HEAD_FROM_CAMERA):
             if np.isfinite(value) and value > 0:
                 depth = value
         by_id[row['bodyId']] = dict(
-            bodyId=row['bodyId'], reference_id=row['reference_id'],
+            bodyId=row['bodyId'], eye=row.get('eye','R'), reference_id=row['reference_id'],
             mapping_status=row['status'], rgb_status='OBSERVED' if visible[i] else 'OUTSIDE_CAMERA_FOV',
             pixel_uv=uv[i].tolist() if visible[i] else None,
             rgb_code_luminance=float(colors[i] @ [.2126, .7152, .0722]) if visible[i] else None,
             depth_color_z_m=depth,
             predicted_rotation_flow_head_per_s=flows[i].tolist() if flows is not None else None,
         )
-    channels = [by_id.get(r['bodyId'], dict(bodyId=r['bodyId'], reference_id=None,
+    channels = [by_id.get(r['bodyId'], dict(bodyId=r['bodyId'], eye=r.get('eye','R'), reference_id=None,
         mapping_status=r['status'], rgb_status='MISSING_DIRECTION', pixel_uv=None,
         rgb_code_luminance=None, depth_color_z_m=None, predicted_rotation_flow_head_per_s=None)) for r in rows]
     return dict(timestamp_s=frame.timestamp_s, clock_domain=frame.clock_domain,

@@ -5,7 +5,7 @@ from pathlib import Path
 import time
 import numpy as np
 from PIL import Image
-from .bridge import Frame, map_frame
+from .bridge import Frame, map_frame, load_eye_mapping
 
 
 def main():
@@ -15,7 +15,9 @@ def main():
     source.add_argument('--image', type=Path)
     source.add_argument('--camera', type=int, help='OpenCV camera index; captures one RGB frame')
     p.add_argument('--intrinsics', type=Path, help='JSON: fx,fy,ppx,ppy,width,height,coeffs; rectified image required')
-    p.add_argument('--mapping', type=Path)
+    mapping=p.add_mutually_exclusive_group()
+    mapping.add_argument('--mapping', type=Path)
+    mapping.add_argument('--eyes',choices=['left','right','both'],default='right',help='Legacy snapshot default: right; live default: both')
     p.add_argument('--head-from-camera', type=Path, help='JSON proper rotation, 3x3, camera into head coordinates')
     p.add_argument('--depth', type=Path, help='Optional .npy color-camera Z in metres, matching RGB')
     p.add_argument('--output', type=Path, default=Path('outputs/rgb-snapshot'))
@@ -47,6 +49,7 @@ def main():
     depth = np.load(args.depth,allow_pickle=False) if args.depth else None
     kwargs = {}
     if args.mapping:kwargs['mapping']=json.loads(args.mapping.read_text(encoding='utf8'))
+    else:kwargs['mapping']=load_eye_mapping(args.eyes)
     if args.head_from_camera:kwargs['head_from_camera']=json.loads(args.head_from_camera.read_text(encoding='utf8'))
     result=map_frame(Frame(rgb,k,timestamp,clock,depth),**kwargs)
     result['source']='synthetic demonstration' if args.demo else ('still image' if args.image else 'OpenCV RGB camera')

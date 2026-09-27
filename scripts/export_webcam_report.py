@@ -23,6 +23,8 @@ def export(run_dir,output,model_dir=None):
           'observed_mean_luminance_range','input_changed_between_frames','continuous_ticks',
           'frame_age_ms_p50_p95','clock','depth','imu','biological_response_validated']
     report={k:summary[k] for k in keys}
+    for key in ['eyes','target_L2','targets_by_eye','sampled_by_eye','input_spikes_by_eye']:
+        if key in summary:report[key]=summary[key]
     report['capture_error_present']=summary.get('error') is not None
     report['privacy']='Aggregate only: no images, serials, per-channel inputs or per-frame logs'
     report['model_speed_ratio']=summary['model_ms_total']/1000/summary['wall_elapsed_s']

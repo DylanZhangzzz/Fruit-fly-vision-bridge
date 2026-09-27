@@ -1,0 +1,37 @@
+{
+  "eye": "L",
+  "target_L2": 886,
+  "resolved_L2": 847,
+  "resolved_unique_columns": 847,
+  "status_counts": {
+    "AUTHOR_PUBLISHED_COLUMN_CORRESPONDENCE": 847,
+    "MISSING_AUTHOR_BOUNDARY_COLUMN": 32,
+    "MISSING_AUTHOR_COLUMN_ASSIGNMENT": 7
+  },
+  "missing_assignment_ids": [
+    "39349",
+    "50385",
+    "55236",
+    "182847",
+    "544704",
+    "546930",
+    "551645"
+  ],
+  "angle_source": "https://github.com/artxz/eyemap-archive/blob/503c7f055d5491a48b60b49ade8c71798d24d8f1/maps/eyemap_mcns_f20240701/pqxyztp_left.xlsx",
+  "column_source": "https://github.com/reiserlab/visualpathways/blob/23f6ac131529b5f56894c6eeb9b88b17894fc00d/params/ME_L_columnar-cells_location.xlsx",
+  "model_inventory_source": "https://huggingface.co/spaces/Xenova/fruit-fly-simulation/blob/776d115ee5aa934578a87fd6d260d138084f59c1/public/data/neurons.json.gz",
+  "model_metadata_sha256": "e77e031a79293316cece9a27e88f18968b4bb93112842ab91fc45f84d737d864",
+  "join": "Exact left-eye body ID -> (hex1,hex2) -> published left-eye ray; no mirroring or fitted registration",
+  "axes": "x forward, y left, z up; azimuth_left=-source_phi; elevation=90-source_theta",
+  "biological_status": "Author-published anatomical cross-specimen estimate, not physiological ground truth",
+  "limitations": [
+    "Unassigned IDs and unpublished boundary directions stay unknown",
+    "Left column assignment has one published assignment source plus model identity/side checks; not two independent column measurements",
+    "A monocular webcam supplies a common camera origin; distinct eye origins/stereo disparity are not reconstructed"
+  ],
+  "source_sha256": {
+    "source/eyemap_archive/maps/eyemap_mcns_f20240701/pqxyztp_left.xlsx": "e42e1781dc40bcecb2f90bd154172b626bfb58841dd68218362aeaebe90abd30",
+    "source/visualpathways/ME_L_columnar-cells_location.xlsx": "877b4cc33c504540406e55c33f3d7a7ed6b3542469db64184cbcecd68df3abc4",
+    "source/malecns_l2_inventory.json": "67d54d69eb1912276462b123a9941370d83e6180665d39962768a4dc83a594c0"
+  }
+}

@@ -2,6 +2,8 @@
 
 These are open tasks, not completed validations. Open an issue to agree on a bounded experiment before collecting large datasets or changing scientific claims.
 
+Completed engineering groundwork: [the frozen offline benchmark](benchmark.md) now runs shared synthetic stimuli through L2, the FlyDrones sensory encoder and pretrained Flyvis, with optional local camera replay and image-space L2 readout at projected MaleCNS sightlines. This does not complete the independent physiology milestone below.
+
 ## Priority 1: held-out stimulus prediction
 
 Find compatible public L2 recordings with different flash durations, temporal frequencies or contrasts. Record the original stimulus waveform, timing, indicator, preprocessing, animal grouping and license. A different ROI from the same flash dataset is not a new stimulus condition.

@@ -21,7 +21,7 @@ python camera_lab/biomapping/validate_l2_cells.py
 
 - 官方数据：[Dryad](https://datadryad.org/dataset/doi:10.5061/dryad.ngf1vhj4c)，CC0 1.0。
 - 已下载 `source/L2_Dryad/L2_ASAP2f.mat`、`L1L2_Metadata.xlsx`、`README.md`。三份文件都与官方 API 提供的 SHA-256 一致，完整来源记录在该目录的 `manifest.json`。
-- 原方程与分析代码：[ClandininLab/L1L2-recurrent-feedback](https://github.com/ClandininLab/L1L2-recurrent-feedback/tree/7fa5829e37d566e02beaaa87efd6a0f1de4e48c0)。相关 MATLAB 分箱代码已保留在 `source/L2_Dryad/author_analysis/`。
+- 原方程与分析方法：[ClandininLab/L1L2-recurrent-feedback](https://github.com/ClandininLab/L1L2-recurrent-feedback/tree/7fa5829e37d566e02beaaa87efd6a0f1de4e48c0)。该固定版本未发现明确许可证；作者 MATLAB 代码和 notebook 不包含在本发布中。这里的 Python 实现、分箱数值和论文参数均注明来源，不能据此推断作者源代码可再分发。
 - 现有相机工程验收：[固定标定、独立时序报告](../screen/README.md)。该结论不等于神经生理验证。
 
 ## 数据审计

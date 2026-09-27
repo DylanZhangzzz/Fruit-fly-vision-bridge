@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-09-27",
+  "review_base_commit": "08f1bca7d22040ee5ee4b58ea1b45c1e4c7e7684",
+  "scope": "Source repository and this benchmark publication; not legal clearance, binary dependency redistribution or patents",
+  "components": [
+    {
+      "id": "reiser-mapping",
+      "license": "GPL-3.0",
+      "disposition": "Included originals and attributed derivatives",
+      "revisions": {
+        "male-visual-system": "dbafc73124b5c96e96429cdf2a89d067cae841bc",
+        "eyemap_T4": "99d2a43123db636cedb55af9ff31a59657e7d17e",
+        "visualpathways": "23f6ac131529b5f56894c6eeb9b88b17894fc00d"
+      }
+    },
+    {
+      "id": "eyemap-archive",
+      "license": "CC-BY-SA-4.0 for data; MIT for code",
+      "revision": "503c7f055d5491a48b60b49ade8c71798d24d8f1",
+      "disposition": "Data originals and ray-derived components retain BY-SA; GPL-origin identity fields keep GPL terms; original license preserved"
+    },
+    {
+      "id": "Xenova-BrainCPU",
+      "license": "MIT",
+      "revision": "776d115ee5aa934578a87fd6d260d138084f59c1",
+      "disposition": "Only unchanged CPU source fixture and notice included; full brain installation excluded"
+    },
+    {
+      "id": "L2-Dryad",
+      "license": "CC0-1.0",
+      "source": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.ngf1vhj4c",
+      "disposition": "Processed per-record numerical results included, raw downloads excluded"
+    },
+    {
+      "id": "L2-author-code",
+      "license": "NO_EXPLICIT_LICENSE_FOUND",
+      "revision": "7fa5829e37d566e02beaaa87efd6a0f1de4e48c0",
+      "disposition": "Notebooks, MATLAB source and author mean-response MAT excluded; equations/parameters cited, Python numerical implementation reviewed; this is not permission to distribute author code"
+    },
+    {
+      "id": "Flyvis",
+      "license": "MIT software",
+      "revision": "92b3845cc426dd309a1a0e1b3890156c42e14021",
+      "disposition": "Installed separately; notice included; weights not bundled",
+      "weight_license": "No separate archive license found; author provides download for using pretrained models; redistribution not cleared"
+    },
+    {
+      "id": "FlyDrones",
+      "license": "MIT software",
+      "revision": "3e269346b3882c291d2a977bc2c2c6a9c9213c21",
+      "disposition": "Installed separately; notice included; sensory encoder with synthetic MiniFly groups only"
+    },
+    {
+      "id": "datamate",
+      "license": "MIT",
+      "version": "1.0.0",
+      "disposition": "Installed separately; full notice retained for Windows cache compatibility code"
+    }
+  ],
+  "preserved_files": [
+    {
+      "path": "camera_lab/biomapping/source/eyemap.RData",
+      "sha256": "c3f63c69afdc3f381cdafabb1d376b8e25ec5a71bce67550ae42fcdd79cf618e",
+      "source_url": "https://raw.githubusercontent.com/reiserlab/eyemap_T4/99d2a43123db636cedb55af9ff31a59657e7d17e/data/eyemap.RData"
+    },
+    {
+      "path": "camera_lab/biomapping/source/med_ixy.RData",
+      "sha256": "4c2430e8e2b8e488d2d26643e141b1622d46b464ea3f43b016d0cb0b27bd5ff7",
+      "source_url": "https://raw.githubusercontent.com/reiserlab/eyemap_T4/99d2a43123db636cedb55af9ff31a59657e7d17e/data/med_ixy.RData"
+    },
+    {
+      "path": "camera_lab/biomapping/source/LICENSE",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "source_url": "https://raw.githubusercontent.com/reiserlab/eyemap_T4/99d2a43123db636cedb55af9ff31a59657e7d17e/LICENSE"
+    },
+    {
+      "path": "camera_lab/biomapping/source/visualpathways/ME_columnar-cells_location.xlsx",
+      "sha256": "cabb48a8ab040a63c5d379e01bd4a9189b27b816add372d0a472187323e294be",
+      "source_url": "https://raw.githubusercontent.com/reiserlab/visualpathways/23f6ac131529b5f56894c6eeb9b88b17894fc00d/params/ME_columnar-cells_location.xlsx"
+    },
+    {
+      "path": "camera_lab/biomapping/source/visualpathways/LICENSE",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "source_url": "https://raw.githubusercontent.com/reiserlab/visualpathways/23f6ac131529b5f56894c6eeb9b88b17894fc00d/LICENSE"
+    },
+    {
+      "path": "camera_lab/biomapping/source/eyemap_archive/maps/eyemap_mcns_f20240701/pqxyztp_right.xlsx",
+      "sha256": "f78e2059a5dceaab9380fb0893fe88cc1b2902954d9d11165e174093587af793",
+      "source_url": "https://raw.githubusercontent.com/artxz/eyemap-archive/503c7f055d5491a48b60b49ade8c71798d24d8f1/maps/eyemap_mcns_f20240701/pqxyztp_right.xlsx"
+    },
+    {
+      "path": "camera_lab/biomapping/source/eyemap_archive/docs/data/eyemap_mcns_f20240701/right.csv",
+      "sha256": "c9ee7b14656dbd58acc853a849330b740e9a193bff23d8a3839485e9ad1cc67c",
+      "source_url": "https://raw.githubusercontent.com/artxz/eyemap-archive/503c7f055d5491a48b60b49ade8c71798d24d8f1/docs/data/eyemap_mcns_f20240701/right.csv"
+    },
+    {
+      "path": "camera_lab/biomapping/source/eyemap_archive/LICENSE",
+      "sha256": "9ca079480114e10adfc35d495618ec543662c75988786b386f21d8fced6cd871",
+      "source_url": "https://raw.githubusercontent.com/artxz/eyemap-archive/503c7f055d5491a48b60b49ade8c71798d24d8f1/LICENSE"
+    },
+    {
+      "path": "camera_lab/biomapping/source/eyemap_archive/README.md",
+      "sha256": "0c2fbb185d2650daf3c97ce068a6e5a774c78cd8f3e99cf4c520d51bcd9b6606",
+      "source_url": "https://raw.githubusercontent.com/artxz/eyemap-archive/503c7f055d5491a48b60b49ade8c71798d24d8f1/README.md"
+    },
+    {
+      "path": "camera_lab/data/ME_assigned_columns.csv",
+      "sha256": "649140bab99503d13136e7cbe60372d981e728505d5c8db0b82f0ef33cfd8c8a",
+      "source_url": "https://raw.githubusercontent.com/reiserlab/male-drosophila-visual-system-connectome-code/dbafc73124b5c96e96429cdf2a89d067cae841bc/results/exchange/ME_assigned_columns.csv"
+    },
+    {
+      "path": "tests/fixtures/brain_cpu/brain.js",
+      "sha256": "2dc6fdd9407c9dfb52eb8536a1192d3a320951dfa4e7777807c8657c4f4bf9c2",
+      "source_url": "https://huggingface.co/spaces/Xenova/fruit-fly-simulation/raw/776d115ee5aa934578a87fd6d260d138084f59c1/src/brain.js",
+      "normalize_lf": true
+    },
+    {
+      "path": "tests/fixtures/brain_cpu/LICENSE",
+      "sha256": "ea115798b167e6c995a322a3c9bb714f410df3a2ab49dcba166941ee347907bf",
+      "source_url": "https://huggingface.co/spaces/Xenova/fruit-fly-simulation/raw/776d115ee5aa934578a87fd6d260d138084f59c1/LICENSE",
+      "normalize_lf": true
+    },
+    {
+      "path": "LICENSES/Flyvis-MIT.txt",
+      "sha256": "1e0e24112aaccf40ab3c8fd78688628c73da5031d1d9aa4f890558a748e84f41",
+      "source_url": "https://raw.githubusercontent.com/TuragaLab/flyvis/92b3845cc426dd309a1a0e1b3890156c42e14021/license"
+    },
+    {
+      "path": "LICENSES/FlyDrones-MIT.txt",
+      "sha256": "67cc2f843c5662476b944c8d63bd1713b426ca317fbec7c3249d508a4266f40e",
+      "source_url": "https://raw.githubusercontent.com/SpikeCalls/FlyDrones/3e269346b3882c291d2a977bc2c2c6a9c9213c21/LICENSE"
+    },
+    {
+      "path": "LICENSES/datamate-MIT.txt",
+      "sha256": "8cda374d6df54016cec5640135dc7dca240572ce5b38a901e33299a9eed6aff4",
+      "source_url": null,
+      "source_note": "datamate 1.0.0 installed distribution METADATA License field"
+    },
+    {
+      "path": "LICENSES/CC-BY-SA-4.0.txt",
+      "sha256": "cde7883b9050a1104f4ac19a1572aafd6e5d7323b68351aaf51fbf4beba54966",
+      "source_url": "https://raw.githubusercontent.com/spdx/license-list-data/31ba1a50e5397e00a304dbadc76531740e89ee48/text/CC-BY-SA-4.0.txt"
+    }
+  ],
+  "reviewed_binary_files": [
+    "camera_lab/biomapping/source/eyemap.RData",
+    "camera_lab/biomapping/source/eyemap_archive/maps/eyemap_mcns_f20240701/pqxyztp_right.xlsx",
+    "camera_lab/biomapping/source/med_ixy.RData",
+    "camera_lab/biomapping/source/visualpathways/ME_columnar-cells_location.xlsx",
+    "reports/benchmark/spatial_weights.npz",
+    "reports/physiology/per_fly.png",
+    "reports/physiology/population.png",
+    "reports/physiology/response_traces.npz",
+    "reports/screen/calibrated_temporal.png"
+  ]
+}

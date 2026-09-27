@@ -1,0 +1,898 @@
+[
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flyvis",
+    "channel": "L1",
+    "response_first": 0.0070719956420362,
+    "response_second": 0.008096063509583473,
+    "contrast": -0.06751475962156449
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flyvis",
+    "channel": "L2",
+    "response_first": 0.00813361443579197,
+    "response_second": 0.008012229576706886,
+    "contrast": 0.007518025009477132
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flyvis",
+    "channel": "Mi1",
+    "response_first": 0.056867193430662155,
+    "response_second": 0.060089558362960815,
+    "contrast": -0.02755176492918264
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flyvis",
+    "channel": "Tm1",
+    "response_first": 0.02000460959970951,
+    "response_second": 0.023172589018940926,
+    "contrast": -0.07337158316387397
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flyvis",
+    "channel": "T4a",
+    "response_first": 0.053478680551052094,
+    "response_second": 0.042151469737291336,
+    "contrast": 0.11844811264655573
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flyvis",
+    "channel": "T4b",
+    "response_first": 0.14528177678585052,
+    "response_second": 0.07563798129558563,
+    "contrast": 0.31524475716921874
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flyvis",
+    "channel": "T4c",
+    "response_first": 0.04743799567222595,
+    "response_second": 0.07892056554555893,
+    "contrast": -0.2491526460092506
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flyvis",
+    "channel": "T4d",
+    "response_first": 0.005340923555195332,
+    "response_second": 0.01733991503715515,
+    "contrast": -0.529036500705344
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flyvis",
+    "channel": "T5a",
+    "response_first": 0.08547470718622208,
+    "response_second": 0.02916339412331581,
+    "contrast": 0.491209400885473
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flyvis",
+    "channel": "T5b",
+    "response_first": 0.07139109075069427,
+    "response_second": 0.024151768535375595,
+    "contrast": 0.4944306939137854
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flyvis",
+    "channel": "T5c",
+    "response_first": 0.16132834553718567,
+    "response_second": 0.07144112884998322,
+    "contrast": 0.3861641090347256
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flyvis",
+    "channel": "T5d",
+    "response_first": 0.1474090814590454,
+    "response_second": 0.03874707221984863,
+    "contrast": 0.5837143016321175
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "R16_L",
+    "response_first": 0.018061351776123048,
+    "response_second": 0.018061351776123048,
+    "contrast": 0.0
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "R16_R",
+    "response_first": 0.01806488037109375,
+    "response_second": 0.01806488037109375,
+    "contrast": 0.0
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "T4a_L",
+    "response_first": 1.5,
+    "response_second": 49.44760713577271,
+    "contrast": -0.9411159783813761
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "T4a_R",
+    "response_first": 49.476591396331784,
+    "response_second": 1.5,
+    "contrast": 0.9411494586470943
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "T4b_L",
+    "response_first": 49.49778356552124,
+    "response_second": 1.5,
+    "contrast": 0.9411739140359768
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "T4b_R",
+    "response_first": 1.5,
+    "response_second": 49.509349250793456,
+    "contrast": -0.941187252061379
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "T4c_L",
+    "response_first": 0.03560091878462117,
+    "response_second": 0.0355553338653408,
+    "contrast": 0.000640631252809415
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "T4c_R",
+    "response_first": 0.23160667691845446,
+    "response_second": 0.22999028558842838,
+    "contrast": 0.0035017373624983126
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "T4d_L",
+    "response_first": 0.07882054977817461,
+    "response_second": 0.07876333038730081,
+    "contrast": 0.0003631043404548609
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "T4d_R",
+    "response_first": 0.24078678088262678,
+    "response_second": 0.24228260705713184,
+    "contrast": -0.0030965037567058434
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "LPLC2_L",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "LPLC2_R",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "LC4_L",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "LC4_R",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "HAL_L",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "grating_right/grating_left",
+    "model": "flydrones",
+    "channel": "HAL_R",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flyvis",
+    "channel": "L1",
+    "response_first": 0.3146970272064209,
+    "response_second": 0.31462377309799194,
+    "contrast": 0.00011640185481477945
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flyvis",
+    "channel": "L2",
+    "response_first": 0.33145588636398315,
+    "response_second": 0.3315924108028412,
+    "contrast": -0.0002059042145819468
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flyvis",
+    "channel": "Mi1",
+    "response_first": 0.21154721081256866,
+    "response_second": 0.21452006697654724,
+    "contrast": -0.006977433656498743
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flyvis",
+    "channel": "Tm1",
+    "response_first": 0.038057003170251846,
+    "response_second": 0.03685236722230911,
+    "contrast": 0.01608124513168199
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flyvis",
+    "channel": "T4a",
+    "response_first": 0.2027667760848999,
+    "response_second": 0.23254287242889404,
+    "contrast": -0.06840210513516932
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flyvis",
+    "channel": "T4b",
+    "response_first": 0.16206851601600647,
+    "response_second": 0.1454356610774994,
+    "contrast": 0.05408985040697305
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flyvis",
+    "channel": "T4c",
+    "response_first": 0.15786024928092957,
+    "response_second": 0.13906118273735046,
+    "contrast": 0.06331326915607
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flyvis",
+    "channel": "T4d",
+    "response_first": 0.045869093388319016,
+    "response_second": 0.04554713889956474,
+    "contrast": 0.0035218525276822644
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flyvis",
+    "channel": "T5a",
+    "response_first": 0.1079363077878952,
+    "response_second": 0.12305240333080292,
+    "contrast": -0.06544084111166805
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flyvis",
+    "channel": "T5b",
+    "response_first": 0.06945271044969559,
+    "response_second": 0.07884539663791656,
+    "contrast": -0.0633365210971434
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flyvis",
+    "channel": "T5c",
+    "response_first": 0.10368716716766357,
+    "response_second": 0.1376231163740158,
+    "contrast": -0.14063200584856458
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flyvis",
+    "channel": "T5d",
+    "response_first": 0.14830449223518372,
+    "response_second": 0.22728534042835236,
+    "contrast": -0.21028484086767574
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "R16_L",
+    "response_first": 11.2941237449646,
+    "response_second": 11.296583163738251,
+    "contrast": -0.00010886860617472408
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "R16_R",
+    "response_first": 11.290051066875458,
+    "response_second": 11.296906971931458,
+    "contrast": -0.00030353379344932353
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "T4a_L",
+    "response_first": 0.16600776666236924,
+    "response_second": 11.416034424304963,
+    "contrast": -0.9713335931737779
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "T4a_R",
+    "response_first": 11.53307366282679,
+    "response_second": 0.2673773002632515,
+    "contrast": 0.9546835453832118
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "T4b_L",
+    "response_first": 11.764103376865387,
+    "response_second": 0.13748539805819746,
+    "contrast": 0.9768962949975424
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "T4b_R",
+    "response_first": 0.2725938724040645,
+    "response_second": 11.89767361928077,
+    "contrast": -0.9552033063216876
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "T4c_L",
+    "response_first": 0.4185196474660188,
+    "response_second": 0.6054331292863935,
+    "contrast": -0.1825411152389205
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "T4c_R",
+    "response_first": 1.618136768345721,
+    "response_second": 2.3239812787564005,
+    "contrast": -0.17905209889124213
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "T4d_L",
+    "response_first": 0.703201516228728,
+    "response_second": 1.101642973907292,
+    "contrast": -0.2207622096286733
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "T4d_R",
+    "response_first": 0.8307726806204301,
+    "response_second": 1.2836809514672496,
+    "contrast": -0.21419635974691303
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "LPLC2_L",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "LPLC2_R",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "LC4_L",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "LC4_R",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "HAL_L",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "edge_right/edge_left",
+    "model": "flydrones",
+    "channel": "HAL_R",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flyvis",
+    "channel": "L1",
+    "response_first": 0.3469772934913635,
+    "response_second": 0.3469499945640564,
+    "contrast": 3.9339751840035295e-05
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flyvis",
+    "channel": "L2",
+    "response_first": 0.36569246649742126,
+    "response_second": 0.36604756116867065,
+    "contrast": -0.00048527435677118194
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flyvis",
+    "channel": "Mi1",
+    "response_first": 0.23509100079536438,
+    "response_second": 0.2366752177476883,
+    "contrast": -0.0033580550918131083
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flyvis",
+    "channel": "Tm1",
+    "response_first": 0.03934795409440994,
+    "response_second": 0.04016585275530815,
+    "contrast": -0.010286247046931679
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flyvis",
+    "channel": "T4a",
+    "response_first": 0.2327064722776413,
+    "response_second": 0.23917922377586365,
+    "contrast": -0.013716778347713333
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flyvis",
+    "channel": "T4b",
+    "response_first": 0.16531077027320862,
+    "response_second": 0.1603551208972931,
+    "contrast": 0.015216973930257276
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flyvis",
+    "channel": "T4c",
+    "response_first": 0.14811532199382782,
+    "response_second": 0.1461717039346695,
+    "contrast": 0.006604497948987274
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flyvis",
+    "channel": "T4d",
+    "response_first": 0.05774631351232529,
+    "response_second": 0.05771602317690849,
+    "contrast": 0.00026233953239938396
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flyvis",
+    "channel": "T5a",
+    "response_first": 0.08746284991502762,
+    "response_second": 0.08829887211322784,
+    "contrast": -0.004756565812810066
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flyvis",
+    "channel": "T5b",
+    "response_first": 0.07124050706624985,
+    "response_second": 0.07756312936544418,
+    "contrast": -0.04248970287830725
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flyvis",
+    "channel": "T5c",
+    "response_first": 0.09595085680484772,
+    "response_second": 0.17445842921733856,
+    "contrast": -0.2903286849625775
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flyvis",
+    "channel": "T5d",
+    "response_first": 0.2683712840080261,
+    "response_second": 0.20669026672840118,
+    "contrast": 0.12983794875423768
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "R16_L",
+    "response_first": 7.531479549407959,
+    "response_second": 7.529401099681854,
+    "contrast": 0.00013800320011372495
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "R16_R",
+    "response_first": 7.5314796447753904,
+    "response_second": 7.529410016536713,
+    "contrast": 0.00013741739599845907
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "T4a_L",
+    "response_first": 0.22298730274196715,
+    "response_second": 0.4848087129648775,
+    "contrast": -0.36991082799673697
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "T4a_R",
+    "response_first": 0.37916055996902287,
+    "response_second": 0.8010044651106,
+    "contrast": -0.3574448455741317
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "T4b_L",
+    "response_first": 0.19788045017048717,
+    "response_second": 0.5117430947721004,
+    "contrast": -0.44229457553723994
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "T4b_R",
+    "response_first": 0.3916562135796994,
+    "response_second": 0.9075406450778246,
+    "contrast": -0.3970794941970495
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "T4c_L",
+    "response_first": 0.3763139831661551,
+    "response_second": 24.66215798854828,
+    "contrast": -0.9699411382938007
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "T4c_R",
+    "response_first": 1.494932178556701,
+    "response_second": 25.773194313049316,
+    "contrast": -0.890353143328942
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "T4d_L",
+    "response_first": 24.938768720626832,
+    "response_second": 0.6479592506107906,
+    "contrast": 0.9493519256280702
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "T4d_R",
+    "response_first": 24.97484426498413,
+    "response_second": 0.6594504471737309,
+    "contrast": 0.9485493590068645
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "LPLC2_L",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "LPLC2_R",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "LC4_L",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "LC4_R",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "HAL_L",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "edge_down/edge_up",
+    "model": "flydrones",
+    "channel": "HAL_R",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flyvis",
+    "channel": "L1",
+    "response_first": 0.11840160936117172,
+    "response_second": 0.15261659026145935,
+    "contrast": -0.1262460637253475
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flyvis",
+    "channel": "L2",
+    "response_first": 0.1257183998823166,
+    "response_second": 0.15765459835529327,
+    "contrast": -0.11270021728110453
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flyvis",
+    "channel": "Mi1",
+    "response_first": 0.07350002229213715,
+    "response_second": 0.061830274760723114,
+    "contrast": 0.08623159621718562
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flyvis",
+    "channel": "Tm1",
+    "response_first": 0.017353560775518417,
+    "response_second": 0.018930068239569664,
+    "contrast": -0.04344955305864461
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flyvis",
+    "channel": "T4a",
+    "response_first": 0.04366122931241989,
+    "response_second": 0.07345158606767654,
+    "contrast": -0.2543731585528904
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flyvis",
+    "channel": "T4b",
+    "response_first": 0.019870614632964134,
+    "response_second": 0.0657164603471756,
+    "contrast": -0.5356631912569728
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flyvis",
+    "channel": "T4c",
+    "response_first": 0.016307303681969643,
+    "response_second": 0.06258596479892731,
+    "contrast": -0.5865983499994487
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flyvis",
+    "channel": "T4d",
+    "response_first": 0.014659357257187366,
+    "response_second": 0.013180190697312355,
+    "contrast": 0.05313184547006745
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flyvis",
+    "channel": "T5a",
+    "response_first": 0.0167238749563694,
+    "response_second": 0.08423833549022675,
+    "contrast": -0.6687102058801402
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flyvis",
+    "channel": "T5b",
+    "response_first": 0.017259111627936363,
+    "response_second": 0.07809136807918549,
+    "contrast": -0.6379858458824879
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flyvis",
+    "channel": "T5c",
+    "response_first": 0.011107942089438438,
+    "response_second": 0.08295661211013794,
+    "contrast": -0.7638230004073423
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flyvis",
+    "channel": "T5d",
+    "response_first": 0.0498230941593647,
+    "response_second": 0.07367053627967834,
+    "contrast": -0.19310665688207165
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "R16_L",
+    "response_first": 2.3911452293395996,
+    "response_second": 2.5650481939315797,
+    "contrast": -0.03508801003920483
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "R16_R",
+    "response_first": 2.410523271560669,
+    "response_second": 2.5852545261383058,
+    "contrast": -0.03497578588425548
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "T4a_L",
+    "response_first": 16.284706777334215,
+    "response_second": 1.0056499468346203,
+    "contrast": 0.8836750492916204
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "T4a_R",
+    "response_first": 16.194751185178756,
+    "response_second": 1.0347267792686807,
+    "contrast": 0.8798887834670543
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "T4b_L",
+    "response_first": 0.19217480710156565,
+    "response_second": 17.49886491894722,
+    "contrast": -0.9782743343435488
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "T4b_R",
+    "response_first": 0.21732497597452038,
+    "response_second": 17.48999598622322,
+    "contrast": -0.9754536582424327
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "T4c_L",
+    "response_first": 5.04165089726448,
+    "response_second": 5.7821471929550174,
+    "contrast": -0.06841372035197679
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "T4c_R",
+    "response_first": 5.095707193017006,
+    "response_second": 5.936276964843273,
+    "contrast": -0.07619388858778972
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "T4d_L",
+    "response_first": 5.029770272970199,
+    "response_second": 5.81571709215641,
+    "contrast": -0.07246763494588566
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "T4d_R",
+    "response_first": 5.089110668003559,
+    "response_second": 5.90137051641941,
+    "contrast": -0.07390575851829706
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "LPLC2_L",
+    "response_first": 3.3161663591861723,
+    "response_second": 0.3057135820388794,
+    "contrast": 0.8311851375529163
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "LPLC2_R",
+    "response_first": 3.4044286906719208,
+    "response_second": 0.31193952560424804,
+    "contrast": 0.8321266852740368
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "LC4_L",
+    "response_first": 6.030143547058105,
+    "response_second": 0.6878555297851563,
+    "contrast": 0.7952201178007978
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "LC4_R",
+    "response_first": 6.129652798175812,
+    "response_second": 0.7018639087677002,
+    "contrast": 0.7945217910235569
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "HAL_L",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  },
+  {
+    "pair": "loom/recede",
+    "model": "flydrones",
+    "channel": "HAL_R",
+    "response_first": 0.0,
+    "response_second": 0.0,
+    "contrast": null
+  }
+]

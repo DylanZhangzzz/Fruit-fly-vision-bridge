@@ -1,0 +1,12 @@
+{
+  "scope": "Synthetic-only source/report publication; no model weights or camera recording",
+  "numerical_report_preserved": true,
+  "original_execution_code_sha256": {
+    "benchmark.py": "896166ffdebca6a66ab292dae7e31e1362fbb14ecca4bc5988769f92a1acd6c1",
+    "benchmark_adapters.py": "e6ce1c694ea5ceb058833924c54c752c6b87fb2778686641c716f6b2a4ba06d7",
+    "benchmark_core.py": "da109d54a7e5fec249ef4e98fce114e5fb0b7879c0d0d9cbd0c45fd2ae6bd910"
+  },
+  "export_code_sha256": "632e7a1ac50c81b38cfafad88a059a2e21e91c64f5ee7b08613f665ed05f94b6",
+  "render_code_sha256": "f0822f74f1bfaf6c586b0dded07114671c9924036ef2f5772ef79ad51b5587e9",
+  "licensing": "Project code GPL-3.0-only; source-specific GPL-3.0 and CC-BY-SA-4.0 mapping components; see THIRD_PARTY_NOTICES.md"
+}

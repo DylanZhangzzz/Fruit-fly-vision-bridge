@@ -19,6 +19,8 @@ The recurrent model improves over a separately fitted feedback-free model for 11
 
 ## Try it without hardware
 
+The new [frozen offline comparison](docs/benchmark.md) runs identical flashes, gratings, moving edges and expansion/contraction through the L2 baseline, official FlyDrones sensory encoder and a checksum-verified pretrained Flyvis network. [Open the archived synthetic report](reports/benchmark/index.html) after cloning. Flyvis L2 can also be read out at projected MaleCNS image positions; this is image-space interpolation, not a validated neuron identity map. These are predictions and engineering diagnostics, not new live-fly validation.
+
 Requires Python 3.11+; Python 3.12 on Windows was used for the clean installation check. From a clone:
 
 ```sh
@@ -93,3 +95,5 @@ Contributions and questions are welcome in [Issues](https://github.com/DylanZhan
 ## Sources and licensing
 
 Project code is GPL-3.0-only. Third-party files and derived data retain their stated terms, including GPL-3.0 and CC BY-SA 4.0 for mapping resources; the public Dryad physiology dataset is CC0. Do not apply the code license to every data file. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), [sources](docs/sources.md) and [CITATION.cff](CITATION.cff). This is an independent integration and validation project; upstream authors did not validate this bridge.
+
+The [source-publication rights review](docs/license-review.md) documents verified licenses, fixes and unresolved author-code/model-weight boundaries. It is not a legal non-infringement guarantee. Package metadata uses `GPL-3.0-only AND CC-BY-SA-4.0` for the mixed code/data collection; this does not change the original code license.

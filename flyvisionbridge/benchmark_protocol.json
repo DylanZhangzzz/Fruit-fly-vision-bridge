@@ -1,0 +1,50 @@
+{
+  "version": "1.1",
+  "revision_note": "Only L2 integration accuracy refined from 1 ms to 0.25 ms after a numerical convergence check; stimulus, model parameters and diagnostic definitions unchanged. Earlier runs retained under outputs.",
+  "scope": "Frozen engineering response benchmark; predictions, not new biological validation",
+  "seed": 20260927,
+  "frame_dt_s": 0.02,
+  "duration_s": 1.6,
+  "onset_s": 0.4,
+  "offset_s": 1.2,
+  "synthetic_width": 416,
+  "synthetic_height": 416,
+  "synthetic_horizontal_fov_degrees": 90,
+  "background_code": 128,
+  "dark_code": 32,
+  "light_code": 224,
+  "stripe_period_pixels": 104,
+  "motion_pixels_per_second": 130,
+  "cases": ["static", "flash_dark_20ms", "flash_light_20ms", "flash_dark_200ms", "flash_light_200ms", "grating_right", "grating_left", "edge_right", "edge_left", "edge_down", "edge_up", "loom", "recede"],
+  "repeat_runs": 2,
+  "torch_threads": 4,
+  "flyvis": {
+    "model_id": "flow/0000/000",
+    "selection": "Lexicographically first official pretrained model, selected before benchmark outcomes; not an ensemble result",
+    "boxeye_extent": 15,
+    "boxeye_kernel_size": 13,
+    "baseline_settle_s": 1.0,
+    "output_types": ["L1", "L2", "Mi1", "Tm1", "T4a", "T4b", "T4c", "T4d", "T5a", "T5b", "T5c", "T5d"]
+  },
+  "l2": {
+    "parameter_origin": "Published rounded parameters already used by validate_l2_dynamics.py; no fit to this benchmark",
+    "tv_s": 0.0131, "ty_s": 0.5613, "feedback_w": 12.7118,
+    "asymmetry_g": 0.1686, "light_drive": 5.6441, "dark_drive": 3.4075,
+    "integration_max_step_s": 0.00025,
+    "input": "(weighted RGB code - 128/255)/(128/255); code contrast proxy, not photon contrast",
+    "output": "v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",
+    "frame_convention": "Zero-order-held frame on [t,t+dt); output at t+dt"
+  },
+  "flydrones": {
+    "scope": "Official Retina plus InputEncoder only; MiniFly provides group indices, no spiking network or motor simulation",
+    "config": "Upstream defaults.yaml unchanged; IMU yaw supplied as zero for synthetic stimuli"
+  },
+  "spatial_adapter": {
+    "method": "Project published MaleCNS rays with explicit intrinsics, interpolate Flyvis L2 at corresponding IMAGE positions using Delaunay weights within native BoxEye hull",
+    "interpretation": "Image-space alignment only; NOT a verified Flyvis-to-MaleCNS cell identity map",
+    "unknown_policy": "Missing directions, outside camera and outside Flyvis hull stay NaN/null; no black or zero replacement",
+    "optics": "Native frontends retained: L2 center-ray bilinear sample, Flyvis 13x13 box, FlyDrones resized grids. Same RGB movies, different sampling footprints."
+  },
+  "metrics": ["finite fraction of supported outputs", "repeat maximum absolute difference in each native unit", "baseline-subtracted peak magnitude and time for flash", "direction-pair contrast of fixed channels", "wall time including native preprocessing, excluding initialization and file I/O"],
+  "interpretation_rules": ["No cross-model raw amplitude RMSE", "Direction readouts are diagnostics, not fitted classifiers", "L2 direction/loom selectivity and FlyDrones L2 physiology are not covered", "Software runtime is not neural latency or a full-brain speed ranking", "Synthetic stimuli have no measured neural ground truth", "Existing recordings are engineering replay, not independent physiology", "No full-brain injection or conversion from model states to Hz"]
+}

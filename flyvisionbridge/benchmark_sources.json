@@ -1,0 +1,6 @@
+{
+  "baseline_commit": "3f60f3e",
+  "flyvis": {"repository": "https://github.com/TuragaLab/flyvis", "commit": "92b3845cc426dd309a1a0e1b3890156c42e14021", "license": "MIT"},
+  "flydrones": {"repository": "https://github.com/SpikeCalls/FlyDrones", "commit": "3e269346b3882c291d2a977bc2c2c6a9c9213c21", "license": "MIT"},
+  "pretrained_archive": {"file_id": "13cJr2nMn89j-jBAd5RduYRJpBcXwoNrC", "name": "results_pretrained_models.zip", "sha256": "71c78d4070556a536b13b23ee3139cd2788aa2a9d07d430a223b4edead281db1", "source": "Author download_pretrained_models.py at pinned Flyvis commit", "redistribution": "Not bundled; download separately from the author"}
+}

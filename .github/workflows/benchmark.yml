@@ -1,0 +1,26 @@
+name: Offline visual benchmark
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-benchmark.txt
+      - run: python -m pip install -e . -r requirements-benchmark.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/audit_licenses.py
+      - run: python scripts/fetch_benchmark_models.py
+      - run: python -m flyvisionbridge.benchmark --flyvis-root outputs/flyvis-data --output outputs/benchmark
+      - run: python scripts/export_benchmark_report.py outputs/benchmark outputs/benchmark-public
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frozen-visual-benchmark
+          path: outputs/benchmark-public/

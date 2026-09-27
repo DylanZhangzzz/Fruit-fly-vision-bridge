@@ -1,0 +1,972 @@
+{
+  "status": "COMPLETED_PREDICTIONS_AND_ENGINEERING_DIAGNOSTICS",
+  "protocol": {
+    "version": "1.1",
+    "revision_note": "Only L2 integration accuracy refined from 1 ms to 0.25 ms after a numerical convergence check; stimulus, model parameters and diagnostic definitions unchanged. Earlier runs retained under outputs.",
+    "scope": "Frozen engineering response benchmark; predictions, not new biological validation",
+    "seed": 20260927,
+    "frame_dt_s": 0.02,
+    "duration_s": 1.6,
+    "onset_s": 0.4,
+    "offset_s": 1.2,
+    "synthetic_width": 416,
+    "synthetic_height": 416,
+    "synthetic_horizontal_fov_degrees": 90,
+    "background_code": 128,
+    "dark_code": 32,
+    "light_code": 224,
+    "stripe_period_pixels": 104,
+    "motion_pixels_per_second": 130,
+    "cases": [
+      "static",
+      "flash_dark_20ms",
+      "flash_light_20ms",
+      "flash_dark_200ms",
+      "flash_light_200ms",
+      "grating_right",
+      "grating_left",
+      "edge_right",
+      "edge_left",
+      "edge_down",
+      "edge_up",
+      "loom",
+      "recede"
+    ],
+    "repeat_runs": 2,
+    "torch_threads": 4,
+    "flyvis": {
+      "model_id": "flow/0000/000",
+      "selection": "Lexicographically first official pretrained model, selected before benchmark outcomes; not an ensemble result",
+      "boxeye_extent": 15,
+      "boxeye_kernel_size": 13,
+      "baseline_settle_s": 1.0,
+      "output_types": [
+        "L1",
+        "L2",
+        "Mi1",
+        "Tm1",
+        "T4a",
+        "T4b",
+        "T4c",
+        "T4d",
+        "T5a",
+        "T5b",
+        "T5c",
+        "T5d"
+      ]
+    },
+    "l2": {
+      "parameter_origin": "Published rounded parameters already used by validate_l2_dynamics.py; no fit to this benchmark",
+      "tv_s": 0.0131,
+      "ty_s": 0.5613,
+      "feedback_w": 12.7118,
+      "asymmetry_g": 0.1686,
+      "light_drive": 5.6441,
+      "dark_drive": 3.4075,
+      "integration_max_step_s": 0.00025,
+      "input": "(weighted RGB code - 128/255)/(128/255); code contrast proxy, not photon contrast",
+      "output": "v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",
+      "frame_convention": "Zero-order-held frame on [t,t+dt); output at t+dt"
+    },
+    "flydrones": {
+      "scope": "Official Retina plus InputEncoder only; MiniFly provides group indices, no spiking network or motor simulation",
+      "config": "Upstream defaults.yaml unchanged; IMU yaw supplied as zero for synthetic stimuli"
+    },
+    "spatial_adapter": {
+      "method": "Project published MaleCNS rays with explicit intrinsics, interpolate Flyvis L2 at corresponding IMAGE positions using Delaunay weights within native BoxEye hull",
+      "interpretation": "Image-space alignment only; NOT a verified Flyvis-to-MaleCNS cell identity map",
+      "unknown_policy": "Missing directions, outside camera and outside Flyvis hull stay NaN/null; no black or zero replacement",
+      "optics": "Native frontends retained: L2 center-ray bilinear sample, Flyvis 13x13 box, FlyDrones resized grids. Same RGB movies, different sampling footprints."
+    },
+    "metrics": [
+      "finite fraction of supported outputs",
+      "repeat maximum absolute difference in each native unit",
+      "baseline-subtracted peak magnitude and time for flash",
+      "direction-pair contrast of fixed channels",
+      "wall time including native preprocessing, excluding initialization and file I/O"
+    ],
+    "interpretation_rules": [
+      "No cross-model raw amplitude RMSE",
+      "Direction readouts are diagnostics, not fitted classifiers",
+      "L2 direction/loom selectivity and FlyDrones L2 physiology are not covered",
+      "Software runtime is not neural latency or a full-brain speed ranking",
+      "Synthetic stimuli have no measured neural ground truth",
+      "Existing recordings are engineering replay, not independent physiology",
+      "No full-brain injection or conversion from model states to Hz"
+    ]
+  },
+  "protocol_sha256": "56021e1bed1337a7d5a90ea3bd2bc57d1aef7f1018ce2c563ee2084160469a63",
+  "run_protocol_sha256": "5373f5d3ab96600ff4f433fbcd0831716993c86c5ca0b11f96fe4e28ee10ade2",
+  "mapping_sha256": "b3a406fd9a9ad80641499b97ee11005f34cdda4fd8e6f5b4e858ab6dbf357932",
+  "sources": {
+    "baseline_commit": "3f60f3e",
+    "flyvis": {
+      "repository": "https://github.com/TuragaLab/flyvis",
+      "commit": "92b3845cc426dd309a1a0e1b3890156c42e14021",
+      "license": "MIT"
+    },
+    "flydrones": {
+      "repository": "https://github.com/SpikeCalls/FlyDrones",
+      "commit": "3e269346b3882c291d2a977bc2c2c6a9c9213c21",
+      "license": "MIT"
+    },
+    "pretrained_archive": {
+      "file_id": "13cJr2nMn89j-jBAd5RduYRJpBcXwoNrC",
+      "name": "results_pretrained_models.zip",
+      "sha256": "71c78d4070556a536b13b23ee3139cd2788aa2a9d07d430a223b4edead281db1",
+      "source": "Author download_pretrained_models.py at pinned Flyvis commit",
+      "redistribution": "Not bundled; download separately from the author"
+    }
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "platform": "Windows",
+    "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+    "packages": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "torch": "2.14.0",
+      "torchvision": "0.29.0",
+      "flyvis": "1.2.0",
+      "flydrones": "0.1.0",
+      "datamate": "1.0.0",
+      "h5py": "3.16.0"
+    }
+  },
+  "models": {
+    "flyvis": {
+      "version": "1.2.0",
+      "revision": "92b3845cc426dd309a1a0e1b3890156c42e14021",
+      "checkpoint_sha256": "d8a57a022aa18ca338599be713af9db29b89cde4b00098ffe42b78f0d583e46a",
+      "config_sha256": "2aa8a9505324c82bbb4011ee2f7c375b5f8b1bddde1a5281e038baecf91fc5dd",
+      "model_id": "flow/0000/000",
+      "node_count": 45669,
+      "edge_count": 1513231,
+      "unit": "native model voltage-state, arbitrary units; not mV, Hz or dF/F",
+      "compatibility": "datamate-1.0.0 Windows process-local context-managed HDF5 cache writer",
+      "device": "cpu",
+      "threads": 4,
+      "source_files": {
+        "network/network.py": "c8d0254936d256aafeb12f9a528979692c8eba4d13d20f4c1e1ec0dca4f46683",
+        "network/dynamics.py": "8721831772f871596d1d25ead878ab650a4a1da5adc648ab40721733d03cbd39",
+        "datasets/rendering/eye.py": "3df1858641031844596c8fb769527cc9c786c1332c0e9b9e81bdee1b6b3a7702",
+        "connectome/fib25-fib19_v2.2.json": "6779065467f70cef14e8f2f1005efd4830fd29c00795c103756a6af60607f825"
+      }
+    },
+    "flydrones": {
+      "version": "0.1.0",
+      "revision": "3e269346b3882c291d2a977bc2c2c6a9c9213c21",
+      "unit": "engineered Poisson input rate Hz; not recorded neural firing",
+      "scope": "Official Retina plus InputEncoder only; MiniFly provides group indices, no spiking network or motor simulation",
+      "source_files": {
+        "senses/retina.py": "ed34e1e1e8c7ef839a3a874cf34574746438efe65f5bddac45c2c4ff34c6e11e",
+        "senses/encoder.py": "f5e7a1351c297157ba45d2166937f96442053f19236dcdd511cd9c3edfbde3bf",
+        "brain/synthetic.py": "b3004ab2ce7e37d4541af4e6f68edfcbe386eafcab8729dc1f13d10bd47d6506",
+        "defaults.yaml": "efc9d24cd9654dcb99fe4acf3dd49f23fda288ac1bb771a7fb9018c6aa1391bd"
+      }
+    },
+    "l2": {
+      "parameter_origin": "Published rounded parameters already used by validate_l2_dynamics.py; no fit to this benchmark",
+      "tv_s": 0.0131,
+      "ty_s": 0.5613,
+      "feedback_w": 12.7118,
+      "asymmetry_g": 0.1686,
+      "light_drive": 5.6441,
+      "dark_drive": 3.4075,
+      "integration_max_step_s": 0.00025,
+      "input": "(weighted RGB code - 128/255)/(128/255); code contrast proxy, not photon contrast",
+      "output": "v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",
+      "frame_convention": "Zero-order-held frame on [t,t+dt); output at t+dt"
+    }
+  },
+  "cases": [
+    {
+      "case": "static",
+      "input_rgb_sha256": "cec3876abd1ac6a399a2d1bf04a0a301906c4e07c1ea21577c7d071711a1e99d",
+      "input_shape": [
+        80,
+        416,
+        416,
+        3
+      ],
+      "source": {
+        "kind": "SYNTHETIC"
+      },
+      "intrinsics": {
+        "width": 416,
+        "height": 416,
+        "fx": 208.00000000000003,
+        "fy": 208.00000000000003,
+        "ppx": 207.5,
+        "ppy": 207.5,
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source": "SYNTHETIC_ASSUMED_PINHOLE"
+      },
+      "camera_observed_columns": 252,
+      "flyvis_interpolated_columns": 217,
+      "models": {
+        "l2": {
+          "wall_seconds": [
+            0.3796085999929346,
+            0.37750090000918135
+          ],
+          "mean_wall_seconds": 0.378554750001058,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flyvis": {
+          "wall_seconds": [
+            0.32663120003417134,
+            0.28245719999540597
+          ],
+          "mean_wall_seconds": 0.30454420001478866,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flydrones": {
+          "wall_seconds": [
+            0.14947679999750108,
+            0.14056789997266605
+          ],
+          "mean_wall_seconds": 0.14502234998508357,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        }
+      }
+    },
+    {
+      "case": "flash_dark_20ms",
+      "input_rgb_sha256": "29b5083dafc1ba8d67fc77c7a93877a482e030cabdd1236efed39e575623ac65",
+      "input_shape": [
+        80,
+        416,
+        416,
+        3
+      ],
+      "source": {
+        "kind": "SYNTHETIC"
+      },
+      "intrinsics": {
+        "width": 416,
+        "height": 416,
+        "fx": 208.00000000000003,
+        "fy": 208.00000000000003,
+        "ppx": 207.5,
+        "ppy": 207.5,
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source": "SYNTHETIC_ASSUMED_PINHOLE"
+      },
+      "camera_observed_columns": 252,
+      "flyvis_interpolated_columns": 217,
+      "models": {
+        "l2": {
+          "wall_seconds": [
+            0.3810733999707736,
+            0.3921802999684587
+          ],
+          "mean_wall_seconds": 0.38662684996961616,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flyvis": {
+          "wall_seconds": [
+            0.29563070001313463,
+            0.2729244999936782
+          ],
+          "mean_wall_seconds": 0.2842776000034064,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flydrones": {
+          "wall_seconds": [
+            0.15132539998739958,
+            0.14253770001232624
+          ],
+          "mean_wall_seconds": 0.1469315499998629,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        }
+      }
+    },
+    {
+      "case": "flash_light_20ms",
+      "input_rgb_sha256": "45958eef5a0715825f63b385602c30e36cc19051e930112b94be38382d93073c",
+      "input_shape": [
+        80,
+        416,
+        416,
+        3
+      ],
+      "source": {
+        "kind": "SYNTHETIC"
+      },
+      "intrinsics": {
+        "width": 416,
+        "height": 416,
+        "fx": 208.00000000000003,
+        "fy": 208.00000000000003,
+        "ppx": 207.5,
+        "ppy": 207.5,
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source": "SYNTHETIC_ASSUMED_PINHOLE"
+      },
+      "camera_observed_columns": 252,
+      "flyvis_interpolated_columns": 217,
+      "models": {
+        "l2": {
+          "wall_seconds": [
+            0.384990899998229,
+            0.3800341000314802
+          ],
+          "mean_wall_seconds": 0.3825125000148546,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flyvis": {
+          "wall_seconds": [
+            0.30544650001684204,
+            0.2591952999937348
+          ],
+          "mean_wall_seconds": 0.2823209000052884,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flydrones": {
+          "wall_seconds": [
+            0.14548479998484254,
+            0.13809660001425073
+          ],
+          "mean_wall_seconds": 0.14179069999954663,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        }
+      }
+    },
+    {
+      "case": "flash_dark_200ms",
+      "input_rgb_sha256": "44cbf412a8120d33ee21f130959ed31769043a11506e827425c1a496c602c55a",
+      "input_shape": [
+        80,
+        416,
+        416,
+        3
+      ],
+      "source": {
+        "kind": "SYNTHETIC"
+      },
+      "intrinsics": {
+        "width": 416,
+        "height": 416,
+        "fx": 208.00000000000003,
+        "fy": 208.00000000000003,
+        "ppx": 207.5,
+        "ppy": 207.5,
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source": "SYNTHETIC_ASSUMED_PINHOLE"
+      },
+      "camera_observed_columns": 252,
+      "flyvis_interpolated_columns": 217,
+      "models": {
+        "l2": {
+          "wall_seconds": [
+            0.3872978999861516,
+            0.38386380003066733
+          ],
+          "mean_wall_seconds": 0.38558085000840947,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flyvis": {
+          "wall_seconds": [
+            0.32040770002640784,
+            0.2567731000017375
+          ],
+          "mean_wall_seconds": 0.28859040001407266,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flydrones": {
+          "wall_seconds": [
+            0.14182070002425462,
+            0.13799580000340939
+          ],
+          "mean_wall_seconds": 0.139908250013832,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        }
+      }
+    },
+    {
+      "case": "flash_light_200ms",
+      "input_rgb_sha256": "bec8df1cf031fadaf29c0e1de81b7e3bd8083c0812d5a366e418f7fa59f16145",
+      "input_shape": [
+        80,
+        416,
+        416,
+        3
+      ],
+      "source": {
+        "kind": "SYNTHETIC"
+      },
+      "intrinsics": {
+        "width": 416,
+        "height": 416,
+        "fx": 208.00000000000003,
+        "fy": 208.00000000000003,
+        "ppx": 207.5,
+        "ppy": 207.5,
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source": "SYNTHETIC_ASSUMED_PINHOLE"
+      },
+      "camera_observed_columns": 252,
+      "flyvis_interpolated_columns": 217,
+      "models": {
+        "l2": {
+          "wall_seconds": [
+            0.3846317999996245,
+            0.3820867000031285
+          ],
+          "mean_wall_seconds": 0.3833592500013765,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flyvis": {
+          "wall_seconds": [
+            0.30697109998436645,
+            0.2758942000218667
+          ],
+          "mean_wall_seconds": 0.2914326500031166,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flydrones": {
+          "wall_seconds": [
+            0.1428239000379108,
+            0.138723999960348
+          ],
+          "mean_wall_seconds": 0.1407739499991294,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        }
+      }
+    },
+    {
+      "case": "grating_right",
+      "input_rgb_sha256": "c6e13bd08a45d5aa7bb1a4f02970342109f7ae0e0b782f69964fe56fb64ac759",
+      "input_shape": [
+        80,
+        416,
+        416,
+        3
+      ],
+      "source": {
+        "kind": "SYNTHETIC"
+      },
+      "intrinsics": {
+        "width": 416,
+        "height": 416,
+        "fx": 208.00000000000003,
+        "fy": 208.00000000000003,
+        "ppx": 207.5,
+        "ppy": 207.5,
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source": "SYNTHETIC_ASSUMED_PINHOLE"
+      },
+      "camera_observed_columns": 252,
+      "flyvis_interpolated_columns": 217,
+      "models": {
+        "l2": {
+          "wall_seconds": [
+            0.38119479996385053,
+            0.3801615000120364
+          ],
+          "mean_wall_seconds": 0.38067814998794347,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flyvis": {
+          "wall_seconds": [
+            0.29979329998604953,
+            0.2700310000218451
+          ],
+          "mean_wall_seconds": 0.2849121500039473,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flydrones": {
+          "wall_seconds": [
+            0.14109460002509877,
+            0.13948039995739236
+          ],
+          "mean_wall_seconds": 0.14028749999124557,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        }
+      }
+    },
+    {
+      "case": "grating_left",
+      "input_rgb_sha256": "3b7d593ed1c67f0e6d86b9464284dd64e3e1a84d906b37f300b470b66d4e1cde",
+      "input_shape": [
+        80,
+        416,
+        416,
+        3
+      ],
+      "source": {
+        "kind": "SYNTHETIC"
+      },
+      "intrinsics": {
+        "width": 416,
+        "height": 416,
+        "fx": 208.00000000000003,
+        "fy": 208.00000000000003,
+        "ppx": 207.5,
+        "ppy": 207.5,
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source": "SYNTHETIC_ASSUMED_PINHOLE"
+      },
+      "camera_observed_columns": 252,
+      "flyvis_interpolated_columns": 217,
+      "models": {
+        "l2": {
+          "wall_seconds": [
+            0.38269439997384325,
+            0.3799244000110775
+          ],
+          "mean_wall_seconds": 0.3813093999924604,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flyvis": {
+          "wall_seconds": [
+            0.3044001000234857,
+            0.2630155000369996
+          ],
+          "mean_wall_seconds": 0.28370780003024265,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flydrones": {
+          "wall_seconds": [
+            0.14574790000915527,
+            0.13911429996369407
+          ],
+          "mean_wall_seconds": 0.14243109998642467,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        }
+      }
+    },
+    {
+      "case": "edge_right",
+      "input_rgb_sha256": "b7beb2fee83e761ccae8ac586b96a35af10e95d38bf977bf183333e80779be08",
+      "input_shape": [
+        80,
+        416,
+        416,
+        3
+      ],
+      "source": {
+        "kind": "SYNTHETIC"
+      },
+      "intrinsics": {
+        "width": 416,
+        "height": 416,
+        "fx": 208.00000000000003,
+        "fy": 208.00000000000003,
+        "ppx": 207.5,
+        "ppy": 207.5,
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source": "SYNTHETIC_ASSUMED_PINHOLE"
+      },
+      "camera_observed_columns": 252,
+      "flyvis_interpolated_columns": 217,
+      "models": {
+        "l2": {
+          "wall_seconds": [
+            0.3800107999704778,
+            0.3811293999897316
+          ],
+          "mean_wall_seconds": 0.3805700999801047,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flyvis": {
+          "wall_seconds": [
+            0.3063778000068851,
+            0.27502149995416403
+          ],
+          "mean_wall_seconds": 0.29069964998052455,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flydrones": {
+          "wall_seconds": [
+            0.14063370000803843,
+            0.1400172999710776
+          ],
+          "mean_wall_seconds": 0.140325499989558,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        }
+      }
+    },
+    {
+      "case": "edge_left",
+      "input_rgb_sha256": "df857fe7fc4a1b5f87a0a74db4f798f8a8d2132d488a9a0bdb89b89525e05749",
+      "input_shape": [
+        80,
+        416,
+        416,
+        3
+      ],
+      "source": {
+        "kind": "SYNTHETIC"
+      },
+      "intrinsics": {
+        "width": 416,
+        "height": 416,
+        "fx": 208.00000000000003,
+        "fy": 208.00000000000003,
+        "ppx": 207.5,
+        "ppy": 207.5,
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source": "SYNTHETIC_ASSUMED_PINHOLE"
+      },
+      "camera_observed_columns": 252,
+      "flyvis_interpolated_columns": 217,
+      "models": {
+        "l2": {
+          "wall_seconds": [
+            0.3804622000316158,
+            0.38456569996196777
+          ],
+          "mean_wall_seconds": 0.3825139499967918,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flyvis": {
+          "wall_seconds": [
+            0.3149857000098564,
+            0.2702529999660328
+          ],
+          "mean_wall_seconds": 0.2926193499879446,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flydrones": {
+          "wall_seconds": [
+            0.1409210999845527,
+            0.14444110001204535
+          ],
+          "mean_wall_seconds": 0.14268109999829903,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        }
+      }
+    },
+    {
+      "case": "edge_down",
+      "input_rgb_sha256": "46a1a2d9f4e74e9e99a49b1bfd1ff28c0cad0b2d719f12c5bf41e47ddd776d36",
+      "input_shape": [
+        80,
+        416,
+        416,
+        3
+      ],
+      "source": {
+        "kind": "SYNTHETIC"
+      },
+      "intrinsics": {
+        "width": 416,
+        "height": 416,
+        "fx": 208.00000000000003,
+        "fy": 208.00000000000003,
+        "ppx": 207.5,
+        "ppy": 207.5,
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source": "SYNTHETIC_ASSUMED_PINHOLE"
+      },
+      "camera_observed_columns": 252,
+      "flyvis_interpolated_columns": 217,
+      "models": {
+        "l2": {
+          "wall_seconds": [
+            0.38218469999264926,
+            0.3780894000083208
+          ],
+          "mean_wall_seconds": 0.38013705000048503,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flyvis": {
+          "wall_seconds": [
+            0.30469810002250597,
+            0.2801599999656901
+          ],
+          "mean_wall_seconds": 0.292429049994098,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flydrones": {
+          "wall_seconds": [
+            0.14535070001147687,
+            0.1438444000086747
+          ],
+          "mean_wall_seconds": 0.1445975500100758,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        }
+      }
+    },
+    {
+      "case": "edge_up",
+      "input_rgb_sha256": "bbac2d6cf7d62b86d709fa99ebd36aa84e0032e000b5ef724571bbd9918b8331",
+      "input_shape": [
+        80,
+        416,
+        416,
+        3
+      ],
+      "source": {
+        "kind": "SYNTHETIC"
+      },
+      "intrinsics": {
+        "width": 416,
+        "height": 416,
+        "fx": 208.00000000000003,
+        "fy": 208.00000000000003,
+        "ppx": 207.5,
+        "ppy": 207.5,
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source": "SYNTHETIC_ASSUMED_PINHOLE"
+      },
+      "camera_observed_columns": 252,
+      "flyvis_interpolated_columns": 217,
+      "models": {
+        "l2": {
+          "wall_seconds": [
+            0.3816239000298083,
+            0.38024910003878176
+          ],
+          "mean_wall_seconds": 0.380936500034295,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flyvis": {
+          "wall_seconds": [
+            0.29591039998922497,
+            0.2618530999752693
+          ],
+          "mean_wall_seconds": 0.27888174998224713,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flydrones": {
+          "wall_seconds": [
+            0.15119639999466017,
+            0.1402860000380315
+          ],
+          "mean_wall_seconds": 0.14574120001634583,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        }
+      }
+    },
+    {
+      "case": "loom",
+      "input_rgb_sha256": "e8af701cc426e774a87f9f786c1d13237cd98b3c7210a324251b1ceaa666aea6",
+      "input_shape": [
+        80,
+        416,
+        416,
+        3
+      ],
+      "source": {
+        "kind": "SYNTHETIC"
+      },
+      "intrinsics": {
+        "width": 416,
+        "height": 416,
+        "fx": 208.00000000000003,
+        "fy": 208.00000000000003,
+        "ppx": 207.5,
+        "ppy": 207.5,
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source": "SYNTHETIC_ASSUMED_PINHOLE"
+      },
+      "camera_observed_columns": 252,
+      "flyvis_interpolated_columns": 217,
+      "models": {
+        "l2": {
+          "wall_seconds": [
+            0.3806559999939054,
+            0.38004399999044836
+          ],
+          "mean_wall_seconds": 0.3803499999921769,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flyvis": {
+          "wall_seconds": [
+            0.3062258000136353,
+            0.2747732999850996
+          ],
+          "mean_wall_seconds": 0.29049954999936745,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flydrones": {
+          "wall_seconds": [
+            0.15032580000115559,
+            0.14654330001212656
+          ],
+          "mean_wall_seconds": 0.14843455000664108,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        }
+      }
+    },
+    {
+      "case": "recede",
+      "input_rgb_sha256": "fe02caf109ed25f45fc69ae9e59bc1efcd8a134e414c68fd102ffb2d9d5703d6",
+      "input_shape": [
+        80,
+        416,
+        416,
+        3
+      ],
+      "source": {
+        "kind": "SYNTHETIC"
+      },
+      "intrinsics": {
+        "width": 416,
+        "height": 416,
+        "fx": 208.00000000000003,
+        "fy": 208.00000000000003,
+        "ppx": 207.5,
+        "ppy": 207.5,
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source": "SYNTHETIC_ASSUMED_PINHOLE"
+      },
+      "camera_observed_columns": 252,
+      "flyvis_interpolated_columns": 217,
+      "models": {
+        "l2": {
+          "wall_seconds": [
+            0.3808624000521377,
+            0.379725500009954
+          ],
+          "mean_wall_seconds": 0.3802939500310458,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flyvis": {
+          "wall_seconds": [
+            0.346601199998986,
+            0.2878876000177115
+          ],
+          "mean_wall_seconds": 0.31724440000834875,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        },
+        "flydrones": {
+          "wall_seconds": [
+            0.14178240002365783,
+            0.14003239996964112
+          ],
+          "mean_wall_seconds": 0.14090739999664947,
+          "repeat_max_absolute_difference": 0.0,
+          "finite_fraction": 1.0
+        }
+      }
+    }
+  ],
+  "biological_validation": false,
+  "brain_input_replaced": false,
+  "code_sha256": {
+    "benchmark.py": "896166ffdebca6a66ab292dae7e31e1362fbb14ecca4bc5988769f92a1acd6c1",
+    "benchmark_adapters.py": "e6ce1c694ea5ceb058833924c54c752c6b87fb2778686641c716f6b2a4ba06d7",
+    "benchmark_core.py": "da109d54a7e5fec249ef4e98fce114e5fb0b7879c0d0d9cbd0c45fd2ae6bd910"
+  },
+  "export_scope": "Synthetic cases only; no camera frames, timestamps or response arrays copied"
+}

@@ -18,6 +18,7 @@ camera = ["pyrealsense2>=2.55,<3", "opencv-python-headless>=4.8,<6"]
 
 [project.scripts]
 fly-vision = "flyvisionbridge.cli:main"
+fly-vision-live = "flyvisionbridge.live:main"
 
 [project.urls]
 Repository = "https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge"
@@ -27,5 +28,6 @@ Issues = "https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge/issues"
 include = ["flyvisionbridge*", "camera_lab*"]
 
 [tool.setuptools.package-data]
+"flyvisionbridge" = ["brain_worker.mjs", "live_dashboard.html"]
 "camera_lab" = ["data/*.csv", "data/*.json"]
 "camera_lab.biomapping" = ["data/*.csv", "data/*.json", "*.json"]

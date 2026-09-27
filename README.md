@@ -32,6 +32,19 @@ python scripts/run_checks.py --core-only
 
 The synthetic demo writes `rgb.png`, assumed demonstration intrinsics, and `channels.json`. It uses the included published mapping, records all 893 IDs, leaves unobserved/missing directions null, and **does not open a camera or generate neural firing rates**. Choose a new output directory for each run.
 
+## Connect a webcam to the brain
+
+The new live entry runs the complete **RGB → mapped L2 → engineering rates → persistent BrainCPU → downstream activity** chain:
+
+```sh
+python -m pip install -e ".[analysis]"
+python -m flyvisionbridge.live --model-dir PATH_TO_FRUIT_FLY_SIMULATION --device-name "Logitech BRIO" --assume-hfov 90
+```
+
+Open `http://127.0.0.1:8771/` and start a bounded capture. Install Node.js, the external model, and FFmpeg first as described in [the live webcam guide](docs/webcam-live.md). OpenCV-indexed cameras use `--camera 0` instead of `--device-name`. Intrinsics must be provided or a provisional FOV explicitly assumed; 90° is an example assumption, not a BRIO calibration.
+
+A physical BRIO/Windows run drove 217 visible L2 channels into the 166,700-neuron graph, retained state across frames, and passed zero-input/disconnected/half-gain controls. See [the aggregate hardware report](reports/webcam/README.md). Default operation advances 20 ms of model time at five updates/s (0.1× wall time). This is engineering integration, not biological response validation.
+
 ## Reproduce the research workflows
 
 ```sh
@@ -46,12 +59,12 @@ python camera_lab/biomapping/validate_l2_cells.py
 
 Dryad sometimes requires a normal browser download. The fetcher prints the official page and accepts `--from-directory PATH`; it verifies the same SHA-256 either way. See [installation and data](docs/installation.md). Hardware-free implementation checks do not download the 117 MB physiology recording or acquire camera frames.
 
-For **D435i**, use the existing bounded RGB-D-IMU recorder and controlled screen experiment. For an **ordinary RGB webcam or saved image**, use the new camera-independent bridge with explicit rectified intrinsics. See [camera instructions](docs/cameras.md). The generic RGB adapter has synthetic/file tests; physical webcam validation remains to be done. Other depth cameras must supply their own registration and timestamp adapter.
+For **D435i**, use the existing bounded RGB-D-IMU recorder and controlled screen experiment. For an **ordinary RGB webcam**, use the [live brain bridge](docs/webcam-live.md); the BRIO/Windows FFmpeg path has been physically exercised. OpenCV-indexed hardware still needs separate qualification. For a **saved image or single-frame sample**, use the camera-independent RGB CLI with explicit rectified intrinsics. See [camera instructions](docs/cameras.md). Other depth cameras must supply their own registration and timestamp adapter.
 
 ## Project layout
 
 ```text
-flyvisionbridge/           Small camera-independent RGB/depth/gyro contract and CLI
+flyvisionbridge/           Frame contract, single-frame CLI, live camera/brain worker and dashboard
 camera_lab/               D435i acquisition, calibration and historical BrainCPU tools
   biomapping/             Anatomical joins, screen experiments, physiology benchmarks
     source/               Small licensed mapping inputs and public-data manifest

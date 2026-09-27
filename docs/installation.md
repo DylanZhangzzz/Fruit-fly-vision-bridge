@@ -62,7 +62,7 @@ python -m http.server 8000 --bind 127.0.0.1
 
 Visit `http://127.0.0.1:8000/reports/`. The browser report uses local files; no CDN is required. The archived camera summary can be inspected, but reproducing its measured result requires a new physical recording because private raw videos are not published.
 
-The external BrainCPU engine is optional. It is not needed for the RGB bridge, mapping checks or physiology benchmark. For historical whole-brain controls, install Git LFS and Node.js 22.12+ separately, then obtain the original project:
+The external BrainCPU engine is optional. It is not needed for the RGB bridge, mapping checks or physiology benchmark. For the live webcam bridge or historical whole-brain controls, install Git LFS and Node.js 22.12+ separately, then obtain the original project:
 
 ```sh
 git clone https://huggingface.co/spaces/Xenova/fruit-fly-simulation fruit-fly-simulation
@@ -71,4 +71,4 @@ git -C fruit-fly-simulation lfs pull
 python camera_lab/biomapping/run_malecns.py PATH_TO_MULTIMODAL_CAPTURE
 ```
 
-This downloads substantial external assets under their own licenses. The loader verifies connectome chunk hashes. `run_reference.py --malecns` also needs this metadata to emit BrainCPU-indexed inputs. The new RGB CLI needs none of it. The old pixel-grid audit requires your recording path through `FLYVISION_LEGACY_CAPTURE`; it tests an earlier artificial grid and is not the preferred author-angle mapping workflow.
+This downloads substantial external assets under their own licenses. The loader verifies connectome chunk hashes. `run_reference.py --malecns` also needs this metadata to emit BrainCPU-indexed inputs. The single-frame RGB CLI needs none of it. The [live webcam entry](webcam-live.md) uses this model through `--model-dir`; named Windows cameras additionally require FFmpeg on PATH. No browser permission or microphone is needed because capture runs locally in Python/FFmpeg. The old pixel-grid audit requires your recording path through `FLYVISION_LEGACY_CAPTURE`; it tests an earlier artificial grid and is not the preferred author-angle mapping workflow.

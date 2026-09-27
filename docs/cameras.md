@@ -29,7 +29,11 @@ The standalone `calibrated_temporal.html` requires `?calibration=YOUR_ACCEPTED_R
 
 The exact recorded sensor profiles require D435i-compatible motion streams. D435 without IMU and other depth cameras are not supported by this recorder unchanged; they can use the RGB-only route or implement the frame contract below. Do not invent missing IMU/depth data.
 
-## Saved images and ordinary RGB webcams
+## Live RGB webcam → persistent whole-brain model
+
+Use [the live webcam entry](webcam-live.md) to capture continuously, rectify ordinary lens distortion, map observed rays, inject engineering rates into the persistent BrainCPU instance and inspect downstream activity. It includes reset-matched controls and bounded local recording. The Logitech BRIO / Windows / FFmpeg DirectShow route has physical evidence in [the hardware report](../reports/webcam/README.md); the OpenCV backend remains separately unqualified.
+
+## Saved images and single-frame RGB webcam samples
 
 Provide intrinsics for the **actual rectified image resolution**. Example JSON (numbers below are demonstrative, not a calibration for your camera):
 

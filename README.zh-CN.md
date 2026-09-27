@@ -31,10 +31,23 @@ PowerShell 不允许激活脚本时，直接使用 `.venv\Scripts\python.exe` �
 
 示例生成合成图与逐 ID 的 `channels.json`。相机视野外、缺失角度均为未知，不当作黑色。该输出是 RGB 数字亮度，不是放电率。
 
+## 普通 webcam 接入大脑
+
+现在提供完整的 **相机画面 → L2 位置采样 → 工程刺激 → 持续运行的 BrainCPU → 下游活动** 入口：
+
+```powershell
+python -m pip install -e ".[analysis]"
+python -m flyvisionbridge.live --model-dir PATH_TO_FRUIT_FLY_SIMULATION --device-name "Logitech BRIO" --assume-hfov 90
+```
+
+按[实时接入说明](docs/webcam-live.md)安装 Node.js、独立模型和 FFmpeg 后，打开 `http://127.0.0.1:8771/`，点击“开始采集”。普通 OpenCV 相机可改用 `--camera 0`；必须提供内参或明确指定临时视场假设。这里的 90° 不是 BRIO 实测标定值。
+
+已用 Windows 上的 BRIO 实机运行：217 个可见 L2 输入接入 166,700 个神经元的完整网络；连续帧保留模型状态，零输入、断连和减半输入对照通过。默认每秒更新 5 次，每次推进 20 ms 模型时间，约为现实时间的 0.1 倍。详见[硬件验收结果](reports/webcam/README.md)。这里验证的是工程链路，使用显式的亮度到刺激近似。
+
 ## 完整流程
 
 1. [安装依赖与获取公开数据](docs/installation.md)：数据固定版本并校验 SHA-256；大型生理文件单独获取。
-2. [接入 D435i 或其他相机](docs/cameras.md)：D435i 已有实验记录；普通 webcam 接口尚未做实机验收。没有深度/IMU 的相机明确输出缺失。
+2. [接入 D435i 或其他相机](docs/cameras.md)：D435i 已有实验记录；BRIO 的 FFmpeg 接入已通过实机工程检查，OpenCV 后端仍需单独实测。没有深度/IMU 的相机明确输出缺失。
 3. [重建映射](docs/mapping.md)：说明视柱来源、坐标变换、空缺及共享位置。
 4. [运行验证](docs/validation.md)：区分合成实现检查、相机工程验收和生理预测。
 5. [查看报告](reports/index.html)：下载仓库后打开，或运行 `python -m http.server 8000 --bind 127.0.0.1`，访问 `http://127.0.0.1:8000/reports/`。

@@ -12,6 +12,7 @@ The top-level GPL-3.0-only license applies to this project's code and documentat
 | Direction fields and exact-join result in `malecns_author_crosswalk.json` | Derived from the CC BY-SA 4.0 archive direction table with attributed column identities; preserve that share-alike data license and all source attribution. No ownership claim over the upstream anatomy. |
 | Optional Dryad recordings and metadata | DOI `10.5061/dryad.ngf1vhj4c`, CC0 1.0; not stored in Git. The archived per-record numerical response results derive from these public records. |
 | Optional mean-response MAT files / author code | Referenced at a pinned ClandininLab commit; not redistributed here. Retrieve from the original source and follow its applicable terms. |
+| `tests/fixtures/brain_cpu/brain.js` | Unmodified Xenova BrainCPU source at commit `776d115ee5aa934578a87fd6d260d138084f59c1`; its original MIT notice and upstream LICENSE are preserved alongside the fixture. Tests construct a tiny synthetic graph; no connectome weights are bundled here. |
 | Optional `fruit-fly-simulation/` | External, ignored checkout with its own MIT application notice, CC BY 4.0 MaleCNS data attribution and other notices. See that checkout's LICENSE; not included or relicensed here. |
 
 The archive requests citation of Zhao et al. 2022 [bioRxiv](https://doi.org/10.1101/2022.12.14.520178) and Nern et al. 2025 [Nature](https://doi.org/10.1038/s41586-025-08746-0). The current project also cites the final eye-map and physiology papers in [docs/sources.md](docs/sources.md).

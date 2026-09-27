@@ -1,0 +1,177 @@
+{
+  "run_id": "20260927-162727-345607",
+  "camera": "Logitech BRIO",
+  "geometry": {
+    "width": 640,
+    "height": 480,
+    "fx": 320.00000000000006,
+    "fy": 320.00000000000006,
+    "ppx": 319.5,
+    "ppy": 239.5,
+    "coeffs": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "calibration_status": "APPROXIMATE_FOV_NOT_CALIBRATED",
+    "assumed_hfov_deg": 90.0
+  },
+  "head_from_camera": [
+    [
+      0.0,
+      0.0,
+      1.0
+    ],
+    [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.0,
+      0.0
+    ]
+  ],
+  "brain": {
+    "event": "ready",
+    "neurons": 166700,
+    "edges": 25582938,
+    "dt_ms": 0.1,
+    "model": "Unmodified Xenova BrainCPU",
+    "manifest_sha256": "76262f41c76f5dcbc42f75f9e0b376e46bfdac13d8c00bae2edbdc49b270565b",
+    "metadata_sha256": "e77e031a79293316cece9a27e88f18968b4bb93112842ab91fc45f84d737d864",
+    "engine_sha256": "9fef8b9833ebde7b96e0bb5db61a7c260ef8c51f31b4558276dcc950ffeaa726"
+  },
+  "encoder": "rate_hz = gain_hz * (1 - RGB code luminance)",
+  "gain_hz": 120.0,
+  "sampled_L2": 217,
+  "frames": 620,
+  "total_spikes": 438438,
+  "downstream_spikes": 252608,
+  "model_ms_total": 12400,
+  "model_ms_per_update": 20.0,
+  "wall_elapsed_s": 123.85999999998603,
+  "skipped_camera_frames": 3095,
+  "observed_mean_luminance_range": [
+    0.21966806544773307,
+    0.8187271394819163
+  ],
+  "input_changed_between_frames": true,
+  "continuous_ticks": true,
+  "frame_age_ms_p50_p95": [
+    47.0000000204891,
+    77.9999999795109
+  ],
+  "clock": "HOST_RECEIPT_NOT_EXPOSURE",
+  "depth": "UNAVAILABLE",
+  "imu": "UNAVAILABLE",
+  "biological_response_validated": false,
+  "capture_error_present": false,
+  "privacy": "Aggregate only: no images, serials, per-channel inputs or per-frame logs",
+  "model_speed_ratio": 0.1001130308412837,
+  "controls": {
+    "no_input": {
+      "model_ms": 50,
+      "total_spikes": 0,
+      "input_neuron_spikes": 0,
+      "downstream_spikes": 0
+    },
+    "camera": {
+      "model_ms": 50,
+      "total_spikes": 1468,
+      "input_neuron_spikes": 715,
+      "downstream_spikes": 753
+    },
+    "connections_off": {
+      "model_ms": 50,
+      "total_spikes": 715,
+      "input_neuron_spikes": 715,
+      "downstream_spikes": 0
+    },
+    "half_gain": {
+      "model_ms": 50,
+      "total_spikes": 680,
+      "input_neuron_spikes": 365,
+      "downstream_spikes": 315
+    }
+  },
+  "control_checks": {
+    "no_input_silent": true,
+    "camera_drives_input": true,
+    "camera_propagates": true,
+    "disconnected_downstream_silent": true,
+    "input_gain_changes_response": true
+  },
+  "contrast_replay": {
+    "selection": "Post-hoc extrema of recorded mean brightness; not a held-out biological test",
+    "protocol": "100 ms model time per condition; same initial state and seed; same engine/data hashes",
+    "inputs": {
+      "lowest_mean_brightness": {
+        "frame": 38,
+        "mean_luminance": 0.21966806544773307,
+        "mean_engineering_rate_hz": 93.63983214627203,
+        "runs": {
+          "no_input": {
+            "model_ms": 100,
+            "total_spikes": 0,
+            "input_neuron_spikes": 0,
+            "downstream_spikes": 0
+          },
+          "camera": {
+            "model_ms": 100,
+            "total_spikes": 4733,
+            "input_neuron_spikes": 2004,
+            "downstream_spikes": 2729
+          },
+          "connections_off": {
+            "model_ms": 100,
+            "total_spikes": 2004,
+            "input_neuron_spikes": 2004,
+            "downstream_spikes": 0
+          },
+          "half_gain": {
+            "model_ms": 100,
+            "total_spikes": 2129,
+            "input_neuron_spikes": 1030,
+            "downstream_spikes": 1099
+          }
+        }
+      },
+      "highest_mean_brightness": {
+        "frame": 130,
+        "mean_luminance": 0.8187271394819163,
+        "mean_engineering_rate_hz": 21.75274326217005,
+        "runs": {
+          "no_input": {
+            "model_ms": 100,
+            "total_spikes": 0,
+            "input_neuron_spikes": 0,
+            "downstream_spikes": 0
+          },
+          "camera": {
+            "model_ms": 100,
+            "total_spikes": 1032,
+            "input_neuron_spikes": 469,
+            "downstream_spikes": 563
+          },
+          "connections_off": {
+            "model_ms": 100,
+            "total_spikes": 469,
+            "input_neuron_spikes": 469,
+            "downstream_spikes": 0
+          },
+          "half_gain": {
+            "model_ms": 100,
+            "total_spikes": 460,
+            "input_neuron_spikes": 236,
+            "downstream_spikes": 224
+          }
+        }
+      }
+    },
+    "different_downstream_activity": true
+  }
+}

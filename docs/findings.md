@@ -4,7 +4,7 @@
 
 The project provides an executable connection between published visual-column anatomy and camera observations, a pipeline that explicitly preserves unknown data, controlled screen/camera checks, and an auditable public-physiology benchmark. It integrates existing scientific resources and exposes their limits. It does not claim discovery of a new eye map or proof of whole-brain visual intelligence.
 
-The [FlyDrones L2 adapter](flydrones.md) now makes that spatial mapping reusable in a second runtime. A matched-L2 comparison checks body-ID invariance under reordering, observation status, and screen-bar passage order. The [report](../reports/flydrones/README.md) separates reproducible synthetic checks, retrospective private camera replay, and actual upstream API tests with synthetic wiring; it does not claim full native MaleCNS graph or flight validation.
+The [FlyDrones L2 adapter](flydrones.md) now makes that spatial mapping reusable in a second runtime. A matched-L2 comparison checks body-ID invariance under reordering, observation status, and screen-bar passage order. The [spatial report](../reports/flydrones/README.md) separates synthetic checks and retrospective private camera replay. A subsequent [full native network qualification](../reports/flydrones-full-network/README.md) runs 166,700 neurons / 10,520,377 connections, confirms downstream propagation and finds a raw-annotation side-selection compatibility issue. Its default motor-output groups remain silent with tonic bias disabled; flight and physiological validity are not established.
 
 ## Anatomy and engineering
 

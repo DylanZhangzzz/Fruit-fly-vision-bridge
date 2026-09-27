@@ -1,0 +1,67 @@
+{
+  "scope": "Same local graph/seed/protocol before and after numeric ID-guard optimization; descriptive wall-time comparison, no biological claim",
+  "cases_identical": {
+    "zero": {
+      "input_rate_sha256": true,
+      "per_neuron_tick_count_sha256": true,
+      "final_voltage_sha256": true,
+      "final_conductance_sha256": true
+    },
+    "both_pulse": {
+      "input_rate_sha256": true,
+      "per_neuron_tick_count_sha256": true,
+      "final_voltage_sha256": true,
+      "final_conductance_sha256": true
+    },
+    "both_pulse_repeat": {
+      "input_rate_sha256": true,
+      "per_neuron_tick_count_sha256": true,
+      "final_voltage_sha256": true,
+      "final_conductance_sha256": true
+    },
+    "left_pulse": {
+      "input_rate_sha256": true,
+      "per_neuron_tick_count_sha256": true,
+      "final_voltage_sha256": true,
+      "final_conductance_sha256": true
+    },
+    "right_pulse": {
+      "input_rate_sha256": true,
+      "per_neuron_tick_count_sha256": true,
+      "final_voltage_sha256": true,
+      "final_conductance_sha256": true
+    },
+    "pattern": {
+      "input_rate_sha256": true,
+      "per_neuron_tick_count_sha256": true,
+      "final_voltage_sha256": true,
+      "final_conductance_sha256": true
+    },
+    "pattern_shuffled": {
+      "input_rate_sha256": true,
+      "per_neuron_tick_count_sha256": true,
+      "final_voltage_sha256": true,
+      "final_conductance_sha256": true
+    },
+    "disconnected": {
+      "input_rate_sha256": true,
+      "per_neuron_tick_count_sha256": true,
+      "final_voltage_sha256": true,
+      "final_conductance_sha256": true
+    },
+    "sustained": {
+      "input_rate_sha256": true,
+      "per_neuron_tick_count_sha256": true,
+      "final_voltage_sha256": true,
+      "final_conductance_sha256": true
+    },
+    "recorded_d435": {
+      "input_rate_sha256": true,
+      "per_neuron_tick_count_sha256": true,
+      "final_voltage_sha256": true,
+      "final_conductance_sha256": true
+    }
+  },
+  "prior_sustained_encoding_s": 2.763373500085436,
+  "current_sustained_encoding_s": 1.3073994001024403
+}

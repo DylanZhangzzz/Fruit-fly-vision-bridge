@@ -72,6 +72,7 @@ class L2Encoder:
         raw_ids = getattr(connectome, "body_ids", None)
         if raw_ids is None:
             raise ValueError("Real MaleCNS body_ids required; MiniFly has no biological ID join")
+        self.raw_ids = np.asarray(raw_ids).copy()
         self.ids = np.asarray(raw_ids).astype(str)
         if self.ids.shape != (connectome.n,) or len(set(self.ids)) != len(self.ids):
             raise ValueError("Connectome body_ids must be unique, one per neuron")
@@ -117,7 +118,7 @@ class L2Encoder:
 
     def _check_identity(self):
         # Protect callers who mutate groups or replace a graph after installation.
-        if (not np.array_equal(self.ids, np.asarray(self.c.body_ids).astype(str)) or
+        if (not np.array_equal(self.raw_ids, np.asarray(self.c.body_ids)) or
                 not np.array_equal(self.types, self.c.types) or
                 not np.array_equal(self.sides, self.c.sides) or
                 any(not np.array_equal(idx, self.c.group(name)) for name, idx in self.indices.items())):

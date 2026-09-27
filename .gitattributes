@@ -7,6 +7,7 @@
 camera_lab/biomapping/source/** -text
 camera_lab/data/ME_assigned_columns.csv -text
 reports/** -text
+LICENSES/** -text
 *.png binary
 *.npz binary
 *.xlsx binary

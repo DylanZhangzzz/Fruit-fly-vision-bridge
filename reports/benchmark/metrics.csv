@@ -1,0 +1,378 @@
+﻿case,model,channel,unit,status,baseline,minimum,maximum,peak_delta,peak_sample_time_s,mean_abs_active_delta
+static,l2,L2,"v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",FINITE,-1.4323003258348548e-17,-1.9560013937538083e-17,-3.1790817155222794e-18,6.132456203865603e-18,1.6,5.5544623685314535e-18
+static,flyvis,L1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.755784179034986,-1.7558026313781738,-1.7557791471481323,-1.8094715319216803e-05,1.28,1.5215810976565435e-05
+static,flyvis,L2,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.735689734157763,-1.7357177734375,-1.7356778383255005,1.1895832262576178e-05,0.44,9.759005747378425e-06
+static,flyvis,Mi1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.597116580134944,0.5967249274253845,0.5973299741744995,-0.0003916527095594313,1.6,0.0003464053335943129
+static,flyvis,Tm1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.2670989381639581,0.2670699656009674,0.26713404059410095,3.510243014287484e-05,1.58,3.173476771306527e-05
+static,flyvis,T4a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08610459064182482,0.08480171859264374,0.08690978586673737,0.0008051952249125416,1.6,0.0007510347193793232
+static,flyvis,T4b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.02483033084947812,0.02433321624994278,0.024993620812892914,0.00016328996341479288,0.42000000000000004,0.0001474091440047072
+static,flyvis,T4c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.04673070186062863,0.04531768709421158,0.04749853536486626,0.0007678335042376264,1.6,0.0007335858860690339
+static,flyvis,T4d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-0.026296146998279972,-0.026440877467393875,-0.02608916163444519,0.00020698536383478155,1.6,0.0001881443821874093
+static,flyvis,T5a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08401171431729668,0.08362890034914017,0.08443082869052887,0.00041911437323219336,1.6,0.00037585090061552086
+static,flyvis,T5b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.01780025062984542,0.017573874443769455,0.01815030165016651,0.00035005102032109256,1.6,0.00030758457356377597
+static,flyvis,T5c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.030020497053077345,0.029458828270435333,0.030353186652064323,0.00033268959898697867,1.6,0.0003079775132631017
+static,flyvis,T5d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.034757498651742935,0.03398071229457855,0.03565385937690735,0.0008963607251644135,1.6,0.0007979370653629303
+static,flydrones,R16_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078508377075195,20.078508377075195,20.078508377075195,0.0,0.4,0.0
+static,flydrones,R16_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078683853149414,20.078683853149414,20.078683853149414,0.0,0.4,0.0
+static,flydrones,T4a_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+static,flydrones,T4a_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+static,flydrones,T4b_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+static,flydrones,T4b_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+static,flydrones,T4c_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+static,flydrones,T4c_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+static,flydrones,T4d_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+static,flydrones,T4d_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+static,flydrones,LPLC2_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+static,flydrones,LPLC2_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+static,flydrones,LC4_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+static,flydrones,LC4_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+static,flydrones,HAL_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+static,flydrones,HAL_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_dark_20ms,l2,L2,"v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",FINITE,-1.4323003258348548e-17,-0.5645121331864945,1.822756359475378,1.822756359475378,0.42000000000000004,0.19266338932257981
+flash_dark_20ms,flyvis,L1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.755784179034986,-1.756152629852295,-1.5137617588043213,0.24202242023066467,0.44,0.015827081548540223
+flash_dark_20ms,flyvis,L2,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.735689734157763,-1.7484509944915771,-1.4837998151779175,0.2518899189798456,0.44,0.01811734453627939
+flash_dark_20ms,flyvis,Mi1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.597116580134944,-0.15645618736743927,0.7194363474845886,-0.7535727675023832,0.44,0.035553247893327186
+flash_dark_20ms,flyvis,Tm1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.2670989381639581,0.22974306344985962,0.3540708124637604,0.0869718742998023,0.48000000000000004,0.009191966448959563
+flash_dark_20ms,flyvis,T4a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08610459064182482,-0.8353503346443176,0.6608463525772095,-0.9214549252861425,0.46,0.07738371626719048
+flash_dark_20ms,flyvis,T4b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.02483033084947812,-0.694076418876648,0.6517536044120789,-0.7189067497261261,0.46,0.07263324823855473
+flash_dark_20ms,flyvis,T4c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.04673070186062863,-0.6748449206352234,0.784148633480072,0.7374179316194434,0.5,0.07919737394703062
+flash_dark_20ms,flyvis,T4d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-0.026296146998279972,-0.0922774076461792,0.03954894468188286,-0.06598126064789922,0.5800000000000001,0.009615047425521833
+flash_dark_20ms,flyvis,T5a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08401171431729668,-0.919622004032135,0.6113810539245605,-1.0036337183494317,0.52,0.08081276589808495
+flash_dark_20ms,flyvis,T5b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.01780025062984542,-0.8900756239891052,0.5057267546653748,-0.9078758746189507,0.52,0.07230564364489461
+flash_dark_20ms,flyvis,T5c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.030020497053077345,-1.0195831060409546,0.6988197565078735,-1.049603603094032,0.52,0.0936267143899673
+flash_dark_20ms,flyvis,T5d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.034757498651742935,-0.7162876725196838,0.7126520872116089,-0.7510451711714268,0.52,0.0962787557975389
+flash_dark_20ms,flydrones,R16_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078508377075195,5.019627094268799,20.078508377075195,-15.058881282806396,0.4,0.3764720320701599
+flash_dark_20ms,flydrones,R16_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078683853149414,5.0196709632873535,20.078683853149414,-15.05901288986206,0.4,0.3764753222465515
+flash_dark_20ms,flydrones,T4a_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,3.6054446697235107,3.6054446697235107,0.4,0.16075815558433532
+flash_dark_20ms,flydrones,T4a_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,12.21663761138916,12.21663761138916,0.4,0.4898273110389709
+flash_dark_20ms,flydrones,T4b_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,3.6054446697235107,3.6054446697235107,0.42,0.16075815558433532
+flash_dark_20ms,flydrones,T4b_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,12.21663761138916,12.21663761138916,0.42,0.4898273110389709
+flash_dark_20ms,flydrones,T4c_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,8.9437837600708,8.9437837600708,0.42,0.33413292169570924
+flash_dark_20ms,flydrones,T4c_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,35.66691207885742,35.66691207885742,0.42,1.4290653705596923
+flash_dark_20ms,flydrones,T4d_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,8.9437837600708,8.9437837600708,0.4,0.33413292169570924
+flash_dark_20ms,flydrones,T4d_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,35.66691207885742,35.66691207885742,0.4,1.4290653705596923
+flash_dark_20ms,flydrones,LPLC2_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_dark_20ms,flydrones,LPLC2_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_dark_20ms,flydrones,LC4_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_dark_20ms,flydrones,LC4_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_dark_20ms,flydrones,HAL_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_dark_20ms,flydrones,HAL_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_light_20ms,l2,L2,"v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",FINITE,-1.4323003258348548e-17,-3.252414775827475,0.19318495826040954,-3.252414775827475,0.42000000000000004,0.11099833419759272
+flash_light_20ms,flyvis,L1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.755784179034986,-1.997824788093567,-1.7557791471481323,-0.24204060905858094,0.44,0.016098378833971562
+flash_light_20ms,flyvis,L2,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.735689734157763,-1.9875537157058716,-1.7146800756454468,-0.2518639815481085,0.44,0.01845129649890097
+flash_light_20ms,flyvis,Mi1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.597116580134944,0.39042848348617554,1.350189208984375,0.753072628849431,0.44,0.04435560620929069
+flash_light_20ms,flyvis,Tm1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.2670989381639581,0.20660234987735748,0.33169302344322205,0.06459408527926397,0.54,0.008979297625391122
+flash_light_20ms,flyvis,T4a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08610459064182482,-0.605665922164917,1.330809235572815,1.2447046449309902,0.46,0.08641727089538778
+flash_light_20ms,flyvis,T4b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.02483033084947812,-0.5726161599159241,0.9934306144714355,0.9686002836219574,0.46,0.06552694877226665
+flash_light_20ms,flyvis,T4c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.04673070186062863,-0.6718288660049438,1.0433334112167358,0.9966027093561072,0.46,0.06620251020465635
+flash_light_20ms,flyvis,T4d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-0.026296146998279972,-0.10372499376535416,0.004658109974116087,-0.07742884676707418,0.5,0.011582224638397363
+flash_light_20ms,flyvis,T5a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08401171431729668,-0.5541507005691528,0.8029627799987793,0.7189510656814826,0.54,0.08202220274405063
+flash_light_20ms,flyvis,T5b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.01780025062984542,-0.548965573310852,0.6636538505554199,0.6458535999255745,0.54,0.07255668842025395
+flash_light_20ms,flyvis,T5c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.030020497053077345,-0.8076184391975403,0.9220703840255737,0.8920498869724964,0.54,0.10159955291126513
+flash_light_20ms,flyvis,T5d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.034757498651742935,-0.7477971315383911,1.1118608713150024,1.0771033726632595,0.54,0.1074884107336402
+flash_light_20ms,flydrones,R16_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078508377075195,20.078508377075195,35.13713455200195,15.058626174926758,0.4,0.3764656543731689
+flash_light_20ms,flydrones,R16_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078683853149414,20.078683853149414,35.13724136352539,15.058557510375977,0.4,0.3764639377593994
+flash_light_20ms,flydrones,T4a_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,6.639681339263916,6.639681339263916,0.4,0.303021764755249
+flash_light_20ms,flydrones,T4a_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,10.903321266174316,10.903321266174316,0.42,0.5371910333633423
+flash_light_20ms,flydrones,T4b_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,6.639681339263916,6.639681339263916,0.42,0.303021764755249
+flash_light_20ms,flydrones,T4b_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,10.903321266174316,10.903321266174316,0.4,0.5371910333633423
+flash_light_20ms,flydrones,T4c_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,25.81498146057129,25.81498146057129,0.42,1.0200061559677125
+flash_light_20ms,flydrones,T4c_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,58.75889205932617,58.75889205932617,0.4,2.111384725570679
+flash_light_20ms,flydrones,T4d_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,25.81498146057129,25.81498146057129,0.4,1.0200061559677125
+flash_light_20ms,flydrones,T4d_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,58.75889205932617,58.75889205932617,0.42,2.111384725570679
+flash_light_20ms,flydrones,LPLC2_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_light_20ms,flydrones,LPLC2_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_light_20ms,flydrones,LC4_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_light_20ms,flydrones,LC4_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_light_20ms,flydrones,HAL_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_light_20ms,flydrones,HAL_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_dark_200ms,l2,L2,"v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",FINITE,-1.4323003258348548e-17,-1.967180985433925,1.822756359475378,-1.967180985433925,0.64,0.6880807683821444
+flash_dark_200ms,flyvis,L1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.755784179034986,-1.7565020322799683,-1.1363270282745361,0.6194571507604498,0.62,0.15768561520074542
+flash_dark_200ms,flyvis,L2,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.735689734157763,-1.7524149417877197,-1.067229986190796,0.6684597479669672,0.54,0.16484400582940956
+flash_dark_200ms,flyvis,Mi1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.597116580134944,-0.15645618736743927,1.1296509504318237,-0.7535727675023832,0.44,0.14681812788506873
+flash_dark_200ms,flyvis,Tm1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.2670989381639581,0.21755829453468323,0.40220704674720764,0.13510810858324956,0.5,0.02991242749910607
+flash_dark_200ms,flyvis,T4a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08610459064182482,-0.8353503346443176,1.3896114826202393,1.3035068919784145,0.68,0.18100076691541622
+flash_dark_200ms,flyvis,T4b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.02483033084947812,-0.694076418876648,1.1470986604690552,1.122268329619577,0.68,0.1360825569703641
+flash_dark_200ms,flyvis,T4c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.04673070186062863,-0.6748449206352234,1.1027264595031738,1.0559957576425452,0.68,0.14159643702235036
+flash_dark_200ms,flyvis,T4d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-0.026296146998279972,-0.1851380169391632,0.13451151549816132,0.1608076624964413,0.54,0.041869265350856284
+flash_dark_200ms,flyvis,T5a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08401171431729668,-0.7981353402137756,0.725227952003479,-0.8821470545310723,0.54,0.17263432163254994
+flash_dark_200ms,flyvis,T5b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.01780025062984542,-0.768674373626709,0.628006100654602,-0.7864746242565545,0.54,0.15223868849785313
+flash_dark_200ms,flyvis,T5c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.030020497053077345,-0.905057966709137,1.0233789682388306,0.9933584711857533,0.5,0.1992841616707952
+flash_dark_200ms,flyvis,T5d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.034757498651742935,-0.8223949670791626,1.2906737327575684,1.2559162341058254,0.5,0.21112065920606254
+flash_dark_200ms,flydrones,R16_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078508377075195,5.019627094268799,20.078508377075195,-15.058881282806396,0.4,3.764720320701599
+flash_dark_200ms,flydrones,R16_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078683853149414,5.0196709632873535,20.078683853149414,-15.05901288986206,0.4,3.764753222465515
+flash_dark_200ms,flydrones,T4a_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,3.6054446697235107,3.6054446697235107,0.4,0.16075815558433532
+flash_dark_200ms,flydrones,T4a_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,12.21663761138916,12.21663761138916,0.4,0.4898273110389709
+flash_dark_200ms,flydrones,T4b_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,3.6054446697235107,3.6054446697235107,0.6,0.16075815558433532
+flash_dark_200ms,flydrones,T4b_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,12.21663761138916,12.21663761138916,0.6,0.4898273110389709
+flash_dark_200ms,flydrones,T4c_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,8.9437837600708,8.9437837600708,0.6,0.33413292169570924
+flash_dark_200ms,flydrones,T4c_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,35.66691207885742,35.66691207885742,0.6,1.4290653705596923
+flash_dark_200ms,flydrones,T4d_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,8.9437837600708,8.9437837600708,0.4,0.33413292169570924
+flash_dark_200ms,flydrones,T4d_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,35.66691207885742,35.66691207885742,0.4,1.4290653705596923
+flash_dark_200ms,flydrones,LPLC2_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_dark_200ms,flydrones,LPLC2_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_dark_200ms,flydrones,LC4_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_dark_200ms,flydrones,LC4_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_dark_200ms,flydrones,HAL_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_dark_200ms,flydrones,HAL_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_light_200ms,l2,L2,"v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",FINITE,-1.4323003258348548e-17,-3.7716670048196494,1.363604710577192,-3.7716670048196494,0.44,0.8904230758285193
+flash_light_200ms,flyvis,L1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.755784179034986,-2.3779563903808594,-1.7557791471481323,-0.6221722113458734,0.62,0.15826198929234558
+flash_light_200ms,flyvis,L2,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.735689734157763,-2.389700412750244,-1.7125122547149658,-0.6540106785924811,0.52,0.1632599115371704
+flash_light_200ms,flyvis,Mi1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.597116580134944,0.06342386454343796,1.350189208984375,0.753072628849431,0.44,0.14100129209262763
+flash_light_200ms,flyvis,Tm1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.2670989381639581,0.2140055149793625,0.38207051157951355,0.11497157341555547,0.7200000000000001,0.015817776910568546
+flash_light_200ms,flyvis,T4a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08610459064182482,-1.1008977890014648,1.34398353099823,1.2578789403564052,0.48000000000000004,0.1904269852623417
+flash_light_200ms,flyvis,T4b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.02483033084947812,-0.9319026470184326,1.064205527305603,1.0393751964561249,0.48000000000000004,0.14690927519741787
+flash_light_200ms,flyvis,T4c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.04673070186062863,-0.991237461566925,1.0433334112167358,-1.0379681634275537,0.66,0.1491919888906475
+flash_light_200ms,flyvis,T4d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-0.026296146998279972,-0.2387031465768814,0.023611105978488922,-0.21240699957860143,0.52,0.04331448584623439
+flash_light_200ms,flyvis,T5a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08401171431729668,-0.9852108955383301,0.9230655431747437,-1.0692226098556268,0.74,0.14958409887162577
+flash_light_200ms,flyvis,T5b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.01780025062984542,-0.944675624370575,0.7705395817756653,-0.9624758750004204,0.74,0.13076559939792404
+flash_light_200ms,flyvis,T5c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.030020497053077345,-0.8124217987060547,1.1436561346054077,1.1136356375523304,0.7000000000000001,0.1867876359773187
+flash_light_200ms,flyvis,T5d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.034757498651742935,-0.7477971315383911,1.3944741487503052,1.3597166500985622,0.7000000000000001,0.18899029337335377
+flash_light_200ms,flydrones,R16_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078508377075195,20.078508377075195,35.13713455200195,15.058626174926758,0.4,3.7646565437316895
+flash_light_200ms,flydrones,R16_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078683853149414,20.078683853149414,35.13724136352539,15.058557510375977,0.4,3.764639377593994
+flash_light_200ms,flydrones,T4a_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,6.639681339263916,6.639681339263916,0.4,0.303021764755249
+flash_light_200ms,flydrones,T4a_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,10.903321266174316,10.903321266174316,0.6,0.5371910333633423
+flash_light_200ms,flydrones,T4b_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,6.639681339263916,6.639681339263916,0.6,0.303021764755249
+flash_light_200ms,flydrones,T4b_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,10.903321266174316,10.903321266174316,0.4,0.5371910333633423
+flash_light_200ms,flydrones,T4c_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,25.81498146057129,25.81498146057129,0.6,1.0200061559677125
+flash_light_200ms,flydrones,T4c_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,58.75889205932617,58.75889205932617,0.4,2.111384725570679
+flash_light_200ms,flydrones,T4d_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,25.81498146057129,25.81498146057129,0.4,1.0200061559677125
+flash_light_200ms,flydrones,T4d_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,58.75889205932617,58.75889205932617,0.6,2.111384725570679
+flash_light_200ms,flydrones,LPLC2_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_light_200ms,flydrones,LPLC2_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_light_200ms,flydrones,LC4_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_light_200ms,flydrones,LC4_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_light_200ms,flydrones,HAL_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+flash_light_200ms,flydrones,HAL_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+grating_right,l2,L2,"v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",FINITE,-1.4323003258348548e-17,-1.1167823524667335,-3.1790817155222794e-18,-1.1167823524667335,0.92,0.8648564343926516
+grating_right,flyvis,L1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.755784179034986,-1.7698742151260376,-1.7467658519744873,-0.014090036091051639,0.68,0.006984387259734315
+grating_right,flyvis,L2,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.735689734157763,-1.745063304901123,-1.7187886238098145,0.01690111034794861,1.06,0.007862952822133118
+grating_right,flyvis,Mi1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.597116580134944,0.517471194267273,0.5982638597488403,-0.079645385867671,1.3,0.05518678873777394
+grating_right,flyvis,Tm1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.2670989381639581,0.2670699656009674,0.2989666759967804,0.03186773783282232,0.52,0.019434256616391653
+grating_right,flyvis,T4a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08610459064182482,-0.003965894225984812,0.1953498274087906,0.10924523676696576,0.48000000000000004,0.05149331606532398
+grating_right,flyvis,T4b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.02483033084947812,-0.014366093091666698,0.25638189911842346,0.23155156826894535,1.28,0.1409695594694073
+grating_right,flyvis,T4c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.04673070186062863,0.013748936355113983,0.2044399082660675,0.15770920640543887,0.48000000000000004,0.0459289515832145
+grating_right,flyvis,T4d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-0.026296146998279972,-0.046105917543172836,-0.023142501711845398,-0.019809770544892864,1.36,0.0052147244912033024
+grating_right,flyvis,T5a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08401171431729668,-0.07987163215875626,0.16433964669704437,-0.16388334647605293,1.32,0.08406413496421392
+grating_right,flyvis,T5b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.01780025062984542,-0.15178120136260986,0.05240003019571304,-0.16958145199245528,0.56,0.06903296388244551
+grating_right,flyvis,T5c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.030020497053077345,-0.26892605423927307,0.10742077231407166,-0.2989465512923504,0.56,0.15704644982163846
+grating_right,flyvis,T5d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.034757498651742935,-0.23428158462047577,0.17660757899284363,-0.2690390832722187,0.56,0.14346270067617298
+grating_right,flydrones,R16_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078508377075195,20.049955368041992,20.10692596435547,-0.028553009033203125,0.8,0.018061351776123048
+grating_right,flydrones,R16_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078683853149414,20.04994773864746,20.106935501098633,-0.028736114501953125,0.4,0.01806488037109375
+grating_right,flydrones,T4a_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,60.0,60.0,0.4,1.5
+grating_right,flydrones,T4a_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,60.010894775390625,60.010894775390625,0.8,49.476591396331784
+grating_right,flydrones,T4b_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,61.41953659057617,61.41953659057617,0.42,49.49778356552124
+grating_right,flydrones,T4b_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,60.0,60.0,0.4,1.5
+grating_right,flydrones,T4c_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,2.5993945598602295,2.5993945598602295,1.2,0.03560091878462117
+grating_right,flydrones,T4c_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,8.371979713439941,8.371979713439941,1.2,0.23160667691845446
+grating_right,flydrones,T4d_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,2.999131441116333,2.999131441116333,0.4,0.07882054977817461
+grating_right,flydrones,T4d_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,8.591099739074707,8.591099739074707,0.4,0.24078678088262678
+grating_right,flydrones,LPLC2_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+grating_right,flydrones,LPLC2_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+grating_right,flydrones,LC4_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+grating_right,flydrones,LC4_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+grating_right,flydrones,HAL_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+grating_right,flydrones,HAL_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+grating_left,l2,L2,"v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",FINITE,-1.4323003258348548e-17,-1.0104355384874828,-3.1790817155222794e-18,-1.0104355384874828,0.68,0.8438741011342902
+grating_left,flyvis,L1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.755784179034986,-1.7706265449523926,-1.7457084655761719,-0.01484236591740662,1.08,0.007865875959396362
+grating_left,flyvis,L2,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.735689734157763,-1.747267723083496,-1.7189006805419922,0.016789053615770877,0.62,0.007882533418504822
+grating_left,flyvis,Mi1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.597116580134944,0.5169892907142639,0.5973299741744995,-0.08012728942068004,1.3,0.058308220929221145
+grating_left,flyvis,Tm1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.2670989381639581,0.2662588953971863,0.30007436871528625,0.03297543055132818,0.52,0.02254180139616918
+grating_left,flyvis,T4a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08610459064182482,-0.0040993401780724525,0.18616054952144623,0.1000559588796214,0.48000000000000004,0.04203015974673785
+grating_left,flyvis,T4b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.02483033084947812,-0.07252638787031174,0.17770394682884216,0.15287361597936405,0.48000000000000004,0.07356855898887213
+grating_left,flyvis,T4c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.04673070186062863,-0.056308284401893616,0.19530706107616425,0.1485763592155356,0.48000000000000004,0.07684107734515382
+grating_left,flyvis,T4d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-0.026296146998279972,-0.06817544251680374,-0.025398677214980125,-0.04187929551852377,1.3800000000000001,0.016958081327672854
+grating_left,flyvis,T5a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08401171431729668,0.009269610978662968,0.17051540315151215,0.08650368883421547,0.5,0.02733965597213491
+grating_left,flyvis,T5b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.01780025062984542,-0.14027008414268494,0.07606785744428635,-0.15807033477253035,0.54,0.023643831778884447
+grating_left,flyvis,T5c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.030020497053077345,-0.20714721083641052,0.14193595945835114,-0.23716770788948788,0.54,0.0703163509750371
+grating_left,flyvis,T5d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.034757498651742935,-0.13133466243743896,0.18457186222076416,-0.1660921610891819,0.56,0.03804410399898188
+grating_left,flydrones,R16_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078508377075195,20.049955368041992,20.10692596435547,-0.028553009033203125,0.8,0.018061351776123048
+grating_left,flydrones,R16_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078683853149414,20.04994773864746,20.106935501098633,-0.028736114501953125,0.4,0.01806488037109375
+grating_left,flydrones,T4a_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,61.41851806640625,61.41851806640625,0.8,49.44760713577271
+grating_left,flydrones,T4a_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,60.0,60.0,0.4,1.5
+grating_left,flydrones,T4b_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,60.0,60.0,0.4,1.5
+grating_left,flydrones,T4b_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,60.010894775390625,60.010894775390625,0.8200000000000001,49.509349250793456
+grating_left,flydrones,T4c_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,2.0976815223693848,2.0976815223693848,1.2,0.0355553338653408
+grating_left,flydrones,T4c_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,8.145946502685547,8.145946502685547,0.4,0.22999028558842838
+grating_left,flydrones,T4d_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,2.999131441116333,2.999131441116333,0.4,0.07876333038730081
+grating_left,flydrones,T4d_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,8.809528350830078,8.809528350830078,1.2,0.24228260705713184
+grating_left,flydrones,LPLC2_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+grating_left,flydrones,LPLC2_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+grating_left,flydrones,LC4_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+grating_left,flydrones,LC4_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+grating_left,flydrones,HAL_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+grating_left,flydrones,HAL_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_right,l2,L2,"v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",FINITE,-1.4323003258348548e-17,-3.7716670048196494,0.6153471942911461,-3.7716670048196494,0.44,1.4142677389746787
+edge_right,flyvis,L1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.755784179034986,-2.280244827270508,-1.1763187646865845,0.5794654143484015,1.22,0.3008179584616109
+edge_right,flyvis,L2,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.735689734157763,-2.3373239040374756,-1.1266528367996216,0.6090368973581415,1.22,0.3168390477958479
+edge_right,flyvis,Mi1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.597116580134944,0.273579865694046,1.350189208984375,0.753072628849431,0.44,0.20351239838882496
+edge_right,flyvis,Tm1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.2670989381639581,0.2243771106004715,0.3818679749965668,0.1147690368326087,1.26,0.036097338109424254
+edge_right,flyvis,T4a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08610459064182482,-0.1423124521970749,1.330809235572815,1.2447046449309902,0.46,0.1990813628819428
+edge_right,flyvis,T4b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.02483033084947812,-0.2096095234155655,1.0515137910842896,1.0266834602348114,0.48000000000000004,0.15993433887457575
+edge_right,flyvis,T4c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.04673070186062863,-0.5113441348075867,1.0433334112167358,0.9966027093561072,0.46,0.15637368961401274
+edge_right,flyvis,T4d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-0.026296146998279972,-0.23080362379550934,0.017720339819788933,-0.20450747679722936,0.52,0.044886398179101214
+edge_right,flyvis,T5a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08401171431729668,-0.649308443069458,0.48916351795196533,-0.7333201573867547,1.28,0.10534945591597966
+edge_right,flyvis,T5b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.01780025062984542,-0.6737712621688843,0.33281466364860535,-0.6915715127987297,1.28,0.0687696452280139
+edge_right,flyvis,T5c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.030020497053077345,-0.8349788188934326,0.4623018205165863,-0.8649993159465099,1.28,0.10197342348186986
+edge_right,flyvis,T5d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.034757498651742935,-0.7477971315383911,0.5942983627319336,-0.782554630190134,0.48000000000000004,0.1436489898711443
+edge_right,flydrones,R16_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078508377075195,5.019627094268799,35.13713455200195,-15.058881282806396,0.8200000000000001,11.2941237449646
+edge_right,flydrones,R16_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078683853149414,6.431424617767334,35.137325286865234,15.05864143371582,0.52,11.290051066875458
+edge_right,flydrones,T4a_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,6.639681339263916,6.639681339263916,0.4,0.16600776666236924
+edge_right,flydrones,T4a_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,30.01410484313965,30.01410484313965,0.86,11.53307366282679
+edge_right,flydrones,T4b_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,30.009910583496094,30.009910583496094,0.46,11.764103376865387
+edge_right,flydrones,T4b_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,11.547821044921875,11.547821044921875,1.2,0.2725938724040645
+edge_right,flydrones,T4c_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,14.985264778137207,14.985264778137207,0.4,0.4185196474660188
+edge_right,flydrones,T4c_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,58.75889205932617,58.75889205932617,0.4,1.618136768345721
+edge_right,flydrones,T4d_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,25.81498146057129,25.81498146057129,0.4,0.703201516228728
+edge_right,flydrones,T4d_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,25.696496963500977,25.696496963500977,0.4,0.8307726806204301
+edge_right,flydrones,LPLC2_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_right,flydrones,LPLC2_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_right,flydrones,LC4_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_right,flydrones,LC4_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_right,flydrones,HAL_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_right,flydrones,HAL_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_left,l2,L2,"v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",FINITE,-1.4323003258348548e-17,-3.7510714151614564,0.9071288223076985,-3.7510714151614564,0.44,0.9333552712776584
+edge_left,flyvis,L1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.755784179034986,-2.280245542526245,-1.1763195991516113,0.5794645798833746,1.22,0.3007452676170751
+edge_left,flyvis,L2,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.735689734157763,-2.3370819091796875,-1.1261078119277954,0.6095819222299677,1.22,0.3169608975711622
+edge_left,flyvis,Mi1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.597116580134944,0.27317070960998535,1.350189208984375,0.753072628849431,0.44,0.20644824677392054
+edge_left,flyvis,Tm1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.2670989381639581,0.22418323159217834,0.38103875517845154,0.11393981701449346,1.26,0.034918284710300604
+edge_left,flyvis,T4a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08610459064182482,-0.17878484725952148,1.330809235572815,1.2447046449309902,0.46,0.22830482924013937
+edge_left,flyvis,T4b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.02483033084947812,-0.19436132907867432,1.0548598766326904,1.0300295457832123,0.48000000000000004,0.14389906533209512
+edge_left,flyvis,T4c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.04673070186062863,-0.4913870096206665,1.0433334112167358,0.9966027093561072,0.46,0.13806572353473473
+edge_left,flyvis,T4d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-0.026296146998279972,-0.22940149903297424,0.02149309031665325,-0.20310535203469426,0.52,0.04445349655763589
+edge_left,flyvis,T5a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08401171431729668,-0.6716200113296509,0.46184757351875305,-0.7556317256469476,1.28,0.12283018524023262
+edge_left,flyvis,T5b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.01780025062984542,-0.6634772419929504,0.345549613237381,-0.6812774926227959,1.28,0.07708874055586326
+edge_left,flyvis,T5c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.030020497053077345,-0.8431398868560791,0.45104557275772095,-0.8731603839091564,1.28,0.1352880467219572
+edge_left,flyvis,T5d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.034757498651742935,-0.7477971315383911,0.582217812538147,-0.782554630190134,0.48000000000000004,0.22137237433344126
+edge_left,flydrones,R16_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078508377075195,6.650979518890381,35.13713455200195,15.058626174926758,0.4,11.296583163738251
+edge_left,flydrones,R16_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078683853149414,5.019395351409912,35.13724136352539,-15.059288501739502,0.96,11.296906971931458
+edge_left,flydrones,T4a_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,30.00010108947754,30.00010108947754,1.02,11.416034424304963
+edge_left,flydrones,T4a_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,10.584320068359375,10.584320068359375,0.4,0.2673773002632515
+edge_left,flydrones,T4b_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,5.481189250946045,5.481189250946045,0.4,0.13748539805819746
+edge_left,flydrones,T4b_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,30.000648498535156,30.000648498535156,0.6,11.89767361928077
+edge_left,flydrones,T4c_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,14.985264778137207,14.985264778137207,0.4,0.6054331292863935
+edge_left,flydrones,T4c_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,58.75889205932617,58.75889205932617,0.4,2.3239812787564005
+edge_left,flydrones,T4d_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,25.81498146057129,25.81498146057129,0.4,1.101642973907292
+edge_left,flydrones,T4d_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,25.696496963500977,25.696496963500977,0.4,1.2836809514672496
+edge_left,flydrones,LPLC2_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_left,flydrones,LPLC2_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_left,flydrones,LC4_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_left,flydrones,LC4_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_left,flydrones,HAL_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_left,flydrones,HAL_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_down,l2,L2,"v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",FINITE,-1.4323003258348548e-17,-3.7716670048196494,0.4081204635839972,-3.7716670048196494,0.44,1.0272517480898464
+edge_down,flyvis,L1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.755784179034986,-2.320981740951538,-1.147042989730835,0.608741189304151,1.22,0.33203322385486805
+edge_down,flyvis,L2,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.735689734157763,-2.3756072521209717,-1.096968650817871,-0.6399175179632086,0.52,0.34996553910406014
+edge_down,flyvis,Mi1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.597116580134944,0.24906127154827118,1.350189208984375,0.753072628849431,0.44,0.2276143221674781
+edge_down,flyvis,Tm1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.2670989381639581,0.22009359300136566,0.38204294443130493,0.11494400626734685,1.26,0.037289063652095056
+edge_down,flyvis,T4a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08610459064182482,-0.16375534236431122,1.3432878255844116,1.2571832349425869,0.48000000000000004,0.22866787015901585
+edge_down,flyvis,T4b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.02483033084947812,-0.19368328154087067,1.0635923147201538,1.0387619838706756,0.48000000000000004,0.1634444982573194
+edge_down,flyvis,T4c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.04673070186062863,-0.47823017835617065,1.0433334112167358,0.9966027093561072,0.46,0.14696507232606804
+edge_down,flyvis,T4d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-0.026296146998279972,-0.23824913799762726,0.027952684089541435,-0.21195299099934728,0.52,0.05643679184477629
+edge_down,flyvis,T5a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08401171431729668,-0.6928733587265015,0.48023349046707153,-0.7768850730437982,1.28,0.08478248523254144
+edge_down,flyvis,T5b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.01780025062984542,-0.690614640712738,0.34575507044792175,-0.7084148913425835,1.28,0.0691719467840525
+edge_down,flyvis,T5c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.030020497053077345,-0.8459384441375732,0.46852442622184753,-0.8759589411906505,1.28,0.09447044337070301
+edge_down,flyvis,T5d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.034757498651742935,-0.7721311450004578,0.5867403149604797,-0.8068886436522007,1.28,0.26329027730971577
+edge_down,flydrones,R16_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078508377075195,5.716785430908203,35.13713455200195,15.058626174926758,0.4,7.531479549407959
+edge_down,flydrones,R16_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078683853149414,5.7168450355529785,35.13724136352539,15.058557510375977,0.4,7.5314796447753904
+edge_down,flydrones,T4a_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,6.639681339263916,6.639681339263916,0.4,0.22298730274196715
+edge_down,flydrones,T4a_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,10.584320068359375,10.584320068359375,0.4,0.37916055996902287
+edge_down,flydrones,T4b_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,5.481189250946045,5.481189250946045,0.4,0.19788045017048717
+edge_down,flydrones,T4b_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,10.903321266174316,10.903321266174316,0.4,0.3916562135796994
+edge_down,flydrones,T4c_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,14.985264778137207,14.985264778137207,0.4,0.3763139831661551
+edge_down,flydrones,T4c_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,58.75889205932617,58.75889205932617,0.4,1.494932178556701
+edge_down,flydrones,T4d_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,40.02010726928711,40.02010726928711,0.66,24.938768720626832
+edge_down,flydrones,T4d_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,40.13960266113281,40.13960266113281,0.68,24.97484426498413
+edge_down,flydrones,LPLC2_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_down,flydrones,LPLC2_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_down,flydrones,LC4_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_down,flydrones,LC4_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_down,flydrones,HAL_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_down,flydrones,HAL_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_up,l2,L2,"v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",FINITE,-1.4323003258348548e-17,-3.7510714151614564,0.42926931633567145,-3.7510714151614564,0.44,1.100560005377113
+edge_up,flyvis,L1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.755784179034986,-2.320979118347168,-1.1471878290176392,0.6085963500173468,1.22,0.3320069531076833
+edge_up,flyvis,L2,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.735689734157763,-2.37558913230896,-1.0959240198135376,-0.6398993981511969,0.52,0.3502896184984007
+edge_up,flyvis,Mi1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.597116580134944,0.24485361576080322,1.350189208984375,0.753072628849431,0.44,0.22908393056376983
+edge_up,flyvis,Tm1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.2670989381639581,0.220012366771698,0.3825013041496277,0.11540236598566961,1.26,0.03808665575557635
+edge_up,flyvis,T4a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08610459064182482,-0.17571069300174713,1.3431860208511353,1.2570814302093105,0.48000000000000004,0.23536441563138447
+edge_up,flyvis,T4b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.02483033084947812,-0.19993244111537933,1.063582420349121,1.038752089499643,0.48000000000000004,0.1585987008470846
+edge_up,flyvis,T4c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.04673070186062863,-0.48524925112724304,1.0433334112167358,0.9966027093561072,0.46,0.14549563709128724
+edge_up,flyvis,T4d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-0.026296146998279972,-0.2371450662612915,0.04714580625295639,-0.21084891926301152,0.52,0.055975642688204784
+edge_up,flyvis,T5a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08401171431729668,-0.6850106120109558,0.4851634204387665,-0.7690223263282525,1.28,0.0858115706231298
+edge_up,flyvis,T5b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.01780025062984542,-0.6894784569740295,0.34942272305488586,-0.707278707603875,1.28,0.07547337057215994
+edge_up,flyvis,T5c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.030020497053077345,-0.893484354019165,0.46946993470191956,-0.9235048510722423,1.28,0.1726626326011396
+edge_up,flyvis,T5d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.034757498651742935,-0.7477971315383911,0.6109145879745483,-0.782554630190134,0.48000000000000004,0.2003561713732779
+edge_up,flydrones,R16_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078508377075195,5.856237888336182,35.13713455200195,15.058626174926758,0.4,7.529401099681854
+edge_up,flydrones,R16_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078683853149414,5.856179714202881,35.13724136352539,15.058557510375977,0.4,7.529410016536713
+edge_up,flydrones,T4a_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,6.639681339263916,6.639681339263916,0.4,0.4848087129648775
+edge_up,flydrones,T4a_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,10.584320068359375,10.584320068359375,0.4,0.8010044651106
+edge_up,flydrones,T4b_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,5.481189250946045,5.481189250946045,0.4,0.5117430947721004
+edge_up,flydrones,T4b_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,10.903321266174316,10.903321266174316,0.4,0.9075406450778246
+edge_up,flydrones,T4c_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,40.0263786315918,40.0263786315918,0.8,24.66215798854828
+edge_up,flydrones,T4c_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,58.75889205932617,58.75889205932617,0.4,25.773194313049316
+edge_up,flydrones,T4d_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,25.81498146057129,25.81498146057129,0.4,0.6479592506107906
+edge_up,flydrones,T4d_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,25.696496963500977,25.696496963500977,0.4,0.6594504471737309
+edge_up,flydrones,LPLC2_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_up,flydrones,LPLC2_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_up,flydrones,LC4_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_up,flydrones,LC4_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_up,flydrones,HAL_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+edge_up,flydrones,HAL_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+loom,l2,L2,"v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",FINITE,-1.4323003258348548e-17,-1.2578432015586876,0.25190290660608317,-1.2578432015586876,1.24,0.14950779396190264
+loom,flyvis,L1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.755784179034986,-1.7562085390090942,-1.389420747756958,0.36636343127802795,1.22,0.10969070666714716
+loom,flyvis,L2,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.735689734157763,-1.746252417564392,-1.349990725517273,0.3856990086404901,1.22,0.1165446924535852
+loom,flyvis,Mi1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.597116580134944,0.40533447265625,0.8954070806503296,0.29829050051538564,1.24,0.06890462440879726
+loom,flyvis,Tm1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.2670989381639581,0.23218895494937897,0.3468935787677765,0.07979464060381841,1.26,0.016131398081779498
+loom,flyvis,T4a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08610459064182482,-0.08644630759954453,0.9143247604370117,0.8282201697951869,1.28,0.04121815468610485
+loom,flyvis,T4b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.02483033084947812,-0.13167744874954224,0.7209448218345642,0.696114490985086,1.28,0.018906767993528202
+loom,flyvis,T4c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.04673070186062863,-0.21835453808307648,0.7089544534683228,0.6622237516076941,1.26,0.015618934989661765
+loom,flyvis,T4d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-0.026296146998279972,-0.14000463485717773,0.013058249838650227,-0.11370848785889776,1.32,0.01375931600770472
+loom,flyvis,T5a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08401171431729668,-0.46857950091362,0.3986373543739319,-0.5525912152309167,1.28,0.015470324157688176
+loom,flyvis,T5b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.01780025062984542,-0.49178072810173035,0.2718210518360138,-0.5095809787315758,1.28,0.01608150447961012
+loom,flyvis,T5c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.030020497053077345,-0.6682891249656677,0.35858505964279175,-0.698309622018745,1.3,0.010321444679835912
+loom,flyvis,T5d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.034757498651742935,-0.5844991207122803,0.44300785660743713,-0.6192566193640232,1.3,0.04721636325120926
+loom,flydrones,R16_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078508377075195,13.4265775680542,20.078508377075195,-6.651930809020996,1.18,2.3911452293395996
+loom,flydrones,R16_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078683853149414,13.393893241882324,20.078683853149414,-6.68479061126709,1.18,2.410523271560669
+loom,flydrones,T4a_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,39.22265625,39.22265625,1.18,16.284706777334215
+loom,flydrones,T4a_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,38.30778121948242,38.30778121948242,1.16,16.194751185178756
+loom,flydrones,T4b_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,33.88578796386719,33.88578796386719,1.2,0.19217480710156565
+loom,flydrones,T4b_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,34.596431732177734,34.596431732177734,1.2,0.21732497597452038
+loom,flydrones,T4c_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,25.772005081176758,25.772005081176758,1.2,5.04165089726448
+loom,flydrones,T4c_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,29.621618270874023,29.621618270874023,1.2,5.095707193017006
+loom,flydrones,T4d_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,25.878860473632812,25.878860473632812,1.2,5.029770272970199
+loom,flydrones,T4d_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,28.57033348083496,28.57033348083496,1.2,5.089110668003559
+loom,flydrones,LPLC2_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,61.24350357055664,61.24350357055664,1.18,3.3161663591861723
+loom,flydrones,LPLC2_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,60.0933952331543,60.0933952331543,1.16,3.4044286906719208
+loom,flydrones,LC4_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,112.36273193359375,112.36273193359375,1.16,6.030143547058105
+loom,flydrones,LC4_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,124.42935180664062,124.42935180664062,1.16,6.129652798175812
+loom,flydrones,HAL_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+loom,flydrones,HAL_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+recede,l2,L2,"v, effective depolarization-positive state, arbitrary units; not dF/F, mV or Hz",FINITE,-1.4323003258348548e-17,-0.33055493058895197,1.273991192577876,1.273991192577876,0.42000000000000004,0.30964230437307616
+recede,flyvis,L1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.755784179034986,-1.7559436559677124,-1.4254106283187866,0.33037355071619934,0.52,0.15236070030613946
+recede,flyvis,L2,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-1.735689734157763,-1.7357177734375,-1.3580137491226196,0.37767598503514344,0.52,0.15742767923756654
+recede,flyvis,Mi1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.597116580134944,0.09851283580064774,0.5974646210670471,-0.4986037443342962,0.44,0.06182454982282304
+recede,flyvis,Tm1,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.2670989381639581,0.2481195479631424,0.36181360483169556,0.09471466666773748,0.5,0.018911309167742748
+recede,flyvis,T4a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08610459064182482,-0.5536848306655884,0.19454039633274078,-0.6397894213074132,0.46,0.07315417031671753
+recede,flyvis,T4b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.02483033084947812,-0.4660232663154602,0.14196796715259552,-0.4908535971649383,0.46,0.06534985985950029
+recede,flyvis,T4c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.04673070186062863,-0.45488181710243225,0.16637039184570312,-0.5016125189630609,0.46,0.06219065934909801
+recede,flyvis,T4d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,-0.026296146998279972,-0.028111405670642853,0.06370359659194946,0.08999974359022944,0.52,0.013160999314124256
+recede,flyvis,T5a,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.08401171431729668,-0.607295572757721,0.5244923233985901,-0.6913072870750177,0.54,0.08420206668823468
+recede,flyvis,T5b,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.01780025062984542,-0.5934129357337952,0.4390481114387512,-0.6112131863636406,0.54,0.07790415503967732
+recede,flyvis,T5c,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.030020497053077345,-0.48570698499679565,0.7221276164054871,0.6921071193524098,0.5,0.08278492044988332
+recede,flyvis,T5d,"native model voltage-state, arbitrary units; not mV, Hz or dF/F",FINITE,0.034757498651742935,-0.23978246748447418,0.91680508852005,0.8820475898683071,0.5,0.07357618014211767
+recede,flydrones,R16_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078508377075195,13.095561027526855,20.078508377075195,-6.98294734954834,0.4,2.5650481939315797
+recede,flydrones,R16_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,20.078683853149414,13.059715270996094,20.078683853149414,-7.01896858215332,0.4,2.5852545261383058
+recede,flydrones,T4a_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,31.190872192382812,31.190872192382812,0.4,1.0056499468346203
+recede,flydrones,T4a_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,31.228063583374023,31.228063583374023,0.4,1.0347267792686807
+recede,flydrones,T4b_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,39.22265625,39.22265625,0.44,17.49886491894722
+recede,flydrones,T4b_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,38.30778121948242,38.30778121948242,0.46,17.48999598622322
+recede,flydrones,T4c_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,24.969955444335938,24.969955444335938,0.4,5.7821471929550174
+recede,flydrones,T4c_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,29.068185806274414,29.068185806274414,0.4,5.936276964843273
+recede,flydrones,T4d_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,25.903661727905273,25.903661727905273,0.4,5.81571709215641
+recede,flydrones,T4d_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,27.47724723815918,27.47724723815918,0.4,5.90137051641941
+recede,flydrones,LPLC2_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,12.228543281555176,12.228543281555176,0.4,0.3057135820388794
+recede,flydrones,LPLC2_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,12.477581024169922,12.477581024169922,0.4,0.31193952560424804
+recede,flydrones,LC4_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,27.51422119140625,27.51422119140625,0.4,0.6878555297851563
+recede,flydrones,LC4_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,28.074556350708008,28.074556350708008,0.4,0.7018639087677002
+recede,flydrones,HAL_L,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0
+recede,flydrones,HAL_R,engineered Poisson input rate Hz; not recorded neural firing,FINITE,0.0,0.0,0.0,0.0,0.4,0.0

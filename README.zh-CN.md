@@ -18,6 +18,8 @@
 
 ## 无需相机，先运行示例
 
+新增[统一离线视觉基准](docs/benchmark.md)：让 L2 固定参数模型、FlyDrones 官方感觉编码器和 Flyvis 官方预训练网络处理同一批闪光、条纹、移动边缘和逼近/远离刺激。下载仓库后可打开[合成输入报告](reports/benchmark/index.html)。已提供 Flyvis L2 到 MaleCNS 采样图像位置的插值读出；这是图像空间适配，尚不是细胞身份对应或新的生理验证。
+
 ```powershell
 git clone https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge.git
 cd Fruit-fly-vision-bridge
@@ -62,3 +64,5 @@ RGB 用于观测亮度，深度辅助几何与遮挡，IMU 辅助旋转光流预
 欢迎通过 [Issues](https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge/issues) 提问题，用中文或英文均可；贡献代码请看 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 本项目原创代码和文档采用 [MIT 许可证](LICENSE)。第三方代码、映射数据及其衍生数据保留各自的 GPL-3.0、CC BY-SA 4.0、CC BY 4.0 等许可；公开 Dryad 生理数据为 CC0。Python 安装包同时包含代码与映射数据，因此分发元数据列出这些许可的组合，不能把整个数据集重新按 MIT 授权。各文件的适用范围见 [来源与许可](THIRD_PARTY_NOTICES.md)。
+
+[发布前权利与许可审查](docs/license-review.md)记录已核查的来源、修正项及作者代码/模型权重的授权边界，不构成“绝无侵权”的法律保证。安装包元数据中的 `MIT AND GPL-3.0-only AND CC-BY-SA-4.0 AND CC-BY-4.0` 描述代码与数据的混合分发，原创项目代码采用 MIT。

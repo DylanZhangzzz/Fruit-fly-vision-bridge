@@ -16,6 +16,8 @@ def main():
     parser.add_argument('--core-only',action='store_true',help='NumPy/Pillow bridge tests only')
     args=parser.parse_args()
     run('scripts/verify_sources.py')
+    run('scripts/audit_licenses.py')
+    run('scripts/audit_release.py')
     run('-m','unittest','discover','-s','tests','-p','test_*.py','-v')
     if args.core_only:return
     run('camera_lab/calibrate.py','target')

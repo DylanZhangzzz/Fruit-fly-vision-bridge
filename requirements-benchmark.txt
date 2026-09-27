@@ -1,0 +1,11 @@
+# Separate Python 3.12 environment recommended. Upstream Flyvis requires <3.13.
+flyvis @ git+https://github.com/TuragaLab/flyvis.git@92b3845cc426dd309a1a0e1b3890156c42e14021
+flydrones @ git+https://github.com/SpikeCalls/FlyDrones.git@3e269346b3882c291d2a977bc2c2c6a9c9213c21
+numpy==2.5.3
+scipy==1.18.1
+torch==2.14.0
+torchvision==0.29.0
+datamate==1.0.0
+h5py==3.16.0
+PyYAML==6.0.3
+opencv-python-headless>=4.8,<6

@@ -1,0 +1,24 @@
+{
+  "scope": "Synthetic-only source/report publication; no model weights or camera recording",
+  "numerical_report_preserved": true,
+  "original_execution_code_sha256": {
+    "benchmark.py": "896166ffdebca6a66ab292dae7e31e1362fbb14ecca4bc5988769f92a1acd6c1",
+    "benchmark_adapters.py": "e6ce1c694ea5ceb058833924c54c752c6b87fb2778686641c716f6b2a4ba06d7",
+    "benchmark_core.py": "da109d54a7e5fec249ef4e98fce114e5fb0b7879c0d0d9cbd0c45fd2ae6bd910"
+  },
+  "export_code_sha256": "632e7a1ac50c81b38cfafad88a059a2e21e91c64f5ee7b08613f665ed05f94b6",
+  "render_code_sha256": "c98802398b9fac57cd6b0478d3e00f631e7c1736b35ab449bad669b34ad88b97",
+  "licensing": "Original project code MIT; source-specific GPL-3.0 and CC-BY-SA-4.0 mapping components; additional CC-BY-4.0 identity data in the repository; see THIRD_PARTY_NOTICES.md",
+  "notice_refresh": {
+    "reason": "Preserve main PR #2 MIT license for original code; carry separate GPL mapping notice; frozen numerical results unchanged",
+    "main_commit": "2aaff4680df8bba442feb564049cfcc7bebb18bd",
+    "license_inventory_sha256": "531f1034c03e972c0673fab56b4f4bbe3ab6614e4e31bbcb768041c68522c40c"
+  },
+  "notice_refresh_history": [
+    {
+      "reason": "Integrate main binocular mapping license notices; frozen right-eye numerical results unchanged",
+      "main_commit": "d0aed8a4ca535acc9dd2ee1f0f993f97b0c88fc2",
+      "license_inventory_sha256": "531f1034c03e972c0673fab56b4f4bbe3ab6614e4e31bbcb768041c68522c40c"
+    }
+  ]
+}

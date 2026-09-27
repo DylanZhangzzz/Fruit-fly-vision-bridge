@@ -18,6 +18,7 @@ dependencies = ["numpy>=1.26,<3", "Pillow>=10,<13"]
 analysis = ["scipy>=1.11,<2", "pandas>=2,<4", "openpyxl>=3.1,<4", "matplotlib>=3.8,<4", "h5py>=3.10,<4", "rdata>=1.1,<2", "opencv-python-headless>=4.8,<6"]
 camera = ["pyrealsense2>=2.55,<3", "opencv-python-headless>=4.8,<6"]
 flydrones = ["flydrones @ git+https://github.com/SpikeCalls/FlyDrones.git@3e269346b3882c291d2a977bc2c2c6a9c9213c21"]
+full-network = ["flydrones @ git+https://github.com/SpikeCalls/FlyDrones.git@3e269346b3882c291d2a977bc2c2c6a9c9213c21", "pyarrow>=14,<24", "psutil>=6,<8"]
 
 [project.scripts]
 fly-vision = "flyvisionbridge.cli:main"
@@ -31,6 +32,6 @@ Issues = "https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge/issues"
 include = ["flyvisionbridge*", "camera_lab*"]
 
 [tool.setuptools.package-data]
-"flyvisionbridge" = ["brain_worker.mjs", "live_dashboard.html", "benchmark_protocol.json", "benchmark_sources.json", "flydrones_protocol.json"]
+"flyvisionbridge" = ["brain_worker.mjs", "live_dashboard.html", "benchmark_protocol.json", "benchmark_sources.json", "flydrones_protocol.json", "flydrones_network_protocol.json", "flydrones_network_sources.json"]
 "camera_lab" = ["data/*.csv", "data/*.json"]
 "camera_lab.biomapping" = ["data/*.csv", "data/*.json", "*.json"]

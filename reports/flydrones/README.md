@@ -2,6 +2,8 @@
 
 Date: 2026-09-27. [Integration guide](../../docs/flydrones.md) · [Machine-readable results](summary.json) · [Protocol](../../flyvisionbridge/flydrones_protocol.json).
 
+Follow-up: [full native MaleCNS network qualification](../flydrones-full-network/README.md) now covers the full filtered graph and documents the official-side annotation compatibility correction. The spatial results below remain the original experiment; full-network statements below describe its scope at the time it ran.
+
 **Result:** the adapter preserves the published L2 spatial address when neuron storage order changes, and carries explicit observation status into the input log. It successfully supplies native FlyDrones `Brain.tick` and can replace the `Retina`/`InputEncoder` pair in `Pilot`. These are engineering results; this experiment does not establish true L2 receptive fields, neural response fidelity or flight performance.
 
 ## Comparison boundary
@@ -10,7 +12,7 @@ Upstream: [FlyDrones commit 3e269346b3882c291d2a977bc2c2c6a9c9213c21](https://gi
 
 For this comparison, **both methods are explicitly configured with the same 1,779 MaleCNS L2 IDs, the same eye assignments and the same positive brightness × 120 Hz rule**. Native Retina/InputEncoder code is unmodified. The original order is ascending numerical body ID, followed by three declared shuffles. We compare the upstream mapping algorithm applied to L2 with the new adapter; we do not compare the stock complete FlyDrones controller with a complete replacement controller.
 
-The spatial fixture has empty synthetic connectivity. It supplies real identities, not a real brain graph. Actual upstream Brain/Pilot integration tests use a smaller synthetic graph; **full native MaleCNS connectivity has not been qualified through this adapter**. The earlier BrainCPU full-model replay is a separate backend and is not counted here.
+The spatial fixture has empty synthetic connectivity. It supplies real identities, not a real brain graph. The upstream Brain/Pilot tests accompanying this spatial experiment use a smaller synthetic graph. Full native connectivity is qualified separately in the follow-up linked above. The earlier BrainCPU full-model replay is a separate backend and is not counted here.
 
 ## Synthetic position and repeatability checks
 
@@ -72,7 +74,7 @@ Protocol history is explicit in the JSON. An initial run stopped because its ava
 
 The reusable contribution is an identity-preserving camera input component with explicit abstention and a tested FlyDrones interface. The comparison demonstrates why array order alone is insufficient for transferring published L2 positions into another runtime. The component can save an integrator from implementing that join, eye handling, missing-data policy and validation themselves.
 
-Still open: a fresh, independently recorded binocular screen experiment; qualification with a native full MaleCNS graph; physiological validation of the luminance-to-drive rule; additional cell types and dynamic visual pathways. No improved intelligence, flight performance, stereo reconstruction or full biological equivalence is claimed.
+Still open: a fresh, independently recorded binocular screen experiment; physiological validation of the luminance-to-drive rule; additional cell types and dynamic visual pathways. Native full MaleCNS graph execution is covered by the subsequent report linked above. No improved intelligence, flight performance, stereo reconstruction or full biological equivalence is claimed.
 
 ## Attribution and reuse
 

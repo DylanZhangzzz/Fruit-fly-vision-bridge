@@ -1,0 +1,1532 @@
+{
+  "status": "PASS_ENGINEERING_CHECKS",
+  "checks": {
+    "exact_l2_identity": true,
+    "weights_unchanged": true,
+    "zero_input_silent": true,
+    "both_eyes_active": true,
+    "connected_propagation": true,
+    "disconnected_no_non_L2_spikes": true,
+    "repeat_identical": true,
+    "shuffle_distinguishable": true,
+    "finite_persistent_runs": true
+  },
+  "protocol": {
+    "schema": 1,
+    "version": "1.0",
+    "scope": "Full native filtered MaleCNS graph and unmodified FlyDrones LIF runtime; engineering qualification, not biological response validation or drone control",
+    "selection": "Protocol chosen before the full-network results; upstream default minimum 3 synapses, all native retained neurons, no subgraph reduction",
+    "seed": 20260927,
+    "shuffle_seed": 317,
+    "gain_hz": 120,
+    "polarity": "darkness",
+    "dt_ms": 0.5,
+    "tick_ms": 50,
+    "noise_mv": 0,
+    "bias": {},
+    "record_neurons": 0,
+    "width": 640,
+    "height": 480,
+    "assumed_hfov_degrees": 90,
+    "pulse_ticks": 20,
+    "pulse_start_tick": 4,
+    "pulse_end_tick_exclusive": 16,
+    "sustained_ticks": 100,
+    "bar_width_px": 80,
+    "cases": [
+      "zero",
+      "both_pulse",
+      "both_pulse_repeat",
+      "left_pulse",
+      "right_pulse",
+      "pattern",
+      "pattern_shuffled",
+      "disconnected",
+      "sustained"
+    ],
+    "shuffle_policy": "Within the observed IDs of each eye only, preserving each tick's rates/multiset and all missing/out-of-field zeros",
+    "disconnected_policy": "Same full neuron inventory and LIF equations, all synaptic weights zero; never counted as a full-connectivity result",
+    "recorded": {
+      "protocol": "calibrated_temporal_v1",
+      "start_optical_phase": 27,
+      "duration_s": 6.5,
+      "tick_s": 0.05,
+      "max_frame_age_s": 0.1,
+      "selection": "First camera frame labelled phase 27, latest causal frame held at each 50 ms model tick",
+      "scope": "Optional replay of existing D435 recording, not a new live acquisition or precise sensor/model synchronization"
+    },
+    "required_checks": [
+      "Exact L2 ID/type/eye join",
+      "Missing directions and outside-FOV inputs remain zero with a status",
+      "Persistent model clock, finite states",
+      "No-input/no-bias/no-noise from rest yields zero spikes",
+      "Both input eyes generate spikes",
+      "Connected drive reaches non-input neurons",
+      "Disconnected control has no non-input spikes",
+      "Same-seed repeat gives identical per-neuron tick counts",
+      "Spatial shuffle preserves input multiset and is distinguishable in the response"
+    ],
+    "report_even_if_negative": [
+      "Descending motor-neuron responses",
+      "Disconnected/zero/shuffle controls",
+      "Wall time and model-time ratio",
+      "RSS memory sampling",
+      "Existing capture replay and its limits"
+    ],
+    "interpretation": "Changed activity shows causal dependence within this simulator, not correct perception, receptive fields, behaviour, neural latency or biological equivalence. No output amplitude is fitted. Timing/memory are descriptive on the local machine, not performance thresholds."
+  },
+  "protocol_sha256": "4e635a36f4101fc3e8fcb131aa538d83a5e7ff82600a492536d4e74e559e7317",
+  "graph_provenance": {
+    "upstream_revision": "3e269346b3882c291d2a977bc2c2c6a9c9213c21",
+    "sources": {
+      "annotations": {
+        "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-annotations-male-cns-v1.0-minconf-0.5.feather",
+        "generation": "1780494878811468",
+        "bytes": 14483314,
+        "sha256": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2",
+        "md5_base64": "UKdxh3DFciDxYLpPQxq4ng=="
+      },
+      "neurotransmitters": {
+        "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-neurotransmitters-male-cns-v1.0.feather",
+        "generation": "1780894899156750",
+        "bytes": 43282834,
+        "sha256": "95c9289220663abeb3409f3ad9e5a7f8a53f8093f5139d15502cd08da8879621",
+        "md5_base64": "PYQrEv5cSe763lKNfdJKHw=="
+      },
+      "weights": {
+        "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/connectome-weights-male-cns-v1.0-minconf-0.5.feather",
+        "generation": "1780494887545976",
+        "bytes": 1051241946,
+        "sha256": "e35da783d1c686b2b58b3b87cd6a403ae43bfcfba8bff28e08ef752c1a56afc1",
+        "md5_base64": "8w6dzKJc/QIb8eez2XVZng=="
+      }
+    },
+    "graph": {
+      "bytes": 37002144,
+      "sha256": "e7a14e505ddce461f8b0a59a95f66d9e55dc3f3cf0ed87739fb7aeabbcce91ec",
+      "md5_base64": "fjr6ipTk3zOpUi0O98aI9A=="
+    },
+    "neurons": 166700,
+    "directed_connections": 10520377,
+    "synapses_absolute_weight_sum": 104351893,
+    "native_float32_synapse_sum": 104351896,
+    "native_meta": {
+      "source": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome",
+      "license": "MaleCNS data: CC-BY 4.0 (Janelia FlyEM, Cambridge, MRC LMB, Google Research)",
+      "min_synapses": 3,
+      "bridge_side_compatibility": {
+        "policy": "Explicit L/R rootSide per row, else explicit L/R somaSide, else unassigned",
+        "changed_neurons": 148794,
+        "origins": {
+          "somaSide_fallback": 148266,
+          "UNASSIGNED": 942,
+          "rootSide": 17492
+        },
+        "l2_before": {
+          "NaN": 1779
+        },
+        "l2_after": {
+          "L": 886,
+          "R": 893
+        },
+        "weight_change": "NONE; only side metadata assigned by matching official body ID"
+      }
+    },
+    "builder": "Unmodified pinned flydrones.brain.connectome.build_malecns",
+    "compatibility_integrity": {
+      "before": {
+        "weights": {
+          "indptr": "b35981376cb7574c39d7d5e26f34cdc2ad9f0bd75f26ec71bb181eba55465884",
+          "indices": "3ea9fd19c1407e5ea168e131451c30421952a9a938f435c8d73e1c2a098bd6e8",
+          "data": "31d98b94b29f3e8a3a834c5ab2b32a2b2921d11303f372f29a01eec86fac8cd8"
+        },
+        "body_ids": "6740231155a8782b6268c0fe2a3ddbd618a18b25d3315213924a5535081ad87a",
+        "types": "e19a819c0647c8f12218725a65caa06a325ac050b1adf568b938964c03cb3bdc"
+      },
+      "after": {
+        "weights": {
+          "indptr": "b35981376cb7574c39d7d5e26f34cdc2ad9f0bd75f26ec71bb181eba55465884",
+          "indices": "3ea9fd19c1407e5ea168e131451c30421952a9a938f435c8d73e1c2a098bd6e8",
+          "data": "31d98b94b29f3e8a3a834c5ab2b32a2b2921d11303f372f29a01eec86fac8cd8"
+        },
+        "body_ids": "6740231155a8782b6268c0fe2a3ddbd618a18b25d3315213924a5535081ad87a",
+        "types": "e19a819c0647c8f12218725a65caa06a325ac050b1adf568b938964c03cb3bdc"
+      },
+      "unchanged": true
+    },
+    "build_seconds": 3.77742009999929,
+    "scope": "Full native filtered graph, no subgraph/core reduction"
+  },
+  "weight_array_hashes": {
+    "indptr": "b35981376cb7574c39d7d5e26f34cdc2ad9f0bd75f26ec71bb181eba55465884",
+    "indices": "3ea9fd19c1407e5ea168e131451c30421952a9a938f435c8d73e1c2a098bd6e8",
+    "data": "31d98b94b29f3e8a3a834c5ab2b32a2b2921d11303f372f29a01eec86fac8cd8"
+  },
+  "identity_audit": {
+    "expected_l2": 1779,
+    "actual_l2": 1779,
+    "missing_ids": [],
+    "unexpected_ids": [],
+    "wrong_eye_ids": [],
+    "counts_by_eye": {
+      "L": 886,
+      "R": 893
+    },
+    "exact_match": true
+  },
+  "configuration": {
+    "brain": {
+      "source": "minifly",
+      "seed": 20260927,
+      "lif": {
+        "v_rest": -52.0,
+        "v_reset": -52.0,
+        "v_th": -45.0,
+        "tau_m": 20.0,
+        "tau_syn": 5.0,
+        "t_ref": 2.2,
+        "delay": 1.8,
+        "w_syn": 0.275,
+        "poisson_factor": 250.0,
+        "dt": 0.5,
+        "noise_mv": 0
+      },
+      "bias": {},
+      "record_neurons": 0
+    },
+    "inputs": {
+      "L2_L": {
+        "types": [
+          "^L2$"
+        ],
+        "side": "L",
+        "eye": "L",
+        "feature": "brightness",
+        "max_hz": 120.0
+      },
+      "L2_R": {
+        "types": [
+          "^L2$"
+        ],
+        "side": "R",
+        "eye": "R",
+        "feature": "brightness",
+        "max_hz": 120.0
+      }
+    },
+    "imu": {
+      "yaw_saturation_dps": 150
+    },
+    "outputs": {
+      "DNg02_L": {
+        "types": [
+          "^DNg02"
+        ],
+        "side": "L",
+        "note": "wing-stroke amplitude (Namiki et al. 2022)"
+      },
+      "DNg02_R": {
+        "types": [
+          "^DNg02"
+        ],
+        "side": "R",
+        "note": "wing-stroke amplitude (Namiki et al. 2022)"
+      },
+      "DNp03_L": {
+        "types": [
+          "^DNp03$"
+        ],
+        "side": "L",
+        "note": "looming-evoked flight saccades (Curr Biol 2025)"
+      },
+      "DNp03_R": {
+        "types": [
+          "^DNp03$"
+        ],
+        "side": "R",
+        "note": "looming-evoked flight saccades (Curr Biol 2025)"
+      },
+      "DNp01_L": {
+        "types": [
+          "^DNp01$",
+          "^GF$"
+        ],
+        "side": "L",
+        "note": "giant fiber, escape takeoff (Ache et al. 2019)"
+      },
+      "DNp01_R": {
+        "types": [
+          "^DNp01$",
+          "^GF$"
+        ],
+        "side": "R",
+        "note": "giant fiber, escape takeoff (Ache et al. 2019)"
+      }
+    },
+    "vision": {
+      "width": 96,
+      "height": 72,
+      "grid": [
+        6,
+        8
+      ],
+      "flow_gain": 1.2,
+      "loom_gain": 8.0,
+      "loom_floor": 0.04,
+      "blur": 1
+    },
+    "decoder": {
+      "window_ms": 50,
+      "smoothing": 0.2,
+      "settle_s": 1.5,
+      "deadzone": 0.04,
+      "readout_file": null,
+      "axes": {
+        "throttle": {
+          "gain": 0.022,
+          "terms": {
+            "DNg02_L": 0.5,
+            "DNg02_R": 0.5
+          }
+        },
+        "yaw": {
+          "gain": 0.05,
+          "terms": {
+            "DNg02_R": 1.0,
+            "DNg02_L": -1.0,
+            "DNp03_L": 0.8,
+            "DNp03_R": -0.8
+          }
+        },
+        "forward": {
+          "gain": 0.0,
+          "terms": {}
+        },
+        "lateral": {
+          "gain": 0.0,
+          "terms": {}
+        }
+      },
+      "cruise": 0.0,
+      "brake_terms": {
+        "DNp03_L": 0.02,
+        "DNp03_R": 0.02,
+        "DNp01_L": 0.03,
+        "DNp01_R": 0.03
+      },
+      "escape": {
+        "terms": [
+          "DNp01_L",
+          "DNp01_R"
+        ],
+        "threshold_hz": 20,
+        "mode": "climb",
+        "duration_s": 0.7,
+        "strength": 0.8
+      }
+    },
+    "safety": {
+      "max_throttle": 0.6,
+      "max_yaw": 0.6,
+      "max_forward": 0.4,
+      "max_lateral": 0.4,
+      "slew_per_s": 2.5,
+      "min_alt_m": 0.3,
+      "max_alt_m": 2.2,
+      "geofence_radius_m": 3.0,
+      "brain_timeout_s": 0.5,
+      "min_battery_pct": 20,
+      "max_flight_s": 180
+    },
+    "control": {
+      "hz": 20,
+      "takeoff": true
+    },
+    "column_bridge": {
+      "schema": 1,
+      "eyes": "both",
+      "polarity": "darkness"
+    }
+  },
+  "cases": {
+    "zero": {
+      "case": "zero",
+      "model_ms": 1000.0,
+      "ticks": 20,
+      "total_simulated_spikes": 0,
+      "active_neurons": 0,
+      "L2_spikes_by_eye": {
+        "L": 0,
+        "R": 0
+      },
+      "non_L2_spikes": 0,
+      "active_non_L2_neurons": 0,
+      "ever_driven_ids_by_eye": {
+        "L": 1,
+        "R": 6
+      },
+      "ever_observed_ids_by_eye": {
+        "L": 229,
+        "R": 217
+      },
+      "statuses_over_all_ticks": {
+        "OUTSIDE_CAMERA_FOV": 24960,
+        "OBSERVED": 8920,
+        "MISSING_DIRECTION": 1700
+      },
+      "descending_output_group_spikes": {
+        "DNg02_L": 0,
+        "DNg02_R": 0,
+        "DNp03_L": 0,
+        "DNp03_R": 0,
+        "DNp01_L": 0,
+        "DNp01_R": 0
+      },
+      "input_rate_sha256": "40906f42c507e6ada6c03d1fcb5bcb5b65b3e64e5bd15c76aba6533381b7338a",
+      "per_neuron_tick_count_sha256": "2005b7baf93bf44b191917acc2b002b5a9693629ebb4480742e8892ac16676b9",
+      "final_voltage_sha256": "83ddefc018e21e4fb8e02a90783909f2f7f5ddb4101e98b6e13c085e5b7d48e0",
+      "final_conductance_sha256": "1fad75f1fcb2644110bc61e86b95e75583c95c7f4ee5f3617397efba88f216ea",
+      "wall_s": 0.44632789999013767,
+      "brain_wall_s": 0.16755590005777776,
+      "encoding_wall_s": 0.26093610003590584,
+      "model_seconds_per_wall_second": 2.2405052429438013,
+      "finite_state_all_ticks": true,
+      "graph_neurons": 166700,
+      "graph_edges": 10520377,
+      "top_cell_types_by_simulated_spikes": []
+    },
+    "both_pulse": {
+      "case": "both_pulse",
+      "model_ms": 1000.0,
+      "ticks": 20,
+      "total_simulated_spikes": 46846,
+      "active_neurons": 2854,
+      "L2_spikes_by_eye": {
+        "L": 10613,
+        "R": 9644
+      },
+      "non_L2_spikes": 26589,
+      "active_non_L2_neurons": 2408,
+      "ever_driven_ids_by_eye": {
+        "L": 229,
+        "R": 217
+      },
+      "ever_observed_ids_by_eye": {
+        "L": 229,
+        "R": 217
+      },
+      "statuses_over_all_ticks": {
+        "OUTSIDE_CAMERA_FOV": 24960,
+        "OBSERVED": 8920,
+        "MISSING_DIRECTION": 1700
+      },
+      "descending_output_group_spikes": {
+        "DNg02_L": 0,
+        "DNg02_R": 0,
+        "DNp03_L": 0,
+        "DNp03_R": 0,
+        "DNp01_L": 0,
+        "DNp01_R": 0
+      },
+      "input_rate_sha256": "28826f6d4e9d359dbd6e09fba1ef8a55892e29948ee9e4dbaa8c55c1a4ae8b14",
+      "per_neuron_tick_count_sha256": "30fac0b9a58f3383802bc9119ecc4513ece92bd3f2171fae3b612c697a00f1ff",
+      "final_voltage_sha256": "3d971b98106ce4894eae6a8122b13b06021986ae670d43f55c78eee42ee21857",
+      "final_conductance_sha256": "8ec5b5579ef71150fd41f89d421f9277aa1f685f6f8f90d934fdb9862ff956c1",
+      "wall_s": 0.8432033999706618,
+      "brain_wall_s": 0.5631370000191964,
+      "encoding_wall_s": 0.2576900999993086,
+      "model_seconds_per_wall_second": 1.185953472240261,
+      "finite_state_all_ticks": true,
+      "graph_neurons": 166700,
+      "graph_edges": 10520377,
+      "top_cell_types_by_simulated_spikes": [
+        {
+          "type": "L2",
+          "spikes": 20257
+        },
+        {
+          "type": "Tm4",
+          "spikes": 2948
+        },
+        {
+          "type": "Tm1",
+          "spikes": 2933
+        },
+        {
+          "type": "Dm15",
+          "spikes": 2687
+        },
+        {
+          "type": "Dm6",
+          "spikes": 2445
+        },
+        {
+          "type": "T1",
+          "spikes": 2275
+        },
+        {
+          "type": "Dm19",
+          "spikes": 2251
+        },
+        {
+          "type": "L5",
+          "spikes": 1954
+        },
+        {
+          "type": "Tm2",
+          "spikes": 1781
+        },
+        {
+          "type": "Pm2a",
+          "spikes": 1540
+        },
+        {
+          "type": "Pm5",
+          "spikes": 1046
+        },
+        {
+          "type": "Pm2b",
+          "spikes": 971
+        },
+        {
+          "type": "Pm4",
+          "spikes": 574
+        },
+        {
+          "type": "Dm17",
+          "spikes": 541
+        },
+        {
+          "type": "Dm13",
+          "spikes": 480
+        },
+        {
+          "type": "Dm18",
+          "spikes": 474
+        },
+        {
+          "type": "Pm6",
+          "spikes": 357
+        },
+        {
+          "type": "Li17",
+          "spikes": 292
+        },
+        {
+          "type": "Pm11",
+          "spikes": 229
+        },
+        {
+          "type": "Pm9",
+          "spikes": 200
+        }
+      ]
+    },
+    "both_pulse_repeat": {
+      "case": "both_pulse_repeat",
+      "model_ms": 1000.0,
+      "ticks": 20,
+      "total_simulated_spikes": 46846,
+      "active_neurons": 2854,
+      "L2_spikes_by_eye": {
+        "L": 10613,
+        "R": 9644
+      },
+      "non_L2_spikes": 26589,
+      "active_non_L2_neurons": 2408,
+      "ever_driven_ids_by_eye": {
+        "L": 229,
+        "R": 217
+      },
+      "ever_observed_ids_by_eye": {
+        "L": 229,
+        "R": 217
+      },
+      "statuses_over_all_ticks": {
+        "OUTSIDE_CAMERA_FOV": 24960,
+        "OBSERVED": 8920,
+        "MISSING_DIRECTION": 1700
+      },
+      "descending_output_group_spikes": {
+        "DNg02_L": 0,
+        "DNg02_R": 0,
+        "DNp03_L": 0,
+        "DNp03_R": 0,
+        "DNp01_L": 0,
+        "DNp01_R": 0
+      },
+      "input_rate_sha256": "28826f6d4e9d359dbd6e09fba1ef8a55892e29948ee9e4dbaa8c55c1a4ae8b14",
+      "per_neuron_tick_count_sha256": "30fac0b9a58f3383802bc9119ecc4513ece92bd3f2171fae3b612c697a00f1ff",
+      "final_voltage_sha256": "3d971b98106ce4894eae6a8122b13b06021986ae670d43f55c78eee42ee21857",
+      "final_conductance_sha256": "8ec5b5579ef71150fd41f89d421f9277aa1f685f6f8f90d934fdb9862ff956c1",
+      "wall_s": 0.8353952000034042,
+      "brain_wall_s": 0.5561853999970481,
+      "encoding_wall_s": 0.2577919999603182,
+      "model_seconds_per_wall_second": 1.1970382400999253,
+      "finite_state_all_ticks": true,
+      "graph_neurons": 166700,
+      "graph_edges": 10520377,
+      "top_cell_types_by_simulated_spikes": [
+        {
+          "type": "L2",
+          "spikes": 20257
+        },
+        {
+          "type": "Tm4",
+          "spikes": 2948
+        },
+        {
+          "type": "Tm1",
+          "spikes": 2933
+        },
+        {
+          "type": "Dm15",
+          "spikes": 2687
+        },
+        {
+          "type": "Dm6",
+          "spikes": 2445
+        },
+        {
+          "type": "T1",
+          "spikes": 2275
+        },
+        {
+          "type": "Dm19",
+          "spikes": 2251
+        },
+        {
+          "type": "L5",
+          "spikes": 1954
+        },
+        {
+          "type": "Tm2",
+          "spikes": 1781
+        },
+        {
+          "type": "Pm2a",
+          "spikes": 1540
+        },
+        {
+          "type": "Pm5",
+          "spikes": 1046
+        },
+        {
+          "type": "Pm2b",
+          "spikes": 971
+        },
+        {
+          "type": "Pm4",
+          "spikes": 574
+        },
+        {
+          "type": "Dm17",
+          "spikes": 541
+        },
+        {
+          "type": "Dm13",
+          "spikes": 480
+        },
+        {
+          "type": "Dm18",
+          "spikes": 474
+        },
+        {
+          "type": "Pm6",
+          "spikes": 357
+        },
+        {
+          "type": "Li17",
+          "spikes": 292
+        },
+        {
+          "type": "Pm11",
+          "spikes": 229
+        },
+        {
+          "type": "Pm9",
+          "spikes": 200
+        }
+      ]
+    },
+    "left_pulse": {
+      "case": "left_pulse",
+      "model_ms": 1000.0,
+      "ticks": 20,
+      "total_simulated_spikes": 23668,
+      "active_neurons": 1430,
+      "L2_spikes_by_eye": {
+        "L": 10708,
+        "R": 0
+      },
+      "non_L2_spikes": 12960,
+      "active_non_L2_neurons": 1201,
+      "ever_driven_ids_by_eye": {
+        "L": 229,
+        "R": 0
+      },
+      "ever_observed_ids_by_eye": {
+        "L": 229,
+        "R": 217
+      },
+      "statuses_over_all_ticks": {
+        "OUTSIDE_CAMERA_FOV": 24960,
+        "OBSERVED": 8920,
+        "MISSING_DIRECTION": 1700
+      },
+      "descending_output_group_spikes": {
+        "DNg02_L": 0,
+        "DNg02_R": 0,
+        "DNp03_L": 0,
+        "DNp03_R": 0,
+        "DNp01_L": 0,
+        "DNp01_R": 0
+      },
+      "input_rate_sha256": "074a6fbe695997f3047dc2044e2082732d9394365d1895e579a4d0a175e22469",
+      "per_neuron_tick_count_sha256": "cbaf77607988777100a2005f71c3e77974e036145c9d00b1b68784ae386c49f8",
+      "final_voltage_sha256": "ad116a2d993a608444e4bd1833fcf2b1c5fb02e256ab8fdcff61617c0446a9d4",
+      "final_conductance_sha256": "fed8ad0852726781ee14c358468321d72c8a4c9503bf4acd94f430a3dd80ab81",
+      "wall_s": 0.815639199980069,
+      "brain_wall_s": 0.5368559000198729,
+      "encoding_wall_s": 0.2616014001541771,
+      "model_seconds_per_wall_second": 1.226032294701427,
+      "finite_state_all_ticks": true,
+      "graph_neurons": 166700,
+      "graph_edges": 10520377,
+      "top_cell_types_by_simulated_spikes": [
+        {
+          "type": "L2",
+          "spikes": 10708
+        },
+        {
+          "type": "Tm1",
+          "spikes": 1499
+        },
+        {
+          "type": "Dm6",
+          "spikes": 1317
+        },
+        {
+          "type": "Dm15",
+          "spikes": 1258
+        },
+        {
+          "type": "Dm19",
+          "spikes": 1161
+        },
+        {
+          "type": "Tm4",
+          "spikes": 1149
+        },
+        {
+          "type": "T1",
+          "spikes": 1113
+        },
+        {
+          "type": "L5",
+          "spikes": 966
+        },
+        {
+          "type": "Tm2",
+          "spikes": 950
+        },
+        {
+          "type": "Pm2a",
+          "spikes": 800
+        },
+        {
+          "type": "Pm5",
+          "spikes": 491
+        },
+        {
+          "type": "Pm2b",
+          "spikes": 486
+        },
+        {
+          "type": "Dm17",
+          "spikes": 293
+        },
+        {
+          "type": "Pm4",
+          "spikes": 282
+        },
+        {
+          "type": "Dm13",
+          "spikes": 242
+        },
+        {
+          "type": "Dm18",
+          "spikes": 227
+        },
+        {
+          "type": "Pm6",
+          "spikes": 177
+        },
+        {
+          "type": "Li17",
+          "spikes": 134
+        },
+        {
+          "type": "Pm11",
+          "spikes": 116
+        },
+        {
+          "type": "Pm7",
+          "spikes": 73
+        }
+      ]
+    },
+    "right_pulse": {
+      "case": "right_pulse",
+      "model_ms": 1000.0,
+      "ticks": 20,
+      "total_simulated_spikes": 23529,
+      "active_neurons": 1449,
+      "L2_spikes_by_eye": {
+        "L": 0,
+        "R": 9664
+      },
+      "non_L2_spikes": 13865,
+      "active_non_L2_neurons": 1232,
+      "ever_driven_ids_by_eye": {
+        "L": 0,
+        "R": 217
+      },
+      "ever_observed_ids_by_eye": {
+        "L": 229,
+        "R": 217
+      },
+      "statuses_over_all_ticks": {
+        "OUTSIDE_CAMERA_FOV": 24960,
+        "OBSERVED": 8920,
+        "MISSING_DIRECTION": 1700
+      },
+      "descending_output_group_spikes": {
+        "DNg02_L": 0,
+        "DNg02_R": 0,
+        "DNp03_L": 0,
+        "DNp03_R": 0,
+        "DNp01_L": 0,
+        "DNp01_R": 0
+      },
+      "input_rate_sha256": "e1dc9823c29057cfbcf3824009444506845521cc750f9337e5dcaa339a86c4d7",
+      "per_neuron_tick_count_sha256": "b2a99a0e0be187961dab6ffec746529b9b011a2788724da3004da80cdf8b1e15",
+      "final_voltage_sha256": "0e54c15ed2a7c4188c2d247c5a3cbd40aa67781e0585ab46097ca9dfdbefa7e8",
+      "final_conductance_sha256": "b4bd8db535cebb790475752b162fea884c76a66f662158f2759258a0bcaa9514",
+      "wall_s": 0.8122076999861747,
+      "brain_wall_s": 0.5362822999595664,
+      "encoding_wall_s": 0.25859769992530346,
+      "model_seconds_per_wall_second": 1.2312121641016478,
+      "finite_state_all_ticks": true,
+      "graph_neurons": 166700,
+      "graph_edges": 10520377,
+      "top_cell_types_by_simulated_spikes": [
+        {
+          "type": "L2",
+          "spikes": 9664
+        },
+        {
+          "type": "Tm4",
+          "spikes": 1773
+        },
+        {
+          "type": "Dm15",
+          "spikes": 1472
+        },
+        {
+          "type": "Tm1",
+          "spikes": 1469
+        },
+        {
+          "type": "Dm6",
+          "spikes": 1157
+        },
+        {
+          "type": "T1",
+          "spikes": 1155
+        },
+        {
+          "type": "Dm19",
+          "spikes": 1091
+        },
+        {
+          "type": "L5",
+          "spikes": 1035
+        },
+        {
+          "type": "Tm2",
+          "spikes": 862
+        },
+        {
+          "type": "Pm2a",
+          "spikes": 765
+        },
+        {
+          "type": "Pm5",
+          "spikes": 570
+        },
+        {
+          "type": "Pm2b",
+          "spikes": 507
+        },
+        {
+          "type": "Dm18",
+          "spikes": 271
+        },
+        {
+          "type": "Pm4",
+          "spikes": 271
+        },
+        {
+          "type": "Dm17",
+          "spikes": 250
+        },
+        {
+          "type": "Dm13",
+          "spikes": 244
+        },
+        {
+          "type": "Pm6",
+          "spikes": 185
+        },
+        {
+          "type": "Li17",
+          "spikes": 165
+        },
+        {
+          "type": "Pm9",
+          "spikes": 144
+        },
+        {
+          "type": "Pm11",
+          "spikes": 117
+        }
+      ]
+    },
+    "pattern": {
+      "case": "pattern",
+      "model_ms": 1000.0,
+      "ticks": 20,
+      "total_simulated_spikes": 25374,
+      "active_neurons": 1530,
+      "L2_spikes_by_eye": {
+        "L": 9017,
+        "R": 1655
+      },
+      "non_L2_spikes": 14702,
+      "active_non_L2_neurons": 1306,
+      "ever_driven_ids_by_eye": {
+        "L": 193,
+        "R": 36
+      },
+      "ever_observed_ids_by_eye": {
+        "L": 229,
+        "R": 217
+      },
+      "statuses_over_all_ticks": {
+        "OUTSIDE_CAMERA_FOV": 24960,
+        "OBSERVED": 8920,
+        "MISSING_DIRECTION": 1700
+      },
+      "descending_output_group_spikes": {
+        "DNg02_L": 0,
+        "DNg02_R": 0,
+        "DNp03_L": 0,
+        "DNp03_R": 0,
+        "DNp01_L": 0,
+        "DNp01_R": 0
+      },
+      "input_rate_sha256": "0e7f203cb1d2cf925894d6eec7a59203a5bb42f73719abe05faeea0a99551b56",
+      "per_neuron_tick_count_sha256": "9e991c586ad7087a52b50a3f30dc6bc9f30a76c7f4853cc00c6c9740e2c3bcd7",
+      "final_voltage_sha256": "97b7837e0d18d349626556e43aa2b5d568214210415624799e64e778dc8dfd82",
+      "final_conductance_sha256": "95d788255c066c18d3fdce759235ad353f639f886256bb1b6cb4704da541202e",
+      "wall_s": 0.8179343999945559,
+      "brain_wall_s": 0.5408996001351625,
+      "encoding_wall_s": 0.2587331999093294,
+      "model_seconds_per_wall_second": 1.2225919340312084,
+      "finite_state_all_ticks": true,
+      "graph_neurons": 166700,
+      "graph_edges": 10520377,
+      "top_cell_types_by_simulated_spikes": [
+        {
+          "type": "L2",
+          "spikes": 10672
+        },
+        {
+          "type": "Tm1",
+          "spikes": 1798
+        },
+        {
+          "type": "T1",
+          "spikes": 1415
+        },
+        {
+          "type": "Tm4",
+          "spikes": 1381
+        },
+        {
+          "type": "Dm19",
+          "spikes": 1360
+        },
+        {
+          "type": "Dm6",
+          "spikes": 1333
+        },
+        {
+          "type": "Tm2",
+          "spikes": 1324
+        },
+        {
+          "type": "Dm15",
+          "spikes": 1116
+        },
+        {
+          "type": "L5",
+          "spikes": 1038
+        },
+        {
+          "type": "Pm2a",
+          "spikes": 897
+        },
+        {
+          "type": "Pm5",
+          "spikes": 567
+        },
+        {
+          "type": "Pm2b",
+          "spikes": 546
+        },
+        {
+          "type": "Pm4",
+          "spikes": 354
+        },
+        {
+          "type": "Dm17",
+          "spikes": 271
+        },
+        {
+          "type": "Dm13",
+          "spikes": 259
+        },
+        {
+          "type": "Dm18",
+          "spikes": 231
+        },
+        {
+          "type": "Pm6",
+          "spikes": 185
+        },
+        {
+          "type": "Li17",
+          "spikes": 150
+        },
+        {
+          "type": "Pm11",
+          "spikes": 138
+        },
+        {
+          "type": "Pm7",
+          "spikes": 93
+        }
+      ]
+    },
+    "pattern_shuffled": {
+      "case": "pattern_shuffled",
+      "model_ms": 1000.0,
+      "ticks": 20,
+      "total_simulated_spikes": 27462,
+      "active_neurons": 1584,
+      "L2_spikes_by_eye": {
+        "L": 9338,
+        "R": 1684
+      },
+      "non_L2_spikes": 16440,
+      "active_non_L2_neurons": 1360,
+      "ever_driven_ids_by_eye": {
+        "L": 193,
+        "R": 36
+      },
+      "ever_observed_ids_by_eye": {
+        "L": 229,
+        "R": 217
+      },
+      "statuses_over_all_ticks": {
+        "OUTSIDE_CAMERA_FOV": 24960,
+        "OBSERVED": 8920,
+        "MISSING_DIRECTION": 1700
+      },
+      "descending_output_group_spikes": {
+        "DNg02_L": 0,
+        "DNg02_R": 0,
+        "DNp03_L": 0,
+        "DNp03_R": 0,
+        "DNp01_L": 0,
+        "DNp01_R": 0
+      },
+      "input_rate_sha256": "6121394c3af1d64aa1a025e41186e38944cc74244d70187410611cd4e9518f05",
+      "per_neuron_tick_count_sha256": "101b97b432725fcc0d50e926942f5214b1ee366a63ac067975733055983ebae2",
+      "final_voltage_sha256": "687c4445a67de6d43fd833508f5841219506f0e37ea01eac4a879b1153dfdd08",
+      "final_conductance_sha256": "40a9a84649a87b5a2ecbc2ae5a03a00240b905b6d66a57aac55c00bf779421e7",
+      "wall_s": 0.8306716000079177,
+      "brain_wall_s": 0.5491720001446083,
+      "encoding_wall_s": 0.2630426999530755,
+      "model_seconds_per_wall_second": 1.2038451777940504,
+      "finite_state_all_ticks": true,
+      "graph_neurons": 166700,
+      "graph_edges": 10520377,
+      "top_cell_types_by_simulated_spikes": [
+        {
+          "type": "L2",
+          "spikes": 11022
+        },
+        {
+          "type": "Tm1",
+          "spikes": 2111
+        },
+        {
+          "type": "Tm2",
+          "spikes": 1648
+        },
+        {
+          "type": "T1",
+          "spikes": 1638
+        },
+        {
+          "type": "Dm19",
+          "spikes": 1510
+        },
+        {
+          "type": "Tm4",
+          "spikes": 1361
+        },
+        {
+          "type": "L5",
+          "spikes": 1339
+        },
+        {
+          "type": "Dm6",
+          "spikes": 1235
+        },
+        {
+          "type": "Pm2a",
+          "spikes": 1063
+        },
+        {
+          "type": "Dm15",
+          "spikes": 974
+        },
+        {
+          "type": "Pm5",
+          "spikes": 650
+        },
+        {
+          "type": "Pm2b",
+          "spikes": 634
+        },
+        {
+          "type": "Pm4",
+          "spikes": 407
+        },
+        {
+          "type": "Dm13",
+          "spikes": 360
+        },
+        {
+          "type": "Dm17",
+          "spikes": 260
+        },
+        {
+          "type": "Dm18",
+          "spikes": 260
+        },
+        {
+          "type": "Pm6",
+          "spikes": 223
+        },
+        {
+          "type": "Pm11",
+          "spikes": 209
+        },
+        {
+          "type": "Pm7",
+          "spikes": 137
+        },
+        {
+          "type": "Li17",
+          "spikes": 134
+        }
+      ]
+    },
+    "disconnected": {
+      "case": "disconnected",
+      "model_ms": 1000.0,
+      "ticks": 20,
+      "total_simulated_spikes": 24798,
+      "active_neurons": 446,
+      "L2_spikes_by_eye": {
+        "L": 12709,
+        "R": 12089
+      },
+      "non_L2_spikes": 0,
+      "active_non_L2_neurons": 0,
+      "ever_driven_ids_by_eye": {
+        "L": 229,
+        "R": 217
+      },
+      "ever_observed_ids_by_eye": {
+        "L": 229,
+        "R": 217
+      },
+      "statuses_over_all_ticks": {
+        "OUTSIDE_CAMERA_FOV": 24960,
+        "OBSERVED": 8920,
+        "MISSING_DIRECTION": 1700
+      },
+      "descending_output_group_spikes": {
+        "DNg02_L": 0,
+        "DNg02_R": 0,
+        "DNp03_L": 0,
+        "DNp03_R": 0,
+        "DNp01_L": 0,
+        "DNp01_R": 0
+      },
+      "input_rate_sha256": "28826f6d4e9d359dbd6e09fba1ef8a55892e29948ee9e4dbaa8c55c1a4ae8b14",
+      "per_neuron_tick_count_sha256": "7aa7ef92e7dcf95335bdc990ab48570de531ebbd1643446f7fa55d61f34a041b",
+      "final_voltage_sha256": "83ddefc018e21e4fb8e02a90783909f2f7f5ddb4101e98b6e13c085e5b7d48e0",
+      "final_conductance_sha256": "1fad75f1fcb2644110bc61e86b95e75583c95c7f4ee5f3617397efba88f216ea",
+      "wall_s": 0.47337260004132986,
+      "brain_wall_s": 0.19693180010654032,
+      "encoding_wall_s": 0.2569654999533668,
+      "model_seconds_per_wall_second": 2.112500807847118,
+      "finite_state_all_ticks": true,
+      "graph_neurons": 166700,
+      "graph_edges": 0,
+      "top_cell_types_by_simulated_spikes": [
+        {
+          "type": "L2",
+          "spikes": 24798
+        }
+      ]
+    },
+    "sustained": {
+      "case": "sustained",
+      "model_ms": 5000.0,
+      "ticks": 100,
+      "total_simulated_spikes": 79888,
+      "active_neurons": 3483,
+      "L2_spikes_by_eye": {
+        "L": 13752,
+        "R": 12322
+      },
+      "non_L2_spikes": 53814,
+      "active_non_L2_neurons": 3037,
+      "ever_driven_ids_by_eye": {
+        "L": 229,
+        "R": 217
+      },
+      "ever_observed_ids_by_eye": {
+        "L": 229,
+        "R": 217
+      },
+      "statuses_over_all_ticks": {
+        "OUTSIDE_CAMERA_FOV": 124800,
+        "OBSERVED": 44600,
+        "MISSING_DIRECTION": 8500
+      },
+      "descending_output_group_spikes": {
+        "DNg02_L": 0,
+        "DNg02_R": 0,
+        "DNp03_L": 0,
+        "DNp03_R": 0,
+        "DNp01_L": 1,
+        "DNp01_R": 1
+      },
+      "input_rate_sha256": "71f695e706e424d4c1d1027b72a6fe487fbba448e6f875849aaf49f79331c007",
+      "per_neuron_tick_count_sha256": "ca611319a1242cbe9d74941140f315118137157096c3a81f581082cc41415f8f",
+      "final_voltage_sha256": "3f85f68140f347409e9696c660cf1406ae4bd94c7181ee11c1a4ca6f21b3bcfb",
+      "final_conductance_sha256": "cdcc05e8df7b9a40e5d5598e92ed18fcbc78a70da23845a3ffb716d97371a7e2",
+      "wall_s": 5.255724799993914,
+      "brain_wall_s": 3.8491779997129925,
+      "encoding_wall_s": 1.3073994001024403,
+      "model_seconds_per_wall_second": 0.9513435711104566,
+      "finite_state_all_ticks": true,
+      "graph_neurons": 166700,
+      "graph_edges": 10520377,
+      "top_cell_types_by_simulated_spikes": [
+        {
+          "type": "L2",
+          "spikes": 26074
+        },
+        {
+          "type": "Tm1",
+          "spikes": 6303
+        },
+        {
+          "type": "Tm2",
+          "spikes": 6097
+        },
+        {
+          "type": "Tm4",
+          "spikes": 6060
+        },
+        {
+          "type": "T1",
+          "spikes": 4947
+        },
+        {
+          "type": "Dm19",
+          "spikes": 4786
+        },
+        {
+          "type": "L5",
+          "spikes": 3872
+        },
+        {
+          "type": "Dm6",
+          "spikes": 3415
+        },
+        {
+          "type": "Pm2a",
+          "spikes": 3128
+        },
+        {
+          "type": "Pm5",
+          "spikes": 2441
+        },
+        {
+          "type": "Dm15",
+          "spikes": 1997
+        },
+        {
+          "type": "Pm2b",
+          "spikes": 1806
+        },
+        {
+          "type": "Pm4",
+          "spikes": 1676
+        },
+        {
+          "type": "Dm13",
+          "spikes": 1098
+        },
+        {
+          "type": "Pm11",
+          "spikes": 823
+        },
+        {
+          "type": "Dm18",
+          "spikes": 690
+        },
+        {
+          "type": "Dm17",
+          "spikes": 628
+        },
+        {
+          "type": "Li17",
+          "spikes": 555
+        },
+        {
+          "type": "Pm7",
+          "spikes": 536
+        },
+        {
+          "type": "Pm6",
+          "spikes": 446
+        }
+      ]
+    },
+    "recorded_d435": {
+      "case": "recorded_d435",
+      "model_ms": 6500.0,
+      "ticks": 130,
+      "total_simulated_spikes": 217989,
+      "active_neurons": 1454,
+      "L2_spikes_by_eye": {
+        "L": 49237,
+        "R": 40988
+      },
+      "non_L2_spikes": 127764,
+      "active_non_L2_neurons": 1256,
+      "ever_driven_ids_by_eye": {
+        "L": 105,
+        "R": 93
+      },
+      "ever_observed_ids_by_eye": {
+        "L": 105,
+        "R": 93
+      },
+      "statuses_over_all_ticks": {
+        "OUTSIDE_CAMERA_FOV": 194480,
+        "OBSERVED": 25740,
+        "MISSING_DIRECTION": 11050
+      },
+      "descending_output_group_spikes": {
+        "DNg02_L": 0,
+        "DNg02_R": 0,
+        "DNp03_L": 0,
+        "DNp03_R": 0,
+        "DNp01_L": 0,
+        "DNp01_R": 0
+      },
+      "input_rate_sha256": "87950e2be716cef3ac1f4dce992da9e50aad29daadfeb11663e9ebc745d96f21",
+      "per_neuron_tick_count_sha256": "f2e16a337d5c942b9140c5127f52132dfd7c54e4c5faec893003aa1a4cde2667",
+      "final_voltage_sha256": "97f74322c44fca42c9c540525d0ad1547c4848c3afffc839afa0db0694197418",
+      "final_conductance_sha256": "fe23c9a3b60bad5149ab67964e15ec64f12b4adafeaebdffbf83aa75b8302f68",
+      "wall_s": 11.507064900011756,
+      "brain_wall_s": 5.149043099780101,
+      "encoding_wall_s": 1.3931843999307603,
+      "model_seconds_per_wall_second": 0.5648703693322664,
+      "finite_state_all_ticks": true,
+      "graph_neurons": 166700,
+      "graph_edges": 10520377,
+      "top_cell_types_by_simulated_spikes": [
+        {
+          "type": "L2",
+          "spikes": 90225
+        },
+        {
+          "type": "Tm4",
+          "spikes": 14352
+        },
+        {
+          "type": "Tm1",
+          "spikes": 14265
+        },
+        {
+          "type": "Dm19",
+          "spikes": 13304
+        },
+        {
+          "type": "Tm2",
+          "spikes": 11434
+        },
+        {
+          "type": "Dm15",
+          "spikes": 10652
+        },
+        {
+          "type": "Dm6",
+          "spikes": 10584
+        },
+        {
+          "type": "T1",
+          "spikes": 9913
+        },
+        {
+          "type": "L5",
+          "spikes": 7504
+        },
+        {
+          "type": "Pm2a",
+          "spikes": 7080
+        },
+        {
+          "type": "Pm5",
+          "spikes": 5386
+        },
+        {
+          "type": "Pm2b",
+          "spikes": 4750
+        },
+        {
+          "type": "Pm4",
+          "spikes": 3436
+        },
+        {
+          "type": "Dm17",
+          "spikes": 2990
+        },
+        {
+          "type": "Dm13",
+          "spikes": 2289
+        },
+        {
+          "type": "Li17",
+          "spikes": 1663
+        },
+        {
+          "type": "Pm11",
+          "spikes": 1649
+        },
+        {
+          "type": "Dm18",
+          "spikes": 1399
+        },
+        {
+          "type": "Pm6",
+          "spikes": 1242
+        },
+        {
+          "type": "Pm7",
+          "spikes": 1146
+        }
+      ],
+      "recorded_frame_selection": {
+        "distinct_frames": 130,
+        "stale_ticks": 0,
+        "min_age_s": 0.0,
+        "max_age_s": 0.01678762435913228,
+        "first_source_index": 1177,
+        "last_source_index": 1560
+      }
+    }
+  },
+  "differences": {
+    "both_pulse__vs__zero": {
+      "neurons_with_different_total_counts": 2854,
+      "non_L2_neurons_with_different_total_counts": 2408,
+      "absolute_spike_count_difference_sum": 46846
+    },
+    "both_pulse__vs__disconnected": {
+      "neurons_with_different_total_counts": 2841,
+      "non_L2_neurons_with_different_total_counts": 2408,
+      "absolute_spike_count_difference_sum": 31130
+    },
+    "pattern__vs__pattern_shuffled": {
+      "neurons_with_different_total_counts": 1813,
+      "non_L2_neurons_with_different_total_counts": 1541,
+      "absolute_spike_count_difference_sum": 16578
+    },
+    "left_pulse__vs__right_pulse": {
+      "neurons_with_different_total_counts": 2879,
+      "non_L2_neurons_with_different_total_counts": 2433,
+      "absolute_spike_count_difference_sum": 47197
+    }
+  },
+  "recorded": {
+    "source_sha256": {
+      "rgb.avi": "c254f847856bda8fb8143fa9e5664fa5752446bb5a85eeb386ef16f82faea979",
+      "capture.json": "eb6bfbd04fd089e301af3a3eddffc5166ae945c111a344d662b16bcc7fddef72",
+      "display_log.json": "18f8859b5002c32f24d67433aec399dda5bd25441b6ea56b25bccfc7c973e47f",
+      "calibrated_temporal_samples.npz": "4a07cdafb9b0e5cd8227db065ca7b629518ebec69d71742992c227f9d8cdf472"
+    },
+    "selection": {
+      "protocol": "calibrated_temporal_v1",
+      "start_optical_phase": 27,
+      "duration_s": 6.5,
+      "tick_s": 0.05,
+      "max_frame_age_s": 0.1,
+      "selection": "First camera frame labelled phase 27, latest causal frame held at each 50 ms model tick",
+      "scope": "Optional replay of existing D435 recording, not a new live acquisition or precise sensor/model synchronization"
+    },
+    "scope": "Existing private D435 recording, no new physical capture"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows",
+    "machine": "AMD64",
+    "versions": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "flydrones": "0.1.0",
+      "psutil": "7.2.2"
+    }
+  },
+  "limitation": "Full filtered model execution and engineering controls, not biological neural-response validation or drone control",
+  "memory": {
+    "start_rss_bytes": 53628928,
+    "peak_sampled_rss_bytes": 428539904,
+    "sampling_interval_s": 0.02,
+    "scope": "This process including native graph load, initialization and all cases; not a hard peak bound"
+  }
+}

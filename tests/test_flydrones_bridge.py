@@ -100,6 +100,15 @@ class L2BridgeTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             L2Encoder(c, cfg)
 
+    def test_integer_id_guard_detects_in_place_mutation_after_construction(self):
+        c, cfg, frame = fixture()
+        c.body_ids = c.body_ids.astype(np.int64)
+        encoder = L2Encoder(c, cfg)
+        self.assertGreater(encoder.encode_frame(frame).rates["L2_R"].sum(), 0)
+        c.body_ids[1] += 1
+        with self.assertRaises(ValueError):
+            encoder.encode_frame(frame)
+
     def test_duplicate_mapping_and_mixed_config_rejected(self):
         c, cfg, _ = fixture()
         rows = load_eye_mapping()

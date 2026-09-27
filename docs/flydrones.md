@@ -33,7 +33,7 @@ These are engineered Poisson input rates, not measured L2 firing. Depth and IMU 
 
 ## Pass a camera frame directly to Brain.tick
 
-Load a **native FlyDrones MaleCNS `.npz`** with real `body_ids` (see the pinned [upstream build instructions](https://github.com/SpikeCalls/FlyDrones/tree/3e269346b3882c291d2a977bc2c2c6a9c9213c21)). A Xenova `brain.js` model directory is a different format and cannot be passed here. Full native MaleCNS graph replay through this new adapter has not yet been qualified; current runtime tests use synthetic wiring.
+Load a **native FlyDrones MaleCNS `.npz`** with real `body_ids` using our [full-network build guide](flydrones-full-network.md), which documents a necessary fallback from missing rootSide to official somaSide annotations. A Xenova `brain.js` model directory is a different format and cannot be passed here. The [full-network qualification](../reports/flydrones-full-network/README.md) now covers 166,700 neurons and 10,520,377 connections under the stated minimum-three-synapse filter; routine CI still uses synthetic wiring fixtures.
 
 ```python
 import json

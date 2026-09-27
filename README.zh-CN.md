@@ -21,7 +21,7 @@
 | [其他 USB 或内置 RGB 摄像头](#普通-webcam-接入大脑) | 通过 OpenCV 相机编号运行同一实时流程 | 适配器已实现，该采集后端尚待实机验证 |
 | [Intel RealSense D435i](docs/cameras.md#d435i-recorded-experimental-path) | 录制 RGB、深度和 IMU，重放映射与屏幕实验 | 有几何录制与受控屏幕实验；使用独立于实时 RGB 入口的流程 |
 | [离线模型比较](#离线比较视觉编码器) | 比较 L2、FlyDrones、Flyvis 对相同刺激的输出 | 固定协议的合成预测与诊断；可选模型单独安装 |
-| [FlyDrones L2 适配器](docs/flydrones.md) | 用公开的逐 body ID 位置替换按索引分配的映射，直接接入 Brain 或 Pilot | 上游真实接口加合成连接测试、同一批 L2 的空间对照、此前 D435 屏幕录像回放；[结果](reports/flydrones/README.md) |
+| [FlyDrones L2 适配器](docs/flydrones.md) | 用公开的逐 body ID 位置替换按索引分配的映射，直接接入 Brain 或 Pilot | [完整原生网络检查](docs/flydrones-full-network.md)：166,700 个神经元、10,520,377 条连接（≥3 突触过滤），双眼输入、因果对照与旧 D435 录像回放；生理真实性仍待验证 |
 
 已提供双眼映射。单个相机只能观测自身视野内的方向，不提供两个实测眼睛原点，也不覆盖完整复眼视野。详见[双眼接入](docs/binocular.md)。
 

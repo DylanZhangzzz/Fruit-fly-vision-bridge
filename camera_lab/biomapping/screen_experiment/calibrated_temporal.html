@@ -1,0 +1,45 @@
+<!doctype html><meta charset="utf-8"><title>固定灰阶标定 · 独立时序验收</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#111;color:#eee;font:17px system-ui}header{padding:20px;max-width:1050px;margin:auto}button{font:inherit;padding:12px;cursor:pointer}a{color:#8bd8fa}canvas{display:block;width:min(100vw,calc(74vh * 1.42857));height:auto;margin:auto}body.running header{display:none}body.running canvas{width:min(100vw,calc(100vh * 1.42857));height:auto}</style>
+<header><h1>固定灰阶响应表 · 新刺激独立验收</h1><p>保持相机位置和屏幕亮度不变。以 160 为背景灰阶，使用 112–208 的明暗变化，避开暗部平坦区。</p><p>包含明暗阶跃、8 次 200 ms 闪烁、1 / 2 / 4 Hz 正弦变化和双向移动条纹。约 29 秒。</p><p>验证数字灰阶解码与模型计算链路；没有记录真实神经元。</p><button id="start">全屏并开始独立时序验收</button> <span id="status">就绪</span><div id="result"></div></header>
+<canvas id="screen" width="1000" height="700"></canvas>
+<script>
+const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d'),status=document.querySelector('#status');
+const calibration=new URLSearchParams(location.search).get('calibration')||'20260927-135311-544262',protocol='calibrated_temporal_v1';
+const markers=[0,1,2,3].map(i=>{const im=new Image();im.src='/marker/'+i+'.png';return im});
+const loaded=Promise.all(markers.map(im=>new Promise((resolve,reject)=>{if(im.complete&&im.naturalWidth)resolve();else{im.onload=resolve;im.onerror=reject}})));
+const centers=[[100,90],[900,90],[900,610],[100,610]],phases=[];
+const add=(kind,duration,level=160,extra={})=>phases.push({kind,duration,level,...extra});
+add('baseline',2);add('dark_step',.8,112);add('baseline',.5);add('light_step',.8,208);add('baseline',.5);
+for(let i=0;i<4;i++){add('dark_flash',.2,112);add('baseline',.4)}
+for(let i=0;i<4;i++){add('light_flash',.2,208);add('baseline',.4)}
+for(const frequency of [1,2,4]){add('sine',3,160,{frequency,amplitude:48});add('baseline',.4)}
+add('move_right',3,160,{bar_level:112,bar_width:80});add('baseline',.5);add('move_left',3,160,{bar_level:112,bar_width:80});
+add('dark_anchor',.6,112);add('baseline',.6);add('light_anchor',.6,208);add('baseline',1);
+let end=0;phases.forEach((p,i)=>{p.id=i;p.start=end;end+=p.duration});
+function draw(p=phases[0],elapsed=0){
+ const level=Math.round(p.kind==='sine'?p.level+p.amplitude*Math.sin(2*Math.PI*p.frequency*elapsed):p.level);
+ ctx.fillStyle='#888';ctx.fillRect(0,0,1000,700);ctx.fillStyle=`rgb(${level},${level},${level})`;ctx.fillRect(200,180,600,340);
+ let pos=null;if(p.kind.startsWith('move_')){pos=p.kind==='move_right'?200+elapsed/p.duration*520:720-elapsed/p.duration*520;ctx.fillStyle=`rgb(${p.bar_level},${p.bar_level},${p.bar_level})`;ctx.fillRect(pos,180,p.bar_width,340)}
+ centers.forEach(([x,y],i)=>{ctx.fillStyle='white';ctx.fillRect(x-47,y-47,94,94);ctx.drawImage(markers[i],x-35,y-35,70,70)});
+ ctx.fillStyle='black';ctx.fillRect(300,105,60,45);ctx.fillStyle='white';ctx.fillRect(390,105,60,45);
+ const code=p.id^(p.id>>1);for(let i=0;i<8;i++){const bit=(code>>i)&1,x=240+i*65;ctx.fillStyle=bit?'white':'black';ctx.fillRect(x,565,27,40);ctx.fillStyle=bit?'black':'white';ctx.fillRect(x+33,565,27,40)}
+ return {level,pos};
+}
+loaded.then(()=>draw());const pause=ms=>new Promise(r=>setTimeout(r,ms));let busy=false;
+async function post(path,data){const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw Error(await r.text());return r.json()}
+async function state(){return(await fetch('/api/status',{cache:'no-store'})).json()}
+document.querySelector('#start').onclick=async()=>{
+ if(busy)return;busy=true;let recording=false,frames=[],events=[];
+ try{
+  await document.documentElement.requestFullscreen().catch(()=>{});await loaded;document.body.classList.add('running');draw();
+  await post('/api/run',{protocol,calibration});
+  for(;;){const s=await state();if(s.error)throw Error(s.error);if(s.ready)break;await pause(200)}
+  recording=true;const start=performance.now();let last=-1;
+  await new Promise((resolve,reject)=>{function tick(now){try{const t=Math.max(0,(now-start)/1000);if(t>=end){resolve();return}const p=phases.findLast(p=>p.start<=t),signal=draw(p,t-p.start);if(last!==p.id){events.push({phase_id:p.id,kind:p.kind,elapsed_s:t});last=p.id}frames.push({elapsed_s:t,phase_id:p.id,...signal,visibility:document.visibilityState});requestAnimationFrame(tick)}catch(e){reject(e)}}requestAnimationFrame(tick)});
+  await post('/api/finish',{protocol,calibration,bit_encoding:'gray_dualrail_v2',phases,frames,events,duration_s:(performance.now()-start)/1000,canvas:[1000,700]});
+  recording=false;document.body.classList.remove('running');draw();
+  for(;;){const s=await state();status.textContent=s.phase+' · '+s.frames+' 帧';if(s.error)throw Error(s.error);if(s.phase==='done'){document.querySelector('#result').innerHTML=`<p><a href="${s.result_url}">查看独立时序验收结果</a></p>`;break}await pause(500)}
+ }catch(e){status.textContent=e.message;if(recording)await post('/api/finish',{protocol,calibration,bit_encoding:'gray_dualrail_v2',phases,frames,events,aborted:true,error:String(e)}).catch(()=>{})}
+ finally{busy=false;document.body.classList.remove('running')}
+};
+</script>

@@ -1,0 +1,37 @@
+{
+  "author_archive_commit": "503c7f055d5491a48b60b49ade8c71798d24d8f1",
+  "source_url": "https://github.com/artxz/eyemap-archive/blob/503c7f055d5491a48b60b49ade8c71798d24d8f1/maps/eyemap_mcns_f20240701/pqxyztp_right.xlsx",
+  "source_license": "CC BY-SA 4.0",
+  "author_rows": 846,
+  "target_L2": 893,
+  "resolved_L2": 847,
+  "resolved_unique_columns": 846,
+  "missing_L2": 46,
+  "duplicate_columns": [
+    {
+      "hex": [
+        25,
+        10
+      ],
+      "bodyIds": [
+        "43130",
+        "56150"
+      ]
+    }
+  ],
+  "axes": "x forward, y left, z up; azimuth_left=-source_phi; elevation=90-source_theta",
+  "join": "Exact (right eye, hex1, hex2); author file includes hex keys; no fitted registration",
+  "biological_status": "Published anatomical cross-specimen estimate, not physiological ground truth",
+  "limitations": [
+    "46 boundary columns have no published direction in this table; no extrapolation",
+    "Original 778 FAFB reference rows are a different product, not MaleCNS neuron IDs",
+    "Archive generation pipeline R_eyemap-DIY is private; published outputs are available",
+    "Camera mounting and L2 response model remain engineering assumptions"
+  ],
+  "source_sha256": {
+    "LICENSE": "9ca079480114e10adfc35d495618ec543662c75988786b386f21d8fced6cd871",
+    "README.md": "0c2fbb185d2650daf3c97ce068a6e5a774c78cd8f3e99cf4c520d51bcd9b6606",
+    "docs\\data\\eyemap_mcns_f20240701\\right.csv": "c9ee7b14656dbd58acc853a849330b740e9a193bff23d8a3839485e9ad1cc67c",
+    "maps\\eyemap_mcns_f20240701\\pqxyztp_right.xlsx": "f78e2059a5dceaab9380fb0893fe88cc1b2902954d9d11165e174093587af793"
+  }
+}

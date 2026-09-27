@@ -1,0 +1,13 @@
+name: Research question / proposed experiment
+description: Propose an independently testable improvement or discuss evidence.
+body:
+  - type: textarea
+    attributes:
+      label: Question or proposed contribution
+      description: What claim should the experiment test? What result could falsify it?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Independent evidence and evaluation
+      description: Public source, stimulus, training/test separation, baseline, units, and expected limitations.

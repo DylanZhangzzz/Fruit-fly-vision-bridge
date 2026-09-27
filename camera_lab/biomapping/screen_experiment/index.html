@@ -1,0 +1,56 @@
+<!doctype html><meta charset="utf-8"><title>D435i 屏幕刺激实验</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#111;color:#eee;font:17px system-ui}header{padding:16px;max-width:1100px;margin:auto}button,a{font:inherit;padding:10px;margin:5px;color:#14384b}button{cursor:pointer}canvas{display:block;width:min(100vw,calc(78vh * 1.42857));margin:auto;background:#888}#preview{max-width:400px}body.running header{display:none}body.running canvas{width:min(100vw,calc(100vh * 1.42857));height:auto}#status{padding:10px}a{color:#8edbff}</style>
+<header><h1>相机拍屏幕 · L2 动态验证</h1><p>把相机固定并对准下方画面，让四个黑白定位标记都出现在相机中。保持屏幕亮度不变。可先全屏，再取景预览。</p>
+<button id="full">全屏显示</button><button id="previewButton">取景预览（3 秒）</button><button id="start">开始实验（约 30 秒）</button>
+<span id="status">就绪</span><p>100 ms 闪光、1 / 2 / 4 Hz 闪烁、双向移动条纹。右侧结果是模型预测，不能当作真实神经记录。</p><img id="preview" hidden><div id="result"></div></header>
+<canvas id="screen" width="1000" height="700"></canvas>
+<script>
+const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');
+const label=document.querySelector('#status');let running=false,events=[],frames=[],clock0=0;
+const markers=[0,1,2,3].map(i=>{let im=new Image;im.src='/marker/'+i+'.png';return im});
+const centers=[[100,90],[900,90],[900,610],[100,610]];
+const phases=[];function add(kind,duration,args={}){phases.push({kind,duration,...args})}
+add('baseline',2);add('black',.8);add('white',.8);add('baseline',1);
+add('dark_step',1);add('baseline',1);add('light_step',1);add('baseline',1);
+for(let n=0;n<4;n++){add('dark_flash',.1);add('baseline',.4)}
+for(let n=0;n<4;n++){add('light_flash',.1);add('baseline',.4)}
+for(let f of [1,2,4])add('sine',3,{frequency:f});
+add('move_right',3);add('move_left',3);add('baseline',1);
+let end=0;phases.forEach((p,i)=>{p.start=end;p.id=i;end+=p.duration});
+function draw(p={kind:'baseline',id:0},elapsed=0){
+ let level=128;
+ if(p.kind==='black')level=32;if(p.kind==='white')level=224;
+ if(p.kind.startsWith('dark'))level=64;if(p.kind.startsWith('light'))level=192;
+ if(p.kind==='sine')level=128+64*Math.sin(2*Math.PI*p.frequency*elapsed);
+ ctx.fillStyle='#888';ctx.fillRect(0,0,1000,700);
+ ctx.fillStyle=`rgb(${level},${level},${level})`;ctx.fillRect(200,180,600,340);
+ let pos=null;
+ if(p.kind.startsWith('move_')){pos=200+elapsed/p.duration*520;if(p.kind==='move_left')pos=720-elapsed/p.duration*520;
+ ctx.fillStyle='#404040';ctx.fillRect(pos,180,80,340)}
+ centers.forEach(([x,y],i)=>{ctx.fillStyle='white';ctx.fillRect(x-47,y-47,94,94);if(markers[i].complete)ctx.drawImage(markers[i],x-35,y-35,70,70)});
+ ctx.fillStyle='black';ctx.fillRect(300,105,60,45);ctx.fillStyle='white';ctx.fillRect(390,105,60,45);
+ // Eight optical phase bits, decoded from captured pixels. Screen-code values
+ // and RAF times describe rendering requests, not physical monitor luminance.
+ for(let i=0;i<8;i++){ctx.fillStyle=(p.id>>i)&1?'white':'black';ctx.fillRect(240+i*65,565,45,40)}
+ return {level,pos};
+}
+Promise.all(markers.map(im=>new Promise(r=>{if(im.complete)r();else im.onload=r}))).then(()=>draw());
+document.querySelector('#full').onclick=()=>document.documentElement.requestFullscreen();
+async function request(path,data={}){let r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw new Error(await r.text());return r.json()}
+async function waitCapture(){for(;;){let s=await(await fetch('/api/status')).json();label.textContent=s.phase+' · '+s.frames+' 帧';if(s.error)throw Error(s.error);if(s.ready)return s;await new Promise(r=>setTimeout(r,250))}}
+async function waitDone(){for(;;){let s=await(await fetch('/api/status')).json();label.textContent=s.phase+' · '+s.frames+' 帧';if(s.error)throw Error(s.error);if(['done','preview_done'].includes(s.phase))return s;await new Promise(r=>setTimeout(r,500))}}
+document.querySelector('#previewButton').onclick=async()=>{try{await request('/api/preview');await waitDone();let im=document.querySelector('#preview');im.src='/preview.jpg?'+Date.now();im.hidden=false;}catch(e){label.textContent=e.message}};
+document.querySelector('#start').onclick=async()=>{
+ if(running)return;running=true;document.body.classList.add('running');draw();events=[];frames=[];
+ try{await request('/api/run');await waitCapture();clock0=performance.now();let last=-1;
+ const tick=async(now)=>{let t=Math.max(0,(now-clock0)/1000);if(t>=end){
+ await request('/api/finish',{phases,frames,events,duration_s:t,performance_time_origin:performance.timeOrigin,raf_start_ms:clock0,canvas:[1000,700],dpr:devicePixelRatio});
+ document.body.classList.remove('running');running=false;draw();let s=await waitDone();
+ document.querySelector('#result').innerHTML=`<a href="${s.result_url}">打开这次实验结果</a>`;return}
+ let p=phases.findLast(x=>t>=x.start);let state=draw(p,t-p.start);
+ if(p.id!==last){events.push({phase_id:p.id,elapsed_s:t,kind:p.kind});last=p.id}
+ frames.push({elapsed_s:t,phase_id:p.id,level:state.level,pos:state.pos,visibility:document.visibilityState});requestAnimationFrame(tick)};
+ requestAnimationFrame(tick);
+ }catch(e){label.textContent=e.message;document.body.classList.remove('running');running=false}
+};
+</script>

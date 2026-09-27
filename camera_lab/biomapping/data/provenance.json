@@ -1,0 +1,37 @@
+{
+  "reference_count": 778,
+  "malecns_L2_count": 893,
+  "resolved_malecns_angles": 0,
+  "second_source_column_agrees": 893,
+  "reference_commit": "99d2a43123db636cedb55af9ff31a59657e7d17e",
+  "visualpathways_commit": "23f6ac131529b5f56894c6eeb9b88b17894fc00d",
+  "axes": "right-handed: x anterior/forward, y left, z dorsal/up; positive azimuth left",
+  "evidence": [
+    "proc_uCT.R: mrot=cbind(vf,vleft,vn)",
+    "Fig_0.R: eyemap, med_xyz, ucl_rot_sm share row order",
+    "proc_eyemap.R: manual equator/meridian grid correspondence"
+  ],
+  "limitations": [
+    "Reference Mi1 indices are NOT MaleCNS body IDs",
+    "Source mapping combines EM and microCT specimens; not every ray is a direct physiological measurement",
+    "Separate lens_ixy.RData has a different row count than embedded lens_ixy; not mixed",
+    "No established MaleCNS to reference-angle correspondence in inspected files"
+  ],
+  "source_sha256": {
+    "eyemap.RData": "c3f63c69afdc3f381cdafabb1d376b8e25ec5a71bce67550ae42fcdd79cf618e",
+    "LICENSE": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "med_ixy.RData": "4c2430e8e2b8e488d2d26643e141b1622d46b464ea3f43b016d0cb0b27bd5ff7",
+    "eyemap_archive\\LICENSE": "9ca079480114e10adfc35d495618ec543662c75988786b386f21d8fced6cd871",
+    "eyemap_archive\\README.md": "0c2fbb185d2650daf3c97ce068a6e5a774c78cd8f3e99cf4c520d51bcd9b6606",
+    "L2_Dryad\\L1L2_Metadata.xlsx": "0c6c428b1a297fb7c63b24a6f1a6e60516320ca6bde550614639d865dcdcfcea",
+    "L2_Dryad\\L2_ASAP2f.mat": "31e3942cee9025c152f96f929d30357ff14e6cf3b4f3c972f005c89524e946df",
+    "L2_Dryad\\manifest.json": "5b14af56ba6483285916a9fb74d7b60c43df2a47e871249b17a3d6b5dad999ee",
+    "L2_Dryad\\README.md": "fbedd08a47ba0927cf416c1a8d73bdd889e5779c309f79f94970b02c1f7f87e7",
+    "visualpathways\\LICENSE": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "visualpathways\\ME_columnar-cells_location.xlsx": "cabb48a8ab040a63c5d379e01bd4a9189b27b816add372d0a472187323e294be",
+    "eyemap_archive\\docs\\data\\eyemap_mcns_f20240701\\right.csv": "c9ee7b14656dbd58acc853a849330b740e9a193bff23d8a3839485e9ad1cc67c",
+    "eyemap_archive\\maps\\eyemap_mcns_f20240701\\pqxyztp_right.xlsx": "f78e2059a5dceaab9380fb0893fe88cc1b2902954d9d11165e174093587af793",
+    "L1L2-deblur\\computational-model\\data\\L2_highLum.mat": "1c9266f5c387a217013f8715a49f6351f78e9a9de9894a5ac2892b2a06cf6e36",
+    "L1L2-deblur\\computational-model\\data\\L2_lowLum.mat": "49c0e5587618f9d11e0dea12a218b6eecd511e563d8d42ad986e9c410c6d012c"
+  }
+}

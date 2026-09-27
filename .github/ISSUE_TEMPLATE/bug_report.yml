@@ -1,0 +1,19 @@
+name: Bug / reproduction failure
+description: Report a failing command, incorrect mapping, or inconsistent result.
+body:
+  - type: textarea
+    attributes:
+      label: Command and expected result
+      description: Include the commit, exact command, and minimal steps. Chinese or English is welcome.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Observed result and environment
+      description: OS, Python and dependency versions; camera model if relevant; traceback. Remove serial numbers, credentials and private images.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Data and scientific scope
+      description: Source hashes, stimulus protocol, and whether this concerns geometry, acquisition, physiology, or a biological claim.

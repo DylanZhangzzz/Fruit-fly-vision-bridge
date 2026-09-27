@@ -1,0 +1,12 @@
+# Key package versions used for the original 2026-09-27 analysis (Windows, Python 3.12).
+# These are provenance constraints, not a complete transitive lock file.
+numpy==2.3.5
+Pillow==12.3.0
+scipy==1.18.1
+pandas==3.0.1
+openpyxl==3.1.5
+matplotlib==3.11.2
+h5py==3.16.0
+rdata==1.1.0
+opencv-python-headless==5.0.0.93
+pyrealsense2==2.58.4.10922

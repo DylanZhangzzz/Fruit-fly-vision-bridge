@@ -1,0 +1,6 @@
+{
+  "url": "https://github.com/reiserlab/male-drosophila-visual-system-connectome-code",
+  "commit": "dbafc73124b5c96e96429cdf2a89d067cae841bc",
+  "sha256": "649140BAB99503D13136E7CBE60372D981E728505D5C8DB0B82F0EF33CFD8C8A",
+  "note": "13,267 table rows match local MaleCNS body ID and type; 893 right-eye L2 used. Eye-to-camera orientation and angular scale not biologically calibrated."
+}

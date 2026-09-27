@@ -1,0 +1,13 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+# Byte-exact published sources and immutable evidence must retain their checksums.
+camera_lab/biomapping/source/** -text
+camera_lab/data/ME_assigned_columns.csv -text
+reports/** -text
+*.png binary
+*.npz binary
+*.xlsx binary
+*.RData binary

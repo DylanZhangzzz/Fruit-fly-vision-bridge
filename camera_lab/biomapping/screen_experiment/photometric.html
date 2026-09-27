@@ -1,0 +1,69 @@
+<!doctype html><meta charset="utf-8"><title>D435i 灰阶标定与独立验收</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#111;color:#eee;font:17px system-ui}header{padding:20px;max-width:1000px;margin:auto}button{font:inherit;padding:12px;margin:6px;cursor:pointer}a{color:#8bd8fa}canvas{display:block;width:min(100vw,calc(74vh * 1.42857));margin:auto}body.running header{display:none}body.running canvas{width:min(100vw,calc(100vh * 1.42857));height:auto}</style>
+<header><h1>灰阶标定 · 相同位置测量</h1><p>保持相机固定、屏幕亮度不变。32 档用于拟合，16 档独立验收，8 次重复检查。约 43 秒。</p>
+<p>本次测量屏幕灰度与相机读数的关系，不把数字灰度当成真实光强。</p>
+<button id="preview">检查相机与采样点（3 秒）</button><button id="start">全屏并开始灰阶标定</button><span id="status">就绪</span><div id="result"></div></header>
+<canvas id="screen" width="1000" height="700"></canvas>
+<script>
+const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d'),status=document.querySelector('#status');
+const markers=[0,1,2,3].map(i=>{const im=new Image();im.src='/marker/'+i+'.png';return im});
+const centers=[[100,90],[900,90],[900,610],[100,610]];
+const train=Array.from({length:32},(_,i)=>Math.round(i*255/31));
+// Held-out midpoints were fixed before any camera observations.
+const test=Array.from({length:16},(_,i)=>Math.round((train[i*2]+train[i*2+1])/2));
+const phases=[{kind:'baseline',level:128,duration:2}];
+for(let i=0;i<32;i++)phases.push({kind:'train',level:train[(i*13)%32],duration:.7});
+for(let i=0;i<16;i++)phases.push({kind:'holdout',level:test[(i*5)%16],duration:.7});
+for(const level of [train[0],train[8],train[16],train[24],train[31],train[8],train[16],train[24]])phases.push({kind:'repeat',level,duration:.7});
+phases.push({kind:'baseline_end',level:128,duration:1});
+let end=0;phases.forEach((p,i)=>{p.id=i;p.start=end;end+=p.duration});
+function draw(p=phases[0]){
+ ctx.fillStyle='#888';ctx.fillRect(0,0,1000,700);
+ ctx.fillStyle=`rgb(${p.level},${p.level},${p.level})`;ctx.fillRect(200,180,600,340);
+ centers.forEach(([x,y],i)=>{ctx.fillStyle='white';ctx.fillRect(x-47,y-47,94,94);if(markers[i].naturalWidth)ctx.drawImage(markers[i],x-35,y-35,70,70)});
+ ctx.fillStyle='black';ctx.fillRect(300,105,60,45);ctx.fillStyle='white';ctx.fillRect(390,105,60,45);
+ // Sequential Gray code changes one bit per phase. Decode after optical read.
+ const gray=p.id^(p.id>>1);
+ // Each bit is paired with its complement, avoiding a remote threshold patch.
+ for(let i=0;i<8;i++){const bit=(gray>>i)&1,x=240+i*65;
+  ctx.fillStyle=bit?'white':'black';ctx.fillRect(x,565,27,40);
+  ctx.fillStyle=bit?'black':'white';ctx.fillRect(x+33,565,27,40)}
+}
+let busy=false;
+const loaded=Promise.all(markers.map(im=>new Promise((resolve,reject)=>{if(im.complete&&im.naturalWidth)resolve();else{im.onload=resolve;im.onerror=reject}})));
+loaded.then(()=>draw());
+async function post(path,data){const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw Error(await r.text());return r.json()}
+async function state(){return (await fetch('/api/status',{cache:'no-store'})).json()}
+const pause=ms=>new Promise(r=>setTimeout(r,ms));
+document.querySelector('#preview').onclick=async()=>{
+ if(busy)return;busy=true;
+ try{
+  await document.documentElement.requestFullscreen().catch(()=>{});await loaded;document.body.classList.add('running');draw();
+  await post('/api/preview',{protocol:'photometric'});
+  for(;;){const s=await state();if(s.error)throw Error(s.error);if(s.phase==='preview_done'){
+   status.textContent=`刺激区内 ${s.preview.mapped_L2} 个 L2 采样点`;
+   document.querySelector('#result').innerHTML=`<p>绿色点位于刺激区，黄色点在区外。保持屏幕亮度不变，调整相机让绿色点进入中央大矩形后再开始。</p><img style="max-width:640px;width:100%" src="${s.preview.image}">`;break}await pause(250)}
+ }catch(e){status.textContent=e.message}finally{busy=false;document.body.classList.remove('running')}
+};
+document.querySelector('#start').onclick=async()=>{
+ if(busy)return;busy=true;let recording=false,frames=[],events=[];
+ try{
+  await document.documentElement.requestFullscreen().catch(()=>{});await loaded;
+  document.body.classList.add('running');draw();
+  await post('/api/run',{protocol:'photometric'});
+  for(;;){const s=await state();if(s.error)throw Error(s.error);if(s.ready)break;await pause(200)}
+  recording=true;const start=performance.now();let last=-1;
+  await new Promise((resolve,reject)=>{
+   function tick(now){try{const t=Math.max(0,(now-start)/1000);if(t>=end){resolve();return}
+    const p=phases.findLast(p=>p.start<=t);draw(p);
+    if(p.id!==last){events.push({phase_id:p.id,kind:p.kind,elapsed_s:t});last=p.id}
+    frames.push({elapsed_s:t,phase_id:p.id,level:p.level,visibility:document.visibilityState});requestAnimationFrame(tick);
+   }catch(e){reject(e)}}requestAnimationFrame(tick);
+  });
+  await post('/api/finish',{protocol:'photometric',bit_encoding:'gray_dualrail_v2',phases,frames,events,duration_s:(performance.now()-start)/1000,canvas:[1000,700],performance_time_origin:performance.timeOrigin});
+  recording=false;draw();document.body.classList.remove('running');
+  for(;;){const s=await state();status.textContent=s.phase+' · '+s.frames+' 帧';if(s.error)throw Error(s.error);if(s.phase==='done'){document.querySelector('#result').innerHTML=`<p><a href="${s.result_url}">查看本次标定与验收</a></p>`;break}await pause(500)}
+ }catch(e){status.textContent=e.message;if(recording)await post('/api/finish',{protocol:'photometric',bit_encoding:'gray_dualrail_v2',phases,frames,events,aborted:true,error:String(e)}).catch(()=>{})}
+ finally{busy=false;document.body.classList.remove('running')}
+};
+</script>

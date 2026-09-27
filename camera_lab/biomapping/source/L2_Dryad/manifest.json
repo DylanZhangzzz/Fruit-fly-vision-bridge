@@ -1,0 +1,101 @@
+{
+  "L2_ASAP2f.mat": {
+    "_links": {
+      "self": {
+        "href": "/api/v2/files/3732211"
+      },
+      "stash:dataset": {
+        "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.ngf1vhj4c"
+      },
+      "stash:version": {
+        "href": "/api/v2/versions/335185"
+      },
+      "stash:files": {
+        "href": "/api/v2/versions/335185/files"
+      },
+      "stash:download": {
+        "href": "/api/v2/files/3732211/download"
+      },
+      "curies": [
+        {
+          "name": "stash",
+          "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+          "templated": "true"
+        }
+      ]
+    },
+    "path": "L2_ASAP2f.mat",
+    "size": 117007438,
+    "mimeType": "",
+    "status": "copied",
+    "digest": "31e3942cee9025c152f96f929d30357ff14e6cf3b4f3c972f005c89524e946df",
+    "digestType": "sha-256",
+    "verified_sha256": "31e3942cee9025c152f96f929d30357ff14e6cf3b4f3c972f005c89524e946df"
+  },
+  "L1L2_Metadata.xlsx": {
+    "_links": {
+      "self": {
+        "href": "/api/v2/files/3732249"
+      },
+      "stash:dataset": {
+        "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.ngf1vhj4c"
+      },
+      "stash:version": {
+        "href": "/api/v2/versions/335185"
+      },
+      "stash:files": {
+        "href": "/api/v2/versions/335185/files"
+      },
+      "stash:download": {
+        "href": "/api/v2/files/3732249/download"
+      },
+      "curies": [
+        {
+          "name": "stash",
+          "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+          "templated": "true"
+        }
+      ]
+    },
+    "path": "L1L2_Metadata.xlsx",
+    "size": 195431,
+    "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "status": "copied",
+    "digest": "0c6c428b1a297fb7c63b24a6f1a6e60516320ca6bde550614639d865dcdcfcea",
+    "digestType": "sha-256",
+    "verified_sha256": "0c6c428b1a297fb7c63b24a6f1a6e60516320ca6bde550614639d865dcdcfcea"
+  },
+  "README.md": {
+    "_links": {
+      "self": {
+        "href": "/api/v2/files/3732251"
+      },
+      "stash:dataset": {
+        "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.ngf1vhj4c"
+      },
+      "stash:version": {
+        "href": "/api/v2/versions/335185"
+      },
+      "stash:files": {
+        "href": "/api/v2/versions/335185/files"
+      },
+      "stash:download": {
+        "href": "/api/v2/files/3732251/download"
+      },
+      "curies": [
+        {
+          "name": "stash",
+          "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+          "templated": "true"
+        }
+      ]
+    },
+    "path": "README.md",
+    "size": 15130,
+    "mimeType": "text/markdown",
+    "status": "copied",
+    "digest": "fbedd08a47ba0927cf416c1a8d73bdd889e5779c309f79f94970b02c1f7f87e7",
+    "digestType": "sha-256",
+    "verified_sha256": "fbedd08a47ba0927cf416c1a8d73bdd889e5779c309f79f94970b02c1f7f87e7"
+  }
+}

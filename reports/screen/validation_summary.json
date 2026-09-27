@@ -1,0 +1,87 @@
+{
+  "status": "PASS_ENGINEERING_TEMPORAL",
+  "frames": 1728,
+  "duration_s": 29.0122332572937,
+  "median_fps": 59.5274481975589,
+  "frozen_calibration": "20260927-142351-829513",
+  "frozen_lut_sha256": "560e3f3bdfd9eb18da96d71794cedb1028c137ef601759b5f35465c57b1f7431",
+  "lut_refitted": false,
+  "reference_correction": "dual_patch_affine_v1",
+  "reference_gain_median": 1.033751088338415,
+  "reference_gain_p05_p95": [
+    1.0304914323849181,
+    1.037168266092722
+  ],
+  "calibrated_L2": 21,
+  "passing_L2": 21,
+  "calibrated_ROIs": 9,
+  "passing_ROIs": 9,
+  "screen_pose_shift_p95_px": 0.3822277784347534,
+  "valid_optical_fraction": 1.0,
+  "comparability_checks": {
+    "camera_intrinsics_unchanged": true,
+    "camera_settings_unchanged": true,
+    "screen_pose_within_3px": true
+  },
+  "acquisition_checks": {
+    "no_frame_gaps": true,
+    "no_queue_drops": true,
+    "all_video_frames_present": true,
+    "optical_labels_over_95pct": true,
+    "all_phases_observed": true,
+    "display_visible": true,
+    "not_aborted": true,
+    "gyro_stationary": true,
+    "accel_stationary": true
+  },
+  "temporal_checks": {
+    "all_calibrated_channels_pass": true,
+    "all_eight_200ms_flashes_pass": true,
+    "both_bar_directions_pass": true,
+    "conditional_model_step_polarity": true
+  },
+  "imu_stability": {
+    "gyro": {
+      "samples": 5700,
+      "residual_p95": 0.006560980722472328,
+      "pass_check": true
+    },
+    "accel": {
+      "samples": 1773,
+      "residual_p95": 0.03397119040552767,
+      "pass_check": true
+    },
+    "scope": "Stationarity audit using coarse host-receipt interval; not calibrated orientation or exact sensor timing",
+    "depth_frames_saved": 30
+  },
+  "thresholds": {
+    "static_max_code_error": 5.0,
+    "sine_min_r2": 0.95,
+    "sine_max_amplitude_relative_error": 0.1,
+    "flash_duration_error_s": 0.06,
+    "motion_min_signed_correlation": 0.9,
+    "motion_max_residual_s": 0.1,
+    "pose_p95_pixel_shift": 3.0,
+    "gyro_p95_residual_rad_s": 0.04,
+    "accel_p95_residual_m_s2": 0.25
+  },
+  "model_input": "(equivalent_screen_code - 160) / 160; an engineering proxy, NOT physical luminance contrast",
+  "model_output": "Conditional effective voltage in arbitrary units; NOT measured physiology, mV or Hz",
+  "biological_response_validated": false,
+  "physical_luminance_calibrated": false,
+  "brain_input_replaced": false,
+  "latest_recording": "20260927-142451-807004",
+  "implementation_tests_passed": 32,
+  "max_L2_static_code_error": 3.8283455485645277,
+  "min_L2_sine_r2": 0.9955140563000904,
+  "max_L2_sine_amplitude_relative_error": 0.05569377043293866,
+  "failed_prior_recordings": [
+    "20260927-140733-348065",
+    "20260927-141248-033001",
+    "20260927-141604-245055",
+    "20260927-141919-303142"
+  ],
+  "requires_optical_reference_patches": true,
+  "natural_scene_validated": false,
+  "unique_L2_columns": 20
+}

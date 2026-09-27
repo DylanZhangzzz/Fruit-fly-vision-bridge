@@ -1,0 +1,30 @@
+{
+  "python": "3.12.14",
+  "os": "Windows",
+  "packages": {
+    "contourpy": "1.4.0",
+    "cycler": "0.12.1",
+    "et_xmlfile": "2.0.0",
+    "fonttools": "4.66.0",
+    "fruit-fly-vision-bridge": "0.1.0",
+    "h5py": "3.16.0",
+    "kiwisolver": "1.5.1",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "opencv-python-headless": "5.0.0.93",
+    "openpyxl": "3.1.5",
+    "packaging": "26.3",
+    "pandas": "3.0.6",
+    "pillow": "12.3.0",
+    "pip": "25.0.1",
+    "pyparsing": "3.3.3",
+    "pyrealsense2": "2.58.4.10922",
+    "python-dateutil": "2.9.0.post0",
+    "rdata": "1.1.0",
+    "scipy": "1.18.1",
+    "six": "1.17.0",
+    "typing_extensions": "4.16.0",
+    "tzdata": "2026.4",
+    "xarray": "2026.7.0"
+  }
+}

@@ -1,0 +1,46 @@
+# Fruit-fly-vision-bridge
+
+[English](README.md) · [当前发现](docs/findings.md) · [安装](docs/installation.md) · [贡献指南](CONTRIBUTING.md)
+
+把相机观测接到有公开生物依据的果蝇视觉位置，并提供可以检查、重跑和质疑的验证流程。
+
+目前包含 Python 代码、D435i RGB/深度/IMU 采集、普通 RGB 相机与图像入口、MaleCNS 视柱对应、屏幕刺激实验、公开 L2 生理记录验证，以及结果报告。它是独立实验项目，不是研究团队官方提供的 webcam API。
+
+## 做到了什么
+
+- 按作者发布的视柱键连接 **847/893 个右眼 L2 ID**，对应 846 个唯一视柱；46 个缺失方向保留为空。来源是跨标本解剖估计，不是逐细胞生理感受野测量。
+- 在固定屏幕、相机和黑白参考块条件下，**21 个 L2 ID / 20 个视柱**通过时序工程验收，RGB 约 59.53 帧/秒。
+- 用真实公开成像记录做整只果蝇留出验证：**103 条记录、13 只果蝇**，平均 r=0.750，R²=0.447，RMSE=0.00663 ΔF/F。
+- 公开保留 **5 条 R²≤0 的记录**及拟合边界问题。反馈模型好于无反馈对照，但相对其他果蝇平均波形没有明确优势。
+
+这些工作建立了可运行的桥接系统和可复查的证据；尚不能证明完整复现真实果蝇视觉或全脑活动。成像 ROI 不是 MaleCNS 神经元 ID。
+
+## 无需相机，先运行示例
+
+```powershell
+git clone https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge.git
+cd Fruit-fly-vision-bridge
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -e .
+python -m flyvisionbridge.cli --demo --output outputs/demo
+python scripts/run_checks.py --core-only
+```
+
+PowerShell 不允许激活脚本时，直接使用 `.venv\Scripts\python.exe` 替代 `python`，不需要修改系统执行策略。Linux/macOS 的激活命令为 `source .venv/bin/activate`；硬件 SDK 的平台支持须另外确认。
+
+示例生成合成图与逐 ID 的 `channels.json`。相机视野外、缺失角度均为未知，不当作黑色。该输出是 RGB 数字亮度，不是放电率。
+
+## 完整流程
+
+1. [安装依赖与获取公开数据](docs/installation.md)：数据固定版本并校验 SHA-256；大型生理文件单独获取。
+2. [接入 D435i 或其他相机](docs/cameras.md)：D435i 已有实验记录；普通 webcam 接口尚未做实机验收。没有深度/IMU 的相机明确输出缺失。
+3. [重建映射](docs/mapping.md)：说明视柱来源、坐标变换、空缺及共享位置。
+4. [运行验证](docs/validation.md)：区分合成实现检查、相机工程验收和生理预测。
+5. [查看报告](reports/index.html)：下载仓库后打开，或运行 `python -m http.server 8000 --bind 127.0.0.1`，访问 `http://127.0.0.1:8000/reports/`。
+
+RGB 用于观测亮度，深度辅助几何与遮挡，IMU 辅助旋转光流预测。深度与 IMU 不会直接成为额外的果蝇感官。原始录像和设备序列号不随仓库发布。
+
+下一阶段是固定参数后，预测未用于拟合的刺激持续时间、频率或对比度，并与独立生理记录比较。这项工作目前列在 [路线图](docs/roadmap.md)，没有标记为完成。
+
+欢迎通过 [Issues](https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge/issues) 提问题，用中文或英文均可；贡献代码请看 [CONTRIBUTING.md](CONTRIBUTING.md)。代码采用 GPL-3.0-only；第三方数据保留原许可，详见 [来源与许可](THIRD_PARTY_NOTICES.md)。

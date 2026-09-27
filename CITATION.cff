@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Cite this software and the original scientific datasets/papers listed in docs/sources.md."
+title: Fruit-fly-vision-bridge
+type: software
+authors:
+  - name: Fruit-fly-vision-bridge contributors
+version: 0.1.0
+date-released: 2026-09-27
+license: GPL-3.0-only
+repository-code: "https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge"
+abstract: "Experimental camera-to-visual-column mapping with separate geometry, acquisition, and public L2 physiology validation workflows."

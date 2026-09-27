@@ -1,0 +1,35 @@
+[
+  {
+    "group": "physiology",
+    "path": "camera_lab/biomapping/source/L2_Dryad/L2_ASAP2f.mat",
+    "sha256": "31e3942cee9025c152f96f929d30357ff14e6cf3b4f3c972f005c89524e946df",
+    "url": "https://datadryad.org/downloads/file_stream/3732211",
+    "manual_page": "https://datadryad.org/dataset/doi:10.5061/dryad.ngf1vhj4c"
+  },
+  {
+    "group": "physiology",
+    "path": "camera_lab/biomapping/source/L2_Dryad/L1L2_Metadata.xlsx",
+    "sha256": "0c6c428b1a297fb7c63b24a6f1a6e60516320ca6bde550614639d865dcdcfcea",
+    "url": "https://datadryad.org/downloads/file_stream/3732249",
+    "manual_page": "https://datadryad.org/dataset/doi:10.5061/dryad.ngf1vhj4c"
+  },
+  {
+    "group": "physiology",
+    "path": "camera_lab/biomapping/source/L2_Dryad/README.md",
+    "sha256": "fbedd08a47ba0927cf416c1a8d73bdd889e5779c309f79f94970b02c1f7f87e7",
+    "url": "https://datadryad.org/downloads/file_stream/3732251",
+    "manual_page": "https://datadryad.org/dataset/doi:10.5061/dryad.ngf1vhj4c"
+  },
+  {
+    "group": "physiology",
+    "path": "camera_lab/biomapping/source/L1L2-deblur/computational-model/data/L2_highLum.mat",
+    "sha256": "1c9266f5c387a217013f8715a49f6351f78e9a9de9894a5ac2892b2a06cf6e36",
+    "url": "https://raw.githubusercontent.com/ClandininLab/L1L2-recurrent-feedback/7fa5829e37d566e02beaaa87efd6a0f1de4e48c0/computational-model/data/L2_highLum.mat"
+  },
+  {
+    "group": "physiology",
+    "path": "camera_lab/biomapping/source/L1L2-deblur/computational-model/data/L2_lowLum.mat",
+    "sha256": "49c0e5587618f9d11e0dea12a218b6eecd511e563d8d42ad986e9c410c6d012c",
+    "url": "https://raw.githubusercontent.com/ClandininLab/L1L2-recurrent-feedback/7fa5829e37d566e02beaaa87efd6a0f1de4e48c0/computational-model/data/L2_lowLum.mat"
+  }
+]

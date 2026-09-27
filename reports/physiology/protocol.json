@@ -1,0 +1,89 @@
+{
+  "version": "1.0",
+  "scope": "Same-study L2 voltage-indicator response validation for 20 ms full-field dark/light flashes; not an independent study or MaleCNS body-ID validation",
+  "source_doi": "10.5061/dryad.ngf1vhj4c",
+  "primary_selection": "Author iResp selection, determined with the separate search stimulus; report all other ROIs as secondary sensitivity, never silently discard them",
+  "published_parameters": "Frozen reproduction only: selected ROI mean exactly reproduces author L2_highLum training data",
+  "cross_validation": "Leave one entire fly out. Fit all response parameters, latency, normalization and control parameters on equal-weight training-fly means only. No test-ROI gain, baseline or lag adjustment.",
+  "model": "Author recurrent equation family reimplemented in source dF/F observable units; integrate a nominal 20 ms box with fitted training-only delay, then average each prediction over (t-1/120,t] to match the author moving-average code. One effective fluorescence observable, not absolute membrane voltage. Isolated-flash zero-state approximation.",
+  "bounds": {
+    "tv_s": [
+      0.003,
+      0.08
+    ],
+    "ty_s": [
+      0.04,
+      2.0
+    ],
+    "feedback_w": [
+      0.0,
+      40.0
+    ],
+    "asymmetry_g": [
+      0.0,
+      1.0
+    ],
+    "normalized_light_drive": [
+      0.01,
+      30.0
+    ],
+    "normalized_dark_drive": [
+      0.01,
+      30.0
+    ],
+    "normalized_offset": [
+      -2.0,
+      2.0
+    ],
+    "latency_s": [
+      0.0,
+      0.04
+    ]
+  },
+  "initializations": [
+    [
+      0.02,
+      0.25,
+      4.0,
+      0.25,
+      4.0,
+      2.0,
+      0.0,
+      0.01
+    ],
+    [
+      0.03,
+      0.75,
+      15.0,
+      0.5,
+      6.0,
+      3.0,
+      0.0,
+      0.02
+    ]
+  ],
+  "controls": [
+    "Feedback-free dynamics separately fitted on training flies",
+    "Training-only constant baseline",
+    "Training-fly mean waveform template"
+  ],
+  "metrics": [
+    "RMSE in dF/F",
+    "R2 (not correlation squared)",
+    "Pearson correlation",
+    "Dark/light primary peak magnitude and time in 0-80 ms",
+    "Opposite rebound in 80-300 ms"
+  ],
+  "reliability": "Odd/even stimulus repetitions re-binned from published normalized time series. Descriptive split-half repeatability, no claim of a precise noise ceiling.",
+  "uncertainty": "Equal-weight fly-level summaries and percentile bootstrap over flies (seed 20260927, 5000 resamples); descriptive across overlapping CV folds",
+  "predeclared_assessment": "Report continuous errors without declaring all cells biologically validated. Test whether paired fly RMSE improvement versus separately fitted feedback-free control has a positive 95% bootstrap lower bound. Expose failures and boundary-hitting parameters.",
+  "limitations": [
+    "Same study and stimulus class; model architecture selected by this literature",
+    "Processed ROI traces, not a new analysis of raw microscope images",
+    "Fluorescence response, not mV or Hz",
+    "Female source specimens are not MaleCNS identity-matched",
+    "No spatial receptive-field, spectral, camera radiometric or full-brain validation",
+    "Nominal flash waveform and bin timing, not per-trial photodiode waveform fitting",
+    "Potential cell identity overlap across fields of view; ROI records are grouped by fly"
+  ]
+}

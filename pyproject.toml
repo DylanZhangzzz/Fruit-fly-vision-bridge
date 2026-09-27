@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fruit-fly-vision-bridge"
+version = "0.1.0"
+description = "Camera-to-fly-visual-column mapping and reproducible validation experiments"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "GPL-3.0-only"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "camera_lab/biomapping/source/LICENSE", "camera_lab/biomapping/source/visualpathways/LICENSE", "camera_lab/biomapping/source/eyemap_archive/LICENSE"]
+dependencies = ["numpy>=1.26,<3", "Pillow>=10,<13"]
+
+[project.optional-dependencies]
+analysis = ["scipy>=1.11,<2", "pandas>=2,<4", "openpyxl>=3.1,<4", "matplotlib>=3.8,<4", "h5py>=3.10,<4", "rdata>=1.1,<2", "opencv-python-headless>=4.8,<6"]
+camera = ["pyrealsense2>=2.55,<3", "opencv-python-headless>=4.8,<6"]
+
+[project.scripts]
+fly-vision = "flyvisionbridge.cli:main"
+
+[project.urls]
+Repository = "https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge"
+Issues = "https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge/issues"
+
+[tool.setuptools.packages.find]
+include = ["flyvisionbridge*", "camera_lab*"]
+
+[tool.setuptools.package-data]
+"camera_lab" = ["data/*.csv", "data/*.json"]
+"camera_lab.biomapping" = ["data/*.csv", "data/*.json", "*.json"]

@@ -1,0 +1,24 @@
+name: Implementation checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  checks:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -e ".[analysis,camera]"
+      - run: python scripts/run_checks.py
+      - run: python -m flyvisionbridge.cli --demo --output outputs/ci-demo
+      - uses: actions/upload-artifact@v4
+        with:
+          name: synthetic-example-${{ matrix.os }}
+          path: outputs/ci-demo/

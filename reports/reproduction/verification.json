@@ -1,0 +1,37 @@
+{
+  "date": "2026-09-27",
+  "environment": "fresh Windows Python 3.12 venv; no system-site-packages",
+  "source_checks_passed": 10,
+  "implementation_tests_passed": 57,
+  "hardware_opened": false,
+  "mapping": {
+    "targets": 893,
+    "resolved": 847,
+    "columns": 846,
+    "missing": 46
+  },
+  "primary_metrics_absolute_differences_from_archive": {
+    "recurrent_rmse": 0.0,
+    "recurrent_r2": 0.0,
+    "recurrent_correlation": 0.0,
+    "feedback_free_rmse": 0.0,
+    "constant_rmse": 0.0,
+    "template_rmse": 0.0,
+    "split_half_correlation": 0.0
+  },
+  "comparison_tolerance": 1e-09,
+  "physiology_source_checks_passed": true,
+  "protocol_sha256": "d924727d7e1254c4f99ebff801dca9d51a2dc8488daf323111ee342f9007b9dc",
+  "scope": "Packaging and public-data reproduction; no new camera experiment or held-out stimulus validation",
+  "analysis_hashes_at_run": {
+    "validate_l2_cells.py": "8db75dea74cf157178ccbb1a87194f302f49c764bbda74bae903e5bba3f0cbd5",
+    "l2_physiology_data.py": "8617b5ad2213124df438deac205ef18367c2b2f080ba301aa4e3f30c97be2937",
+    "validate_l2_dynamics.py": "5e917baf624b262ce364aca2d5af96e05ed7a62d94993c64600cdf54e47c45d3"
+  },
+  "packaged_analysis_code_sha256": {
+    "validate_l2_cells.py": "aa92f93a13a364bb968dc8034c7af6fe6d5613f2ee1ae401726fb944478b8ea4",
+    "l2_physiology_data.py": "8617b5ad2213124df438deac205ef18367c2b2f080ba301aa4e3f30c97be2937",
+    "validate_l2_dynamics.py": "5e917baf624b262ce364aca2d5af96e05ed7a62d94993c64600cdf54e47c45d3"
+  },
+  "packaging_note": "Project text line endings normalized to LF after numerical run; no calculation changes."
+}

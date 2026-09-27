@@ -7,3 +7,5 @@
 - `CC-BY-4.0.txt`: full standard license text from the same pinned SPDX revision, accompanying the MaleCNS L2 identity/side subset added with the binocular bridge; canonical license: https://creativecommons.org/licenses/by/4.0/.
 
 These notices do not imply that dependency source code, wheels or model weights are bundled. The original mapping licenses and BrainCPU fixture notice remain next to those files. See the top-level `THIRD_PARTY_NOTICES.md` for scope, attribution and modifications.
+
+Stand-alone benchmark exports also include `mapping-GPL-3.0.txt`, copied unchanged from `camera_lab/biomapping/source/LICENSE`, and `eyemap-archive.txt`, copied from the archive's original notice. The report's top-level `LICENSE` covers original project code and documentation under MIT; it does not replace these data notices.

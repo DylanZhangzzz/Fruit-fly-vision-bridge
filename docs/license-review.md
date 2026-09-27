@@ -29,7 +29,7 @@
 
 ## Corrections in this publication
 
-1. Clarify mixed-source mapping components instead of applying CC BY-SA to the whole joined result or implying a blanket GPL license over every original data file. Package metadata now states `GPL-3.0-only AND CC-BY-SA-4.0` to describe the bundled collection; original project code remains GPL-3.0-only.
+1. Clarify mixed-source mapping components instead of applying CC BY-SA to the whole joined result or implying a blanket GPL license over every original data file. Package metadata states `MIT AND GPL-3.0-only AND CC-BY-SA-4.0 AND CC-BY-4.0` to describe the bundled collection; original project code and documentation use MIT following main PR #2. Third-party data terms remain unchanged.
 2. Preserve full Flyvis, FlyDrones, datamate and CC BY-SA notices. Carry applicable notices with the stand-alone synthetic report and display source attribution, license links, modification date and no-warranty information in its HTML.
 3. Correct the archived physiology README's implication that author MATLAB code ships with this repository. Identify the missing author-code license and unresolved separate weight-archive license explicitly.
 4. Add `data/license_inventory.json` and an offline CI guard against changed/missing notices, unreviewed upstream files, raw recordings, weight archives and unreviewed media. `--online` rechecks the source URLs. A passing guard does not itself prove lawful origin.
@@ -52,7 +52,11 @@ The initial review recorded 16 preserved source/notice files and nine reviewed b
 
 PR #1 incorporates main commit `d0aed8a`, preserving the left-eye and live-binocular implementation alongside the frozen right-eye benchmark. Three new left-eye original files (column workbook, ray workbook and CSV) match pinned upstream bytes. The fourth addition is a derived subset: all 1,779 L2 body IDs, types and sides were checked against the hash-verified Xenova/MaleCNS metadata; no connectivity weights are included. `data/license_inventory.json` records these four files and the additional full CC BY 4.0 license text, without relaxing the publication guard.
 
-The subset adds **CC BY 4.0** attribution obligations. Left-eye joined data preserves GPL column assignments, CC BY identity metadata and CC BY-SA direction components. The package collection is therefore described as `GPL-3.0-only AND CC-BY-SA-4.0 AND CC-BY-4.0`; original project code remains GPL-3.0-only. Report notice copies are refreshed, while all frozen benchmark inputs, outputs and scores remain unchanged. The author's original notices and license evidence are the same pinned sources as above; this addendum makes no new legal-clearance claim.
+The subset adds **CC BY 4.0** attribution obligations. Left-eye joined data preserves GPL column assignments, CC BY identity metadata and CC BY-SA direction components. Together with the later MIT code update below, the package collection is described as `MIT AND GPL-3.0-only AND CC-BY-SA-4.0 AND CC-BY-4.0`. Report notice copies are refreshed, while all frozen benchmark inputs, outputs and scores remain unchanged. The author's original notices and license evidence are the same pinned sources as above; this addendum makes no new legal-clearance claim.
+
+## Same-day original-code MIT integration
+
+Main commit `2aaff46` (PR #2) changes original project code and documentation to MIT. This publication preserves that change, including the copyright notice and contribution policy. Benchmark code and report documentation use MIT; GPL, CC BY-SA and CC BY components retain their original terms. The stand-alone report carries a separate full GPLv3 notice for its mapping components, in addition to the root MIT notice. No source-specific license bytes, frozen numerical results or original execution hashes are changed. This integration does not extend the scope of the source review or establish new rights over third-party work.
 
 ## Limits and primary references
 

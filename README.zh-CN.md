@@ -61,6 +61,8 @@ RGB 用于观测亮度，深度辅助几何与遮挡，IMU 辅助旋转光流预
 
 下一阶段是固定参数后，预测未用于拟合的刺激持续时间、频率或对比度，并与独立生理记录比较。这项工作目前列在 [路线图](docs/roadmap.md)，没有标记为完成。
 
-欢迎通过 [Issues](https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge/issues) 提问题，用中文或英文均可；贡献代码请看 [CONTRIBUTING.md](CONTRIBUTING.md)。代码采用 GPL-3.0-only；第三方数据保留原许可，详见 [来源与许可](THIRD_PARTY_NOTICES.md)。
+欢迎通过 [Issues](https://github.com/DylanZhangzzz/Fruit-fly-vision-bridge/issues) 提问题，用中文或英文均可；贡献代码请看 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
-[发布前权利与许可审查](docs/license-review.md)记录已核查的来源、修正项及作者代码/模型权重的授权边界，不构成“绝无侵权”的法律保证。安装包元数据中的 `GPL-3.0-only AND CC-BY-SA-4.0 AND CC-BY-4.0` 描述代码与数据的混合分发，原始项目代码仍为 GPL-3.0-only。
+本项目原创代码和文档采用 [MIT 许可证](LICENSE)。第三方代码、映射数据及其衍生数据保留各自的 GPL-3.0、CC BY-SA 4.0、CC BY 4.0 等许可；公开 Dryad 生理数据为 CC0。Python 安装包同时包含代码与映射数据，因此分发元数据列出这些许可的组合，不能把整个数据集重新按 MIT 授权。各文件的适用范围见 [来源与许可](THIRD_PARTY_NOTICES.md)。
+
+[发布前权利与许可审查](docs/license-review.md)记录已核查的来源、修正项及作者代码/模型权重的授权边界，不构成“绝无侵权”的法律保证。安装包元数据中的 `MIT AND GPL-3.0-only AND CC-BY-SA-4.0 AND CC-BY-4.0` 描述代码与数据的混合分发，原创项目代码采用 MIT。

@@ -30,13 +30,15 @@ def main():
     shutil.copytree(ROOT/'LICENSES',args.destination/'LICENSES')
     (args.destination/'LICENSES'/'eyemap-archive.txt').write_bytes(
         (ROOT/'camera_lab/biomapping/source/eyemap_archive/LICENSE').read_bytes())
+    (args.destination/'LICENSES'/'mapping-GPL-3.0.txt').write_bytes(
+        (ROOT/'camera_lab/biomapping/source/LICENSE').read_bytes())
     write_json(args.destination/'publication.json',dict(
         scope='Synthetic-only source/report publication; no model weights or camera recording',
         numerical_report_preserved=True,
         original_execution_code_sha256=report.get('code_sha256',{}),
         export_code_sha256=sha_file(Path(__file__)),
         render_code_sha256=sha_file(ROOT/'flyvisionbridge/benchmark.py'),
-        licensing='Project code GPL-3.0-only; source-specific GPL-3.0 and CC-BY-SA-4.0 mapping components; see THIRD_PARTY_NOTICES.md'))
+        licensing='Original project code MIT; source-specific GPL-3.0 and CC-BY-SA-4.0 mapping components; additional CC-BY-4.0 identity data in the repository; see THIRD_PARTY_NOTICES.md'))
     write_json(args.destination/'report.json',report);write_json(args.destination/'plot_data.json',plot)
     for name in ['protocol.json','direction_diagnostics.json']:
         shutil.copyfile(args.source/name,args.destination/name)

@@ -42,6 +42,7 @@ def inspect(root, paths, inventory, online=False):
         'reports/benchmark/LICENSE':'LICENSE',
         'reports/benchmark/THIRD_PARTY_NOTICES.md':'THIRD_PARTY_NOTICES.md',
         'reports/benchmark/LICENSES/eyemap-archive.txt':'camera_lab/biomapping/source/eyemap_archive/LICENSE',
+        'reports/benchmark/LICENSES/mapping-GPL-3.0.txt':'camera_lab/biomapping/source/LICENSE',
         **{'reports/benchmark/'+e['path']:e['path'] for e in inventory['preserved_files'] if e['path'].startswith('LICENSES/')},
     }
     for copy,source in report_copies.items():

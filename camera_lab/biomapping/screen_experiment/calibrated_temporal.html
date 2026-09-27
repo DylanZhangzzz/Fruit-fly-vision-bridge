@@ -4,7 +4,7 @@
 <canvas id="screen" width="1000" height="700"></canvas>
 <script>
 const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d'),status=document.querySelector('#status');
-const calibration=new URLSearchParams(location.search).get('calibration')||'20260927-135311-544262',protocol='calibrated_temporal_v1';
+const calibration=new URLSearchParams(location.search).get('calibration'),protocol='calibrated_temporal_v1';
 const markers=[0,1,2,3].map(i=>{const im=new Image();im.src='/marker/'+i+'.png';return im});
 const loaded=Promise.all(markers.map(im=>new Promise((resolve,reject)=>{if(im.complete&&im.naturalWidth)resolve();else{im.onload=resolve;im.onerror=reject}})));
 const centers=[[100,90],[900,90],[900,610],[100,610]],phases=[];
@@ -29,6 +29,7 @@ loaded.then(()=>draw());const pause=ms=>new Promise(r=>setTimeout(r,ms));let bus
 async function post(path,data){const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw Error(await r.text());return r.json()}
 async function state(){return(await fetch('/api/status',{cache:'no-store'})).json()}
 document.querySelector('#start').onclick=async()=>{
+ if(!calibration){status.textContent='请先运行 continuous_validation.html，或在 URL 中指定本机已通过的标定：?calibration=运行目录名';return;}
  if(busy)return;busy=true;let recording=false,frames=[],events=[];
  try{
   await document.documentElement.requestFullscreen().catch(()=>{});await loaded;document.body.classList.add('running');draw();

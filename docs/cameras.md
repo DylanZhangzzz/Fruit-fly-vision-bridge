@@ -25,6 +25,8 @@ python camera_lab/biomapping/screen_experiment.py
 
 Open `http://127.0.0.1:8769/continuous_validation.html` on the display seen by the camera. Keep all four markers and the black/white patches visible, fix camera pose/display brightness, and start from the UI. It records a gray calibration followed by a separate frozen-LUT temporal experiment. The server starts idle; acquisition is bounded and restores camera options. Stop the server with Ctrl+C after a recording has finished. [Protocol details](../camera_lab/biomapping/screen_experiment/README.md) retain failures and acceptance thresholds.
 
+The standalone `calibrated_temporal.html` requires `?calibration=YOUR_ACCEPTED_RUN_DIRECTORY`; it has no preset local recording. Prefer the continuous workflow for a new setup.
+
 The exact recorded sensor profiles require D435i-compatible motion streams. D435 without IMU and other depth cameras are not supported by this recorder unchanged; they can use the RGB-only route or implement the frame contract below. Do not invent missing IMU/depth data.
 
 ## Saved images and ordinary RGB webcams

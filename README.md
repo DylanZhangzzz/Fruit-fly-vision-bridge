@@ -21,6 +21,7 @@ The live path is **camera RGB → published L2 directions → engineering input 
 | [Other USB / built-in RGB webcams](#connect-a-webcam-to-the-brain) | Select an OpenCV camera index and run the same live pipeline | Adapter implemented; this backend still needs hardware qualification |
 | [Intel RealSense D435i](docs/cameras.md#d435i-recorded-experimental-path) | Record RGB + depth + IMU, replay mappings and run screen experiments | Recorded geometry and controlled screen experiments; separate from the live RGB entry |
 | [Offline model comparison](#compare-visual-encoders-offline) | Compare L2, FlyDrones and Flyvis on shared stimuli | Frozen synthetic predictions and diagnostics; optional models installed separately |
+| [FlyDrones L2 adapter](docs/flydrones.md) | Replace index-order input mapping with published per-body-ID positions; pass rates to native Brain or install in Pilot | Actual upstream API tests with synthetic wiring, matched-L2 spatial comparison and prior D435 screen replay |
 
 Both-eye mapping is available. A single camera observes only the directions inside its field of view; it does not supply two measured eye origins or full compound-eye coverage. See [binocular setup](docs/binocular.md).
 

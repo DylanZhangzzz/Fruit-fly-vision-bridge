@@ -1,0 +1,456 @@
+{
+  "protocol_sha256": "ff270d2409816b0ac1b3c8bf5b88eeeba7bb74d38bbba7562c52c286a1791b88",
+  "upstream_revision": "3e269346b3882c291d2a977bc2c2c6a9c9213c21",
+  "population": 1779,
+  "eyes": {
+    "L": 886,
+    "R": 893
+  },
+  "wiring": "EMPTY synthetic fixture; spatial scores do not involve brain dynamics",
+  "config": {
+    "brain": {
+      "source": "minifly",
+      "seed": 0,
+      "lif": {
+        "v_rest": -52.0,
+        "v_reset": -52.0,
+        "v_th": -45.0,
+        "tau_m": 20.0,
+        "tau_syn": 5.0,
+        "t_ref": 2.2,
+        "delay": 1.8,
+        "w_syn": 0.275,
+        "poisson_factor": 250.0,
+        "dt": 0.5,
+        "noise_mv": 0.0
+      },
+      "bias": {},
+      "record_neurons": 400
+    },
+    "inputs": {
+      "L2_L": {
+        "types": [
+          "^L2$"
+        ],
+        "side": "L",
+        "eye": "L",
+        "feature": "brightness",
+        "max_hz": 120.0
+      },
+      "L2_R": {
+        "types": [
+          "^L2$"
+        ],
+        "side": "R",
+        "eye": "R",
+        "feature": "brightness",
+        "max_hz": 120.0
+      }
+    },
+    "imu": {
+      "yaw_saturation_dps": 150
+    },
+    "outputs": {
+      "DNg02_L": {
+        "types": [
+          "^DNg02"
+        ],
+        "side": "L",
+        "note": "wing-stroke amplitude (Namiki et al. 2022)"
+      },
+      "DNg02_R": {
+        "types": [
+          "^DNg02"
+        ],
+        "side": "R",
+        "note": "wing-stroke amplitude (Namiki et al. 2022)"
+      },
+      "DNp03_L": {
+        "types": [
+          "^DNp03$"
+        ],
+        "side": "L",
+        "note": "looming-evoked flight saccades (Curr Biol 2025)"
+      },
+      "DNp03_R": {
+        "types": [
+          "^DNp03$"
+        ],
+        "side": "R",
+        "note": "looming-evoked flight saccades (Curr Biol 2025)"
+      },
+      "DNp01_L": {
+        "types": [
+          "^DNp01$",
+          "^GF$"
+        ],
+        "side": "L",
+        "note": "giant fiber, escape takeoff (Ache et al. 2019)"
+      },
+      "DNp01_R": {
+        "types": [
+          "^DNp01$",
+          "^GF$"
+        ],
+        "side": "R",
+        "note": "giant fiber, escape takeoff (Ache et al. 2019)"
+      }
+    },
+    "vision": {
+      "width": 96,
+      "height": 72,
+      "grid": [
+        6,
+        8
+      ],
+      "flow_gain": 1.2,
+      "loom_gain": 8.0,
+      "loom_floor": 0.04,
+      "blur": 1
+    },
+    "decoder": {
+      "window_ms": 50,
+      "smoothing": 0.2,
+      "settle_s": 1.5,
+      "deadzone": 0.04,
+      "readout_file": null,
+      "axes": {
+        "throttle": {
+          "gain": 0.022,
+          "terms": {
+            "DNg02_L": 0.5,
+            "DNg02_R": 0.5
+          }
+        },
+        "yaw": {
+          "gain": 0.05,
+          "terms": {
+            "DNg02_R": 1.0,
+            "DNg02_L": -1.0,
+            "DNp03_L": 0.8,
+            "DNp03_R": -0.8
+          }
+        },
+        "forward": {
+          "gain": 0.0,
+          "terms": {}
+        },
+        "lateral": {
+          "gain": 0.0,
+          "terms": {}
+        }
+      },
+      "cruise": 0.0,
+      "brake_terms": {
+        "DNp03_L": 0.02,
+        "DNp03_R": 0.02,
+        "DNp01_L": 0.03,
+        "DNp01_R": 0.03
+      },
+      "escape": {
+        "terms": [
+          "DNp01_L",
+          "DNp01_R"
+        ],
+        "threshold_hz": 20,
+        "mode": "climb",
+        "duration_s": 0.7,
+        "strength": 0.8
+      }
+    },
+    "safety": {
+      "max_throttle": 0.6,
+      "max_yaw": 0.6,
+      "max_forward": 0.4,
+      "max_lateral": 0.4,
+      "slew_per_s": 2.5,
+      "min_alt_m": 0.3,
+      "max_alt_m": 2.2,
+      "geofence_radius_m": 3.0,
+      "brain_timeout_s": 0.5,
+      "min_battery_pct": 20,
+      "max_flight_s": 180
+    },
+    "control": {
+      "hz": 20,
+      "takeoff": true
+    },
+    "column_bridge": {
+      "schema": 1,
+      "eyes": "both",
+      "polarity": "brightness"
+    }
+  },
+  "intrinsics": {
+    "width": 640,
+    "height": 480,
+    "fx": 320.00000000000006,
+    "fy": 320.00000000000006,
+    "ppx": 319.5,
+    "ppy": 239.5,
+    "coeffs": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "calibration_status": "APPROXIMATE_FOV_NOT_CALIBRATED",
+    "assumed_hfov_deg": 90
+  },
+  "stimulus_sha256": [
+    "ebd390cffed2ef0eff4f310f433bd8aecfde9ce05b3ed2b4a90a074b1f699279",
+    "3af9b4e61c4bb6d687ad725272cbc68d6c940b9df4b2f96b0cd569844c7da95d"
+  ],
+  "position": {
+    "upstream_index_grid": {
+      "position_error_camera_px": {
+        "n": 446,
+        "median": 196.28167499223554,
+        "p95": 360.52699971421106,
+        "maximum": 488.36700769198325
+      },
+      "within_2px": 0,
+      "scored_visible_ids": 446
+    },
+    "published_column_bridge": {
+      "position_error_camera_px": {
+        "n": 446,
+        "median": 0.8234625790622698,
+        "p95": 1.507037128401002,
+        "maximum": 1.7476911587363908
+      },
+      "within_2px": 446,
+      "scored_visible_ids": 446
+    }
+  },
+  "permutation": [
+    {
+      "seed": 17,
+      "upstream_index_grid": {
+        "max_rate_difference_hz": 74.95035743713379,
+        "changed_ids": 1745
+      },
+      "published_column_bridge": {
+        "max_rate_difference_hz": 0.0,
+        "changed_ids": 0
+      }
+    },
+    {
+      "seed": 29,
+      "upstream_index_grid": {
+        "max_rate_difference_hz": 74.95036506652832,
+        "changed_ids": 1751
+      },
+      "published_column_bridge": {
+        "max_rate_difference_hz": 0.0,
+        "changed_ids": 0
+      }
+    },
+    {
+      "seed": 53,
+      "upstream_index_grid": {
+        "max_rate_difference_hz": 74.9503116607666,
+        "changed_ids": 1743
+      },
+      "published_column_bridge": {
+        "max_rate_difference_hz": 0.0,
+        "changed_ids": 0
+      }
+    }
+  ],
+  "repeats_max_difference_hz": [
+    {
+      "upstream_index_grid": 0.0,
+      "published_column_bridge": 0.0
+    },
+    {
+      "upstream_index_grid": 0.0,
+      "published_column_bridge": 0.0
+    },
+    {
+      "upstream_index_grid": 0.0,
+      "published_column_bridge": 0.0
+    }
+  ],
+  "uniform_max_difference_hz": {
+    "32": 0.0027513504028320312,
+    "128": 0.011005401611328125,
+    "223": 0.00592041015625
+  },
+  "missing": {
+    "bridge_status_counts": {
+      "OUTSIDE_CAMERA_FOV": 1248,
+      "OBSERVED": 446,
+      "MISSING_DIRECTION": 85
+    },
+    "masked_status_counts": {
+      "OUTSIDE_CAMERA_FOV": 1248,
+      "INVALID_PIXEL_MASK": 224,
+      "MISSING_DIRECTION": 85,
+      "OBSERVED": 222
+    },
+    "upstream_validity_sidecar": "Unavailable in native InputEncoder API",
+    "bridge_dropped_frame_nonzero": 0,
+    "upstream_dropped_frame_nonzero": 0,
+    "note": "Both send zero on a dropped frame. Only the bridge distinguishes missing from observed black at this API."
+  },
+  "recorded": {
+    "scope": "Optional retrospective replay of already collected calibrated_temporal_v1; no new acquisition or prospective biological validation",
+    "frame_count": 1728,
+    "target_ids_count": 21,
+    "target_eyes": "R (the existing calibrated cohort only)",
+    "input_sha256": {
+      "rgb.avi": "c254f847856bda8fb8143fa9e5664fa5752446bb5a85eeb386ef16f82faea979",
+      "capture.json": "eb6bfbd04fd089e301af3a3eddffc5166ae945c111a344d662b16bcc7fddef72",
+      "display_log.json": "18f8859b5002c32f24d67433aec399dda5bd25441b6ea56b25bccfc7c973e47f",
+      "frozen_response_lut.json": "560e3f3bdfd9eb18da96d71794cedb1028c137ef601759b5f35465c57b1f7431",
+      "calibrated_temporal_samples.npz": "4a07cdafb9b0e5cd8227db065ca7b629518ebec69d71742992c227f9d8cdf472"
+    },
+    "results": {
+      "upstream_index_grid": [
+        {
+          "phase_id": 27,
+          "phase_frames": 178,
+          "baseline_frames": 24,
+          "expected_ids": 21,
+          "detected_ids": 5,
+          "compared_pairs": 10,
+          "pairwise_error_s": {
+            "n": 10,
+            "median": 1.1501497580548552,
+            "p95": 1.6031591113910693,
+            "maximum": 1.6145426251298822
+          },
+          "correct_passage_order_fraction": 0.4,
+          "amplitudes_camera_code": {
+            "n": 21,
+            "median": 0.09771130084991457,
+            "p95": 28.584671640396124,
+            "maximum": 29.523642802238466
+          }
+        },
+        {
+          "phase_id": 29,
+          "phase_frames": 179,
+          "baseline_frames": 30,
+          "expected_ids": 21,
+          "detected_ids": 5,
+          "compared_pairs": 10,
+          "pairwise_error_s": {
+            "n": 10,
+            "median": 1.1516576614063503,
+            "p95": 1.6054652345460443,
+            "maximum": 1.6169067773357817
+          },
+          "correct_passage_order_fraction": 0.4,
+          "amplitudes_camera_code": {
+            "n": 21,
+            "median": 0.09808621406555175,
+            "p95": 28.805347180366514,
+            "maximum": 29.40603799819946
+          }
+        }
+      ],
+      "published_column_bridge": [
+        {
+          "phase_id": 27,
+          "phase_frames": 178,
+          "baseline_frames": 24,
+          "expected_ids": 21,
+          "detected_ids": 21,
+          "compared_pairs": 208,
+          "pairwise_error_s": {
+            "n": 208,
+            "median": 0.008380381185601138,
+            "p95": 0.02524752990469794,
+            "maximum": 0.03446988315283761
+          },
+          "correct_passage_order_fraction": 1.0,
+          "amplitudes_camera_code": {
+            "n": 21,
+            "median": 30.87553213238716,
+            "p95": 35.61064257621765,
+            "maximum": 35.71677685976029
+          }
+        },
+        {
+          "phase_id": 29,
+          "phase_frames": 179,
+          "baseline_frames": 30,
+          "expected_ids": 21,
+          "detected_ids": 21,
+          "compared_pairs": 208,
+          "pairwise_error_s": {
+            "n": 208,
+            "median": 0.0077754863527950135,
+            "p95": 0.022784622595693443,
+            "maximum": 0.03069112110387806
+          },
+          "correct_passage_order_fraction": 1.0,
+          "amplitudes_camera_code": {
+            "n": 21,
+            "median": 30.78306161165237,
+            "p95": 35.43435595035553,
+            "maximum": 35.78539955615997
+          }
+        }
+      ]
+    },
+    "common_detected_pair_comparison": [
+      {
+        "phase_id": 27,
+        "common_detected_ids": 5,
+        "compared_pairs": 10,
+        "upstream_index_grid": {
+          "pairwise_error_s": {
+            "n": 10,
+            "median": 1.1501497580548552,
+            "p95": 1.6031591113910693,
+            "maximum": 1.6145426251298822
+          },
+          "correct_passage_order_fraction": 0.4
+        },
+        "published_column_bridge": {
+          "pairwise_error_s": {
+            "n": 10,
+            "median": 0.00602981755480414,
+            "p95": 0.01052066822414872,
+            "maximum": 0.010562028172760307
+          },
+          "correct_passage_order_fraction": 1.0
+        }
+      },
+      {
+        "phase_id": 29,
+        "common_detected_ids": 5,
+        "compared_pairs": 10,
+        "upstream_index_grid": {
+          "pairwise_error_s": {
+            "n": 10,
+            "median": 1.1516576614063503,
+            "p95": 1.6054652345460443,
+            "maximum": 1.6169067773357817
+          },
+          "correct_passage_order_fraction": 0.4
+        },
+        "published_column_bridge": {
+          "pairwise_error_s": {
+            "n": 10,
+            "median": 0.0059147484566164366,
+            "p95": 0.011742972042966215,
+            "maximum": 0.012006200599959271
+          },
+          "correct_passage_order_fraction": 1.0
+        }
+      }
+    ],
+    "limitations": [
+      "Retrospective replay, not a fresh independent acquisition",
+      "Screen labels/positions from earlier fiducial analysis; published cell positions are not measured receptive fields",
+      "Native sampling footprints and RGB weights differ; raw camera-code amplitudes are not biological units",
+      "No per-ID LUT applied to either encoder, no fitted time shift, no inference from absent bar responses",
+      "Raw private capture not redistributed; this recorded result is not independently reproducible from repository bytes alone"
+    ]
+  }
+}
